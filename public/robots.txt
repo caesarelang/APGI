@@ -1,2 +1,17 @@
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap
+Sitemap: https://asosiasipengusahagulaindonesia.or.id/sitemap.xml
+
+# Block admin areas
+Disallow: /admin/
+Disallow: /.env
+Disallow: /storage/
+Disallow: /vendor/
+
+# Allow important pages
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /favicon.ico

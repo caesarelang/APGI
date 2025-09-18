@@ -11,36 +11,44 @@ return [
     |
     */
 
-    'name' => env('COMPANY_NAME', 'Nama Perusahaan'),
-    'description' => env('COMPANY_DESCRIPTION', 'Profil perusahaan terpercaya dengan layanan berkualitas tinggi di Indonesia'),
-    'address' => env('COMPANY_ADDRESS', 'Jl. Contoh No. 123, Jakarta'),
-    'city' => env('COMPANY_CITY', 'Jakarta'),
-    'province' => env('COMPANY_PROVINCE', 'DKI Jakarta'),
-    'postal_code' => env('COMPANY_POSTAL_CODE', '12345'),
-    'phone' => env('COMPANY_PHONE', '+62 21 1234 5678'),
-    'email' => env('COMPANY_EMAIL', 'info@perusahaan.com'),
-    'website' => env('COMPANY_WEBSITE', 'https://www.perusahaan.com'),
+    'name' => env('COMPANY_NAME', 'APGI - Asosiasi Pengusaha Gula Indonesia'),
+    'description' => env('COMPANY_DESCRIPTION', 'Asosiasi Pengusaha Gula Indonesia (APGI) adalah organisasi profesional yang menaungi para pengusaha gula di Indonesia sejak 2002'),
+    'address' => env('COMPANY_ADDRESS', 'Margomulyo, Surabaya'),
+    'city' => env('COMPANY_CITY', 'Surabaya'),
+    'province' => env('COMPANY_PROVINCE', 'Jawa Timur'),
+    'postal_code' => env('COMPANY_POSTAL_CODE', '60183'),
+    'phone' => env('COMPANY_PHONE', '+62 31-033-011'),
+    'email' => env('COMPANY_EMAIL', 'contact@asosiasipengusahagulaindonesia.or.id'),
+    'website' => env('COMPANY_WEBSITE', 'https://asosiasipengusahagulaindonesia.or.id'),
 
     // Social Media
-    'facebook' => env('COMPANY_FACEBOOK', ''),
-    'twitter' => env('COMPANY_TWITTER', ''),
-    'instagram' => env('COMPANY_INSTAGRAM', ''),
-    'linkedin' => env('COMPANY_LINKEDIN', ''),
-    'youtube' => env('COMPANY_YOUTUBE', ''),
+    'facebook' => env('COMPANY_FACEBOOK', 'https://facebook.com/apgi.indonesia'),
+    'twitter' => env('COMPANY_TWITTER', 'https://twitter.com/apgi_indonesia'),
+    'instagram' => env('COMPANY_INSTAGRAM', 'https://instagram.com/apgi_indonesia'),
+    'linkedin' => env('COMPANY_LINKEDIN', 'https://linkedin.com/company/apgi-indonesia'),
+    'youtube' => env('COMPANY_YOUTUBE', 'https://youtube.com/c/apgi-indonesia'),
 
     // Business Information
-    'founded_year' => env('COMPANY_FOUNDED_YEAR', '2020'),
-    'employees_count' => env('COMPANY_EMPLOYEES_COUNT', '50-100'),
-    'industry' => env('COMPANY_INDUSTRY', 'Teknologi'),
+    'founded_year' => env('COMPANY_FOUNDED_YEAR', '2002'),
+    'employees_count' => env('COMPANY_EMPLOYEES_COUNT', '43 Anggota Aktif'),
+    'industry' => env('COMPANY_INDUSTRY', 'Industri Gula dan Perdagangan'),
     'tax_id' => env('COMPANY_TAX_ID', ''),
 
     // SEO Settings
     'keywords' => [
-        'profil perusahaan',
-        'layanan berkualitas',
-        'terpercaya',
-        'indonesia',
-        'teknologi',
-        'solusi bisnis'
+        'APGI',
+        'Asosiasi Pengusaha Gula Indonesia',
+        'industri gula',
+        'gula Indonesia',
+        'pedagang gula',
+        'petani tebu',
+        'Surabaya',
+        'perdagangan gula',
+        'ekspor impor gula',
+        'harga gula',
+        'stabilisasi pasar gula',
+        'kemitraan gula',
+        'investasi gula',
+        'asosiasipengusahagulaindonesia.or.id'
     ],
 ];

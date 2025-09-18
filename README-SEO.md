@@ -57,16 +57,16 @@ Edit file `.env` dan isi informasi perusahaan:
 
 ```env
 # Company Information
-COMPANY_NAME="Nama Perusahaan Anda"
-COMPANY_DESCRIPTION="Deskripsi perusahaan untuk SEO"
-COMPANY_ADDRESS="Alamat lengkap perusahaan"
-COMPANY_PHONE="+62 21 1234 5678"
-COMPANY_EMAIL="info@perusahaan.com"
+COMPANY_NAME="APGI - Asosiasi Pengusaha Gula Indonesia"
+COMPANY_DESCRIPTION="Asosiasi Pengusaha Gula Indonesia (APGI) adalah organisasi profesional yang menaungi para pengusaha gula di Indonesia sejak 2002"
+COMPANY_ADDRESS="Margomulyo, Surabaya"
+COMPANY_PHONE="+62 31-033-011"
+COMPANY_EMAIL="contact@asosiasipengusahagulaindonesia.or.id"
 
 # Social Media
-COMPANY_FACEBOOK="https://facebook.com/perusahaan"
-COMPANY_TWITTER="https://twitter.com/perusahaan"
-COMPANY_INSTAGRAM="https://instagram.com/perusahaan"
+COMPANY_FACEBOOK="https://facebook.com/apgi.indonesia"
+COMPANY_TWITTER="https://twitter.com/apgi_indonesia"
+COMPANY_INSTAGRAM="https://instagram.com/apgi_indonesia"
 
 # Analytics & SEO
 GOOGLE_ANALYTICS_ID="GA_MEASUREMENT_ID"

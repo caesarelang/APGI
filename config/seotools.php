@@ -10,11 +10,11 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => env('APP_NAME', 'Profil Perusahaan'), // set false to total remove
+            'title'        => 'APGI - Asosiasi Pengusaha Gula Indonesia', // set false to total remove
             'titleBefore'  => false, // Put defaults.title before page title, like 'It's Over 9000! - Dashboard'
-            'description'  => 'Profil perusahaan terpercaya dengan layanan berkualitas tinggi di Indonesia', // set false to total remove
+            'description'  => 'Asosiasi Pengusaha Gula Indonesia (APGI) - Organisasi resmi yang mewadahi para pengusaha gula Indonesia untuk membangun industri gula nasional yang berkelanjutan dan berdaya saing', // set false to total remove
             'separator'    => ' | ',
-            'keywords'     => ['profil perusahaan', 'layanan berkualitas', 'terpercaya', 'indonesia'],
+            'keywords'     => ['APGI', 'Asosiasi Pengusaha Gula Indonesia', 'industri gula', 'pengusaha gula', 'gula indonesia', 'tebu', 'pabrik gula', 'organisasi gula'],
             'canonical'    => 'current', // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'robots'       => 'index,follow', // Set to 'all', 'none' or any combination of index/noindex and follow/nofollow
         ],
@@ -37,12 +37,12 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => env('APP_NAME', 'Profil Perusahaan'), // set false to total remove
-            'description' => 'Profil perusahaan terpercaya dengan layanan berkualitas tinggi di Indonesia', // set false to total remove
+            'title'       => 'APGI - Asosiasi Pengusaha Gula Indonesia', // set false to total remove
+            'description' => 'Asosiasi Pengusaha Gula Indonesia (APGI) - Organisasi resmi yang mewadahi para pengusaha gula Indonesia untuk membangun industri gula nasional yang berkelanjutan dan berdaya saing', // set false to total remove
             'url'         => 'current', // Set null for using Url::current(), set false to total remove
             'type'        => 'website',
-            'site_name'   => env('APP_NAME', 'Profil Perusahaan'),
-            'images'      => ['/images/og-image.jpg'],
+            'site_name'   => 'APGI - Asosiasi Pengusaha Gula Indonesia',
+            'images'      => ['/images/logo-apgi.png'],
         ],
     ],
     'twitter' => [
@@ -51,7 +51,7 @@ return [
          */
         'defaults' => [
             'card'        => 'summary_large_image',
-            'site'        => env('TWITTER_HANDLE', '@perusahaan'),
+            'site'        => '@apgi_indonesia',
         ],
     ],
     'json-ld' => [
@@ -59,11 +59,11 @@ return [
          * The default configurations to be used by the json-ld generator.
          */
         'defaults' => [
-            'title'       => env('APP_NAME', 'Profil Perusahaan'), // set false to total remove
-            'description' => 'Profil perusahaan terpercaya dengan layanan berkualitas tinggi di Indonesia', // set false to total remove
+            'title'       => 'APGI - Asosiasi Pengusaha Gula Indonesia', // set false to total remove
+            'description' => 'Asosiasi Pengusaha Gula Indonesia (APGI) - Organisasi resmi yang mewadahi para pengusaha gula Indonesia untuk membangun industri gula nasional yang berkelanjutan dan berdaya saing', // set false to total remove
             'url'         => 'current', // Set to null or 'full' to use Url::full(), set to 'current' to use Url::current(), set false to total remove
             'type'        => 'Organization',
-            'images'      => ['/images/logo.jpg'],
+            'images'      => ['/images/logo-apgi.png'],
         ],
     ],
 ];

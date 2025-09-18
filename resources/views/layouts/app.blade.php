@@ -4,37 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title', 'APGI - Asosiasi Pengusaha Gula Indonesia')</title>
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="@yield('meta_description', 'Asosiasi Pengusaha Gula Indonesia (APGI) - Organisasi yang menaungi para pengusaha gula di Indonesia untuk mengembangkan industri gula nasional yang berkelanjutan dan berdaya saing tinggi.')">
-    <meta name="keywords" content="APGI, Asosiasi Pengusaha Gula Indonesia, industri gula, gula Indonesia, Surabaya, Margomulyo">
-    <meta name="author" content="APGI - Asosiasi Pengusaha Gula Indonesia">
+    {!! SEO::generate() !!}
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="@yield('title', 'APGI - Asosiasi Pengusaha Gula Indonesia')">
-    <meta property="og:description" content="@yield('meta_description', 'Asosiasi Pengusaha Gula Indonesia (APGI) - Organisasi yang menaungi para pengusaha gula di Indonesia')">
-    <meta property="og:image" content="{{ asset('images/logo-apgi.png') }}">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta property="twitter:title" content="@yield('title', 'APGI - Asosiasi Pengusaha Gula Indonesia')">
-    <meta property="twitter:description" content="@yield('meta_description', 'Asosiasi Pengusaha Gula Indonesia (APGI)')">
-    <meta property="twitter:image" content="{{ asset('images/logo-apgi.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v={{ time() }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/logo-apgi.png') }}?v={{ time() }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/logo-apgi.png') }}?v={{ time() }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo-apgi.png') }}?v={{ time() }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v={{ time() }}">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -68,10 +54,10 @@
             line-height: 1.7;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            scroll-padding-top: 100px; /* Account for sticky header */
+            scroll-padding-top: 100px; 
         }
         
-        /* Ensure sections have proper spacing from header */
+        
         section {
             scroll-margin-top: 100px;
         }
@@ -83,7 +69,7 @@
             background-clip: text;
         }
         
-        /* Ensure hero title gradient is always green */
+        
         .hero-title .text-gradient,
         .hero-section .text-gradient {
             background: var(--gradient-primary) !important;
@@ -93,7 +79,7 @@
             color: transparent !important;
         }
         
-        /* Animation-safe gradient for hero */
+        
         .hero-section .text-gradient {
             animation: none !important;
             transition: none !important;
@@ -133,7 +119,7 @@
             color: white;
         }
         
-        /* Header Styling */
+        
         .navbar {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
@@ -161,6 +147,14 @@
             justify-content: center;
             position: relative;
             transition: all 0.3s ease;
+        }
+        
+        
+        @media (min-width: 992px) {
+            .logo-icon {
+                width: 75px;
+                height: 75px;
+            }
         }
         
         .logo-icon::after {
@@ -251,7 +245,7 @@
             margin-right: 8px;
         }
         
-        /* Hero Section */
+        
         .page-section {
             padding: 80px 0;
         }
@@ -271,7 +265,7 @@
             font-weight: 400;
         }
         
-        /* Cards */
+        
         .feature-card {
             background: white;
             border-radius: 20px;
@@ -340,7 +334,7 @@
             line-height: 1.6;
         }
         
-        /* Map Container */
+        
         .map-container {
             height: 200px;
             border-radius: 15px;
@@ -355,7 +349,7 @@
             transform: scale(1.02);
         }
         
-        /* Footer */
+        
         footer {
             background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
             border-top: 1px solid rgba(46, 125, 50, 0.1);
@@ -410,23 +404,233 @@
         
         .contact-item {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
+            align-items: center;
             transition: all 0.3s ease;
+            margin-bottom: 8px;
         }
         
         .contact-item:hover {
-            transform: translateX(5px);
+            transform: translateX(3px);
         }
         
         .contact-item i {
             color: var(--primary-color);
-            margin-right: 12px;
-            margin-top: 2px;
-            font-size: 16px;
+            font-size: 14px;
+            min-width: 20px;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        /* Animations */
+        
+        .map-container {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .map-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .map-container::after {
+            content: '📍 Klik untuk membuka di Google Maps';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(46, 125, 50, 0.9);
+            color: white;
+            padding: 8px;
+            font-size: 12px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .map-container:hover::after {
+            opacity: 1;
+        }
+        
+        
+        .navbar .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            padding: 8px 0;
+            margin-top: 8px;
+        }
+        
+        .navbar .dropdown-item {
+            padding: 8px 20px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar .dropdown-item:hover {
+            background-color: var(--light-green);
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        
+        .navbar .dropdown-item.active {
+            background-color: transparent !important;
+            color: inherit !important;
+        }
+        
+        .navbar .dropdown-toggle::after {
+            margin-left: 0.5em;
+        }
+        
+        
+        @media (min-width: 992px) {
+            .navbar-nav .nav-link {
+                padding: 8px 16px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                margin: 0 4px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-width: 70px;
+            }
+            
+            .navbar-nav .nav-link:hover {
+                background-color: var(--light-green);
+                transform: translateY(-2px);
+                color: var(--primary-green);
+            }
+            
+            .navbar-nav .nav-link.active {
+                background-color: rgba(40, 167, 69, 0.15);
+                color: var(--primary-green);
+            }
+            
+            .navbar-nav .nav-link i {
+                font-size: 20px;
+                margin-bottom: 4px;
+                margin-left: 8px;
+            }
+            
+            .nav-label {
+                font-size: 0.75rem;
+                font-weight: 500;
+                text-align: center;
+            }
+            
+            .navbar .dropdown-toggle::after {
+                margin-left: 8px;
+            }
+            
+            
+            .navbar-nav .dropdown:hover .dropdown-menu {
+                display: block;
+                margin-top: 0;
+                animation: fadeInUp 0.3s ease;
+            }
+            
+            .navbar-nav .dropdown-menu {
+                border: none;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+                border-radius: 12px;
+                padding: 0.5rem 0;
+                margin-top: 0.5rem;
+            }
+            
+            .navbar-nav .dropdown-item {
+                padding: 0.75rem 1.25rem;
+                transition: all 0.2s ease;
+            }
+            
+            .navbar-nav .dropdown-item:hover {
+                background-color: var(--light-green);
+                color: var(--primary-green);
+                transform: translateX(5px);
+            }
+            
+            
+            .btn-google-minimal {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: white;
+                border: 2px solid #e0e0e0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            
+            .btn-google-minimal:hover {
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                transform: translateY(-2px);
+                border-color: #4285f4;
+            }
+            
+            .btn-google-minimal i {
+                color: #4285f4;
+                font-size: 16px;
+            }
+            
+            
+            .btn-profile-minimal {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: 2px solid #e0e0e0;
+                background: white;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            
+            .btn-profile-minimal:hover {
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                transform: translateY(-2px);
+                border-color: var(--primary-green);
+            }
+            
+            .btn-profile-minimal::after {
+                display: none; 
+            }
+            
+            .profile-avatar {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            
+            .profile-avatar-default {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                background: var(--light-green);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--primary-green);
+            }
+            
+            .profile-avatar-default i {
+                font-size: 18px;
+            }
+        }
+        
+        
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -438,7 +642,282 @@
             transform: translateY(0);
         }
         
-        /* Hero title specific - prevent gradient from being affected by fade-in */
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: opacity 1.2s ease, visibility 1.2s ease;
+        }
+
+        .splash-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .splash-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+            max-width: 600px;
+            padding: 2rem;
+        }
+
+        .splash-logo {
+            margin-bottom: 2rem;
+            animation: logoZoom 1.2s ease-out;
+        }
+
+        .splash-logo-img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 30px rgba(255,255,255,0.4));
+        }
+
+        .splash-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #e8f5e8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleSlideIn 1s ease-out 0.3s both;
+        }
+
+        .splash-subtitle {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            animation: titleSlideIn 1s ease-out 0.6s both;
+        }
+
+        .splash-tagline {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            animation: titleSlideIn 1s ease-out 0.9s both;
+        }
+
+        .splash-loader {
+            width: 200px;
+            margin: 0 auto;
+            animation: titleSlideIn 1s ease-out 1.2s both;
+        }
+
+        .loader-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .loader-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #28a745, #20c997);
+            border-radius: 2px;
+            animation: loadingBar 2s ease-in-out infinite;
+        }
+
+        .loader-text {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        
+        .splash-copyright {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 1000;
+            animation: fadeInUp 1.5s ease-out 2s both;
+        }
+
+        .splash-copyright p {
+            margin: 5px 0;
+            font-size: 0.8rem;
+            opacity: 0.8;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .splash-copyright .developed-by {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        .splash-copyright strong {
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+        }
+
+        
+        .splash-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .bg-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            animation: particleFloat 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            right: 20%;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(5) {
+            width: 70px;
+            height: 70px;
+            bottom: 30%;
+            right: 30%;
+            animation-delay: 4s;
+        }
+
+        
+        @keyframes logoZoom {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes titleSlideIn {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes loadingBar {
+            0% {
+                left: -100%;
+            }
+            50% {
+                left: 0%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes particleFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(20px) rotate(240deg);
+            }
+        }
+
+        
+        @media (max-width: 768px) {
+            .splash-title {
+                font-size: 2rem;
+            }
+            
+            .splash-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .splash-tagline {
+                font-size: 1rem;
+            }
+            
+            .splash-logo-img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        
+        
         .hero-content .text-gradient {
             background: var(--gradient-primary) !important;
             -webkit-background-clip: text !important;
@@ -447,7 +926,47 @@
             color: transparent !important;
         }
         
-        /* Responsive */
+        .caecode-green {
+            color: #28a745 !important;
+            font-weight: 600 !important;
+        }
+        
+        .caecode-red {
+            color: #dc3545 !important;
+            font-weight: 700 !important;
+        }
+        
+        .text-muted .caecode-green {
+            color: #28a745 !important;
+        }
+        
+        .text-muted .caecode-red {
+            color: #dc3545 !important;
+        }
+        
+        p.text-muted strong.caecode-green {
+            color: #28a745 !important;
+        }
+        
+        p.text-muted strong.caecode-red {
+            color: #dc3545 !important;
+        }
+        
+        /* Force CaeCode colors in footer */
+        footer strong[style*="color: #28a745"] {
+            color: #28a745 !important;
+        }
+        
+        footer strong[style*="color: #dc3545"] {
+            color: #dc3545 !important;
+        }
+        
+        .caecode-white {
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
         @media (max-width: 768px) {
             .page-title {
                 font-size: 2.5rem;
@@ -481,7 +1000,7 @@
             }
         }
         
-        /* Member Card Styles */
+        
         .member-card {
             transition: all 0.3s ease;
             border: 1px solid rgba(0,0,0,0.1);
@@ -504,7 +1023,7 @@
             font-weight: 600;
         }
 
-        /* Struktur Styles */
+        
         .struktur-chart {
             border: 1px solid rgba(0,0,0,0.1);
         }
@@ -520,7 +1039,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* Kegiatan Styles */
+        
         .kegiatan-card {
             transition: all 0.3s ease;
             border: 1px solid rgba(0,0,0,0.1);
@@ -541,7 +1060,7 @@
             font-size: 1.5rem;
         }
 
-        /* Program Styles */
+        
         .program-card {
             transition: all 0.3s ease;
             border: 1px solid rgba(0,0,0,0.1);
@@ -561,7 +1080,7 @@
             height: 8px;
         }
 
-        /* Hero Section Styles */
+        
         .hero-section {
             background: linear-gradient(135deg, rgba(46, 125, 50, 0.08) 0%, rgba(76, 175, 80, 0.08) 50%, rgba(129, 199, 132, 0.06) 100%);
             padding: 120px 0 100px;
@@ -597,7 +1116,7 @@
             color: transparent !important;
         }
         
-        /* Ensure gradient persists during animations */
+        
         .hero-title .text-gradient,
         .hero-title .text-gradient:hover,
         .hero-title .text-gradient:focus,
@@ -630,7 +1149,7 @@
             box-shadow: 0 8px 20px rgba(46, 125, 50, 0.1);
         }
 
-        /* About Section Styles */
+        
         .about-info-card {
             transition: all 0.3s ease;
             border: 1px solid rgba(0,0,0,0.05);
@@ -641,7 +1160,7 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
         }
         
-        /* Timeline Styles */
+        
         .history-timeline {
             position: relative;
         }
@@ -693,7 +1212,7 @@
             justify-content: center;
         }
         
-        /* Vision Mission Styles */
+        
         .vision-card,
         .mission-card {
             transition: all 0.3s ease;
@@ -754,7 +1273,7 @@
             font-size: 1.5rem;
         }
         
-        /* Mobile responsiveness for timeline */
+        
         @media (max-width: 768px) {
             .timeline-line {
                 display: none;
@@ -766,13 +1285,44 @@
             }
         }
     </style>
+    
 </head>
 <body>
-    <!-- Header -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <div class="splash-logo">
+                <img src="{{ asset('images/logo-apgi.png') }}" alt="APGI Logo" class="splash-logo-img">
+            </div>
+            <div class="splash-text">
+                <h1 class="splash-title" data-en="Welcome to" data-id="Selamat Datang di">Selamat Datang di</h1>
+                <h2 class="splash-subtitle" data-en="Indonesian Sugar Entrepreneurs Association" data-id="Asosiasi Pengusaha Gula Indonesia">Asosiasi Pengusaha Gula Indonesia</h2>
+                <div class="splash-tagline">
+                    <p data-en="Building Indonesia's Sugar Industry Together" data-id="Membangun Industri Gula Indonesia Bersama">Membangun Industri Gula Indonesia Bersama</p>
+                </div>
+            </div>
+            <div class="splash-loader">
+                <div class="loader-bar"></div>
+                <div class="loader-text" data-en="Loading..." data-id="Memuat...">Memuat...</div>
+            </div>
+            
+            <div class="splash-copyright">
+                <p class="developed-by">Developed by <strong class="caecode-white">CaeCode</strong></p>
+            </div>
+        </div>
+        <div class="splash-background">
+            <div class="bg-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
+    </div>
+
     <header class="sticky-top">
         <nav class="navbar navbar-expand-lg py-3">
             <div class="container">
-                <!-- Logo -->
                 <a class="navbar-brand logo-container" href="/">
                     <div class="logo-icon">
                         <img src="{{ asset('images/logo-apgi.png') }}" alt="Logo APGI - Asosiasi Pengusaha Gula Indonesia" class="logo-image">
@@ -783,42 +1333,48 @@
                     </div>
                 </a>
                 
-                <!-- Toggle button -->
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
-                <!-- Navigation -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/#home">
-                                <i class="fas fa-home"></i><span class="nav-text" data-en="Home" data-id="Beranda">Beranda</span>
+                            <a class="nav-link active" href="/#home" title="Beranda">
+                                <i class="fas fa-home"></i><span class="nav-text d-lg-none" data-en="Home" data-id="Beranda">Beranda</span>
+                                <span class="nav-label d-none d-lg-block" data-en="Home" data-id="Beranda">Beranda</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/#about">
-                                <i class="fas fa-info-circle"></i><span class="nav-text" data-en="About" data-id="Tentang">Tentang</span>
+                            <a class="nav-link" href="/#about" title="Tentang">
+                                <i class="fas fa-info-circle"></i><span class="nav-text d-lg-none" data-en="About" data-id="Tentang">Tentang</span>
+                                <span class="nav-label d-none d-lg-block" data-en="About" data-id="Tentang">Tentang</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Organisasi">
+                                <i class="fas fa-users"></i><span class="nav-text d-lg-none" data-en="Organization" data-id="Organisasi">Organisasi</span>
+                                <span class="nav-label d-none d-lg-block" data-en="Organization" data-id="Organisasi">Organisasi</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/#member">
+                                    <i class="fas fa-users me-2"></i><span data-en="Members" data-id="Anggota">Anggota</span>
+                                </a></li>
+                                <li><a class="dropdown-item" href="/#struktur">
+                                    <i class="fas fa-sitemap me-2"></i><span data-en="Structure" data-id="Struktur">Struktur</span>
+                                </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/#galeri" title="Kegiatan">
+                                <i class="fas fa-images"></i><span class="nav-text d-lg-none" data-en="Activities" data-id="Kegiatan">Kegiatan</span>
+                                <span class="nav-label d-none d-lg-block" data-en="Activities" data-id="Kegiatan">Kegiatan</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/#member">
-                                <i class="fas fa-users"></i><span class="nav-text" data-en="Members" data-id="Anggota">Anggota</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#struktur">
-                                <i class="fas fa-sitemap"></i><span class="nav-text" data-en="Structure" data-id="Struktur">Struktur</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#galeri">
-                                <i class="fas fa-images"></i><span class="nav-text" data-en="Gallery" data-id="Galeri">Galeri</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#contact">
-                                <i class="fas fa-envelope"></i><span class="nav-text" data-en="Contact" data-id="Kontak">Kontak</span>
+                            <a class="nav-link" href="/#contact" title="Kontak">
+                                <i class="fas fa-envelope"></i><span class="nav-text d-lg-none" data-en="Contact" data-id="Kontak">Kontak</span>
+                                <span class="nav-label d-none d-lg-block" data-en="Contact" data-id="Kontak">Kontak</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -829,47 +1385,89 @@
                                 </button>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <div class="auth-section">
+                                @guest
+                                    <a href="{{ route('google.login') }}" class="btn btn-google-minimal">
+                                        <i class="fab fa-google"></i>
+                                    </a>
+                                @else
+                                    <div class="dropdown">
+                                        <button class="btn btn-profile-minimal dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                            @if(Auth::user()->avatar)
+                                                <img src="{{ Auth::user()->avatar }}" alt="Avatar" class="profile-avatar">
+                                            @else
+                                                <div class="profile-avatar-default">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
+                                            @endif
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="{{ route('profile') }}" class="dropdown-item">
+                                                    <i class="fas fa-user me-1"></i>
+                                                    <span data-en="Profile" data-id="Profil">Profil</span>
+                                                </a>
+                                            </li>
+                                            <li><hr class="dropdown-divider"></li>
+                                            <li>
+                                                <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                                    @csrf
+                                                    <button type="submit" class="dropdown-item">
+                                                        <i class="fas fa-sign-out-alt me-1"></i>
+                                                        <span data-en="Logout" data-id="Keluar">Keluar</span>
+                                                    </button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                @endguest
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
         @yield('content')
     </main>
 
-    <!-- Footer -->
-    <footer class="py-5 mt-5">
+    <footer class="py-4 mt-5">
         <div class="container">
             <div class="row g-4">
-                <!-- APGI Info -->
                 <div class="col-lg-4">
-                    <div class="footer-logo d-flex align-items-center mb-4">
+                    <div class="footer-logo d-flex align-items-center mb-3">
                         <div class="logo-icon me-3">
                             <img src="{{ asset('images/logo-apgi.png') }}" alt="Logo APGI - Asosiasi Pengusaha Gula Indonesia" class="logo-image">
                         </div>
                         <div class="brand-text">
-                            <h5 class="brand-title mb-0" style="font-size: 24px;">APGI</h5>
+                            <h5 class="brand-title mb-0" style="font-size: 20px;">APGI</h5>
                             <small class="brand-subtitle">Asosiasi Pengusaha Gula Indonesia</small>
                         </div>
                     </div>
+                    
+                    <p class="text-muted mb-3" data-en="Professional organization for sugar entrepreneurs in Indonesia since 2002. Building sustainable and competitive national sugar industry." data-id="Organisasi profesional pengusaha gula di Indonesia sejak 2002. Membangun industri gula nasional yang berkelanjutan dan berdaya saing.">
+                        Organisasi profesional pengusaha gula di Indonesia sejak 2002. Membangun industri gula nasional yang berkelanjutan dan berdaya saing.
+                    </p>
               
-                    <div class="d-flex gap-3">
-                        <a href="#" class="btn btn-outline-success btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                    <div class="d-flex gap-2">
+                        <a href="{{ config('company.facebook') }}" class="btn btn-outline-success btn-sm rounded-circle" style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="btn btn-outline-success btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                        <a href="{{ config('company.instagram') }}" class="btn btn-outline-success btn-sm rounded-circle" style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="btn btn-outline-success btn-sm rounded-circle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                        <a href="{{ config('company.linkedin') }}" class="btn btn-outline-success btn-sm rounded-circle" style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
                             <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="{{ config('company.twitter') }}" class="btn btn-outline-success btn-sm rounded-circle" style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fab fa-twitter"></i>
                         </a>
                     </div>
                 </div>
                 
-                <!-- Quick Links -->
                 <div class="col-lg-2 col-md-6">
                     <div class="footer-section">
                         <h6 data-en="Main Menu" data-id="Menu Utama">Menu Utama</h6>
@@ -878,44 +1476,42 @@
                             <li class="mb-2"><a href="/#about" class="footer-link" data-en="About" data-id="Tentang">Tentang</a></li>
                             <li class="mb-2"><a href="/#member" class="footer-link" data-en="Members" data-id="Anggota">Anggota</a></li>
                             <li class="mb-2"><a href="/#struktur" class="footer-link" data-en="Structure" data-id="Struktur">Struktur</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Services -->
-                <div class="col-lg-2 col-md-6">
-                    <div class="footer-section">
-                        <h6 data-en="Activities" data-id="Kegiatan">Kegiatan</h6>
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><a href="/#galeri" class="footer-link" data-en="Gallery" data-id="Galeri">Galeri</a></li>
                             <li class="mb-2"><a href="/#contact" class="footer-link" data-en="Contact" data-id="Kontak">Kontak</a></li>
                         </ul>
                     </div>
                 </div>
                 
-                <!-- Contact & Map -->
-                <div class="col-lg-4">
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-section">
+                        <h6 data-en="Activities" data-id="Kegiatan">Kegiatan</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="/#galeri" class="footer-link" data-en="Gallery" data-id="Galeri">Galeri</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3">
                     <div class="footer-section">
                         <h6 data-en="Contact & Location" data-id="Kontak & Lokasi">Kontak & Lokasi</h6>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span data-en="Margomulyo, Surabaya<br>East Java, Indonesia" data-id="Margomulyo, Surabaya<br>Jawa Timur, Indonesia">Margomulyo, Surabaya<br>Jawa Timur, Indonesia</span>
+                            <span data-en="Margomulyo, Surabaya, East Java" data-id="Margomulyo, Surabaya, Jawa Timur">Margomulyo, Surabaya, Jawa Timur</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
                             <span>+62 31-033-011</span>
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item mb-3">
                             <i class="fas fa-envelope"></i>
-                            <span>info@apgi.or.id</span>
+                            <span>contact@asosiasipengusahagulaindonesia.or.id</span>
                         </div>
                         
-                        <div class="map-container mt-3">
+                        <div class="map-container mt-3" style="height: 150px; border-radius: 8px; overflow: hidden;" onclick="window.open('https://maps.google.com/?q=Margomulyo,Surabaya,Jawa+Timur', '_blank')">
                             <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.2346838582!2d112.68614148166769!3d-7.256538938034943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMjMuNSJTIDExMsKwNDEnMTAuMSJF!5e0!3m2!1sen!2sid!4v1639123456789!5m2!1sen!2sid" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.2346838582!2d112.68614148166769!3d-7.256538938034943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbc0f51e15b3%3A0x9c0f2b9e2f9a7c8b!2sMargomulyo%2C%20Tandes%2C%20Surabaya%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1639123456789!5m2!1sen!2sid" 
                                 width="100%" 
                                 height="100%" 
-                                style="border:0;" 
+                                style="border:0; pointer-events: none;" 
                                 allowfullscreen="" 
                                 loading="lazy" 
                                 referrerpolicy="no-referrer-when-downgrade">
@@ -925,15 +1521,13 @@
                 </div>
             </div>
             
-            <!-- Footer Bottom -->
-            <hr class="my-4" style="border-color: rgba(46, 125, 50, 0.2);">
+            <hr class="my-3" style="border-color: rgba(46, 125, 50, 0.2);">
             <div class="row align-items-center">
                 <div class="col-md-8">
-                    <p class="text-muted mb-0" data-en="&copy; 2025 APGI - Indonesian Sugar Entrepreneurs Association. All rights reserved." data-id="&copy; 2025 APGI - Asosiasi Pengusaha Gula Indonesia. Semua hak dilindungi.">
-                        &copy; 2025 APGI - Asosiasi Pengusaha Gula Indonesia. Semua hak dilindungi.
+                    <p class="text-muted mb-0" data-en="&copy; 2025 APGI - Indonesian Sugar Entrepreneurs Association. All rights reserved. | Developed by CaeCode" data-id="&copy; 2025 APGI - Asosiasi Pengusaha Gula Indonesia. Semua hak dilindungi. | Developed by CaeCode">
                     </p>
                 </div>
-                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <div class="col-md-4 text-md-end">
                     <a href="/privacy-policy" class="footer-link me-3" data-en="Privacy Policy" data-id="Kebijakan Privasi">Kebijakan Privasi</a>
                     <a href="/terms-of-service" class="footer-link" data-en="Terms & Conditions" data-id="Syarat & Ketentuan">Syarat & Ketentuan</a>
                 </div>
@@ -941,12 +1535,10 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Custom JavaScript -->
     <script>
-        // Navbar scroll effect
+
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -956,7 +1548,7 @@
             }
         });
 
-        // Fade in animation on scroll
+
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -970,106 +1562,122 @@
             });
         }, observerOptions);
 
-        // Observe all fade-in elements
+
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
 
-        // Active nav link based on current page and section
+
         const currentLocation = window.location.pathname;
         const currentHash = window.location.hash;
         const navLinks = document.querySelectorAll('.nav-link');
         
         navLinks.forEach(link => {
             link.classList.remove('active');
-            // Check if we're on home page and hash matches
+
             if (currentLocation === '/' && link.getAttribute('href') === '/' + currentHash) {
                 link.classList.add('active');
             }
-            // If no hash, make home active
+
             else if (currentLocation === '/' && !currentHash && link.getAttribute('href') === '/#home') {
                 link.classList.add('active');
             }
         });
 
-        // Smooth scroll for anchor links and update active states
+
         document.querySelectorAll('a[href^="/#"], a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const href = this.getAttribute('href');
                 let targetId = href.includes('/#') ? href.split('/#')[1] : href.split('#')[1];
                 
-                // If clicking from same page, just scroll
+
                 if (window.location.pathname === '/') {
                     const target = document.getElementById(targetId);
                     if (target) {
-                        // Update active nav link
+
                         document.querySelectorAll('.nav-link').forEach(link => {
                             link.classList.remove('active');
                         });
                         this.classList.add('active');
                         
-                        // Calculate header height for offset
+
                         const header = document.querySelector('header');
                         const headerHeight = header ? header.offsetHeight : 80;
-                        const targetPosition = target.offsetTop - headerHeight - 20; // Extra 20px padding
+                        const targetPosition = target.offsetTop - headerHeight - 20; 
                         
-                        // Smooth scroll to target with offset
+
                         window.scrollTo({
                             top: Math.max(0, targetPosition),
                             behavior: 'smooth'
                         });
                         
-                        // Update URL hash
+
                         history.pushState(null, null, '#' + targetId);
                     }
                 } else {
-                    // If on different page, navigate to home with hash
+
                     window.location.href = href;
                 }
             });
         });
 
-        // Update active nav link based on scroll position
+
         function updateActiveNavOnScroll() {
             if (window.location.pathname !== '/') return;
             
             const sections = ['home', 'about', 'member', 'struktur', 'galeri', 'contact'];
             let currentSection = 'home';
             
-            // Calculate header height for consistent offset
+
             const header = document.querySelector('header');
             const headerHeight = header ? header.offsetHeight : 80;
-            const offset = headerHeight + 50; // Extra padding for better detection
+            const offset = headerHeight + 50; 
             
             sections.forEach(sectionId => {
                 const section = document.getElementById(sectionId);
                 if (section) {
                     const rect = section.getBoundingClientRect();
-                    // Check if section is in view considering header offset
+
                     if (rect.top <= offset && rect.bottom >= offset) {
                         currentSection = sectionId;
                     }
                 }
             });
             
-            // Update active nav link
+
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === '/#' + currentSection) {
-                    link.classList.add('active');
-                }
             });
+            
+
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+
+            if (currentSection === 'member' || currentSection === 'struktur') {
+                const organisasiLink = document.querySelector('.dropdown-toggle[title="Organisasi"]');
+                if (organisasiLink) {
+                    organisasiLink.classList.add('active');
+                }
+            } else {
+
+                const targetLink = document.querySelector(`a.nav-link[href="/#${currentSection}"]`);
+                if (targetLink) {
+                    targetLink.classList.add('active');
+                }
+            }
         }
 
-        // Throttled scroll event listener
+
         let scrollTimeout;
         window.addEventListener('scroll', () => {
             if (scrollTimeout) clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(updateActiveNavOnScroll, 100);
         });
 
-        // Add hover effects to cards
+
         document.querySelectorAll('.feature-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -1080,7 +1688,7 @@
             });
         });
 
-        // Loading animation for images
+
         document.querySelectorAll('img').forEach(img => {
             img.addEventListener('load', function() {
                 this.style.opacity = '1';
@@ -1088,7 +1696,7 @@
             });
         });
 
-        // Mobile menu auto-close on link click
+
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
                 const navbarCollapse = document.querySelector('.navbar-collapse');
@@ -1099,7 +1707,7 @@
             });
         });
 
-        // Add loading states for buttons
+
         document.querySelectorAll('.btn-gradient').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 if (!this.classList.contains('loading')) {
@@ -1115,7 +1723,7 @@
             });
         });
 
-        // Lazy loading for iframes
+
         const iframes = document.querySelectorAll('iframe[data-src]');
         const iframeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1130,7 +1738,7 @@
 
         iframes.forEach(iframe => iframeObserver.observe(iframe));
 
-        // Add parallax effect to hero section
+
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const heroSection = document.querySelector('.hero-section');
@@ -1142,7 +1750,7 @@
 
 
 
-        // Add counter animation for stats
+
         function animateCounter(element, target, duration = 2000) {
             const start = 0;
             const startTime = performance.now();
@@ -1162,7 +1770,7 @@
             requestAnimationFrame(update);
         }
 
-        // Initialize counters when they come into view
+
         const statNumbers = document.querySelectorAll('.stat-number');
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1176,22 +1784,22 @@
 
         statNumbers.forEach(stat => statsObserver.observe(stat));
 
-        // Add search functionality (if needed)
+
         function initSearch() {
             const searchInput = document.querySelector('#search-input');
             if (searchInput) {
                 searchInput.addEventListener('input', function(e) {
                     const query = e.target.value.toLowerCase();
-                    // Add search logic here
+
                 });
             }
         }
 
-        // Initialize all functions
+
         document.addEventListener('DOMContentLoaded', function() {
             initSearch();
             
-            // Add custom cursor effect
+
             const cursor = document.createElement('div');
             cursor.className = 'custom-cursor';
             document.body.appendChild(cursor);
@@ -1201,7 +1809,7 @@
                 cursor.style.top = e.clientY + 'px';
             });
             
-            // Add click ripple effect
+
             document.addEventListener('click', function(e) {
                 const ripple = document.createElement('div');
                 ripple.className = 'ripple';
@@ -1215,23 +1823,40 @@
             });
         });
 
-        // Add custom styles for animations
+
         const style = document.createElement('style');
         style.textContent = `
-            .language-toggle {
+            .language-toggle, .auth-section {
                 padding: 8px 16px;
             }
             
-            .language-toggle .btn {
+            .language-toggle .btn, .auth-section .btn {
                 font-size: 0.85rem;
                 padding: 6px 12px;
                 border-radius: 20px;
                 transition: all 0.3s ease;
             }
             
-            .language-toggle .btn:hover {
+            .language-toggle .btn:hover, .auth-section .btn:hover {
                 transform: translateY(-1px);
                 box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+            }
+            
+            .auth-section .dropdown-menu {
+                border-radius: 12px;
+                border: none;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+                padding: 8px 0;
+            }
+            
+            .auth-section .dropdown-item {
+                padding: 8px 16px;
+                transition: all 0.2s ease;
+            }
+            
+            .auth-section .dropdown-item:hover {
+                background-color: var(--light-green);
+                color: var(--primary-color);
             }
             
             .loading {
@@ -1324,6 +1949,47 @@
                     margin-bottom: 3rem;
                 }
                 
+                
+                .navbar .dropdown-menu {
+                    border: none;
+                    box-shadow: none;
+                    background-color: transparent;
+                    padding: 0;
+                    margin: 0;
+                    position: static;
+                }
+                
+                .navbar .dropdown-item {
+                    padding: 8px 20px;
+                    color: inherit;
+                    background: transparent;
+                }
+                
+                .navbar .dropdown-item:hover {
+                    background-color: var(--light-green);
+                    transform: none;
+                }
+                
+                .navbar-nav .nav-item .auth-section .btn {
+                    font-size: 0.8rem;
+                    padding: 4px 8px;
+                }
+                
+                .language-toggle .btn {
+                    font-size: 0.8rem;
+                    padding: 4px 8px;
+                }
+                
+                
+                .map-container {
+                    height: 100px !important;
+                }
+                
+                .map-container::after {
+                    font-size: 10px;
+                    padding: 5px;
+                }
+                
                 .hero-main-image::before {
                     top: -10px;
                     left: -10px;
@@ -1342,14 +2008,14 @@
         `;
         document.head.appendChild(style);
 
-        // Language Toggle Functionality
-        let currentLanguage = 'id'; // Default to Indonesian
+
+        let currentLanguage = 'id'; 
         
         function toggleLanguage() {
             currentLanguage = currentLanguage === 'id' ? 'en' : 'id';
             updateLanguage();
             
-            // Save preference
+
             localStorage.setItem('apgi-language', currentLanguage);
         }
         
@@ -1360,7 +2026,7 @@
             elements.forEach(element => {
                 if (currentLanguage === 'en') {
                     const englishContent = element.getAttribute('data-en');
-                    // Check if content contains HTML tags
+
                     if (englishContent.includes('<') && englishContent.includes('>')) {
                         element.innerHTML = englishContent;
                     } else {
@@ -1368,7 +2034,7 @@
                     }
                 } else {
                     const indonesianContent = element.getAttribute('data-id');
-                    // Check if content contains HTML tags
+
                     if (indonesianContent.includes('<') && indonesianContent.includes('>')) {
                         element.innerHTML = indonesianContent;
                     } else {
@@ -1377,15 +2043,15 @@
                 }
             });
             
-            // Update language button text
+
             if (langButton) {
                 langButton.textContent = currentLanguage === 'id' ? 'EN' : 'ID';
             }
             
-            // Update document language attribute
+
             document.documentElement.lang = currentLanguage === 'id' ? 'id' : 'en';
             
-            // Update page title and meta descriptions
+
             updateMetaTags();
         }
         
@@ -1408,9 +2074,9 @@
             }
         }
         
-        // Initialize language on page load
+
         document.addEventListener('DOMContentLoaded', function() {
-            // Load saved language preference
+
             const savedLanguage = localStorage.getItem('apgi-language');
             if (savedLanguage) {
                 currentLanguage = savedLanguage;
@@ -1418,8 +2084,103 @@
             updateLanguage();
         });
 
-        // Make toggleLanguage function global
+
         window.toggleLanguage = toggleLanguage;
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const splashScreen = document.getElementById('splashScreen');
+            const minimumDisplayTime = 3500; 
+            const startTime = Date.now();
+
+
+            function hideSplashScreen() {
+                const elapsedTime = Date.now() - startTime;
+                const remainingTime = Math.max(0, minimumDisplayTime - elapsedTime);
+                
+                setTimeout(() => {
+                    splashScreen.classList.add('hidden');
+                    document.body.style.overflow = 'auto'; 
+                    
+
+                    setTimeout(() => {
+                        splashScreen.remove();
+                    }, 1200);
+                }, remainingTime);
+            }
+
+
+            document.body.style.overflow = 'hidden';
+
+
+            if (document.readyState === 'complete') {
+                hideSplashScreen();
+            } else {
+                window.addEventListener('load', hideSplashScreen);
+            }
+
+
+            updateLanguage();
+        });
+        
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentHash = window.location.hash;
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const dropdownToggle = document.querySelector('.dropdown-toggle[title="Organisasi"]');
+            
+
+            navLinks.forEach(link => link.classList.remove('active'));
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+
+            const currentSection = currentHash.replace('#', '');
+            if (currentSection === 'member' || currentSection === 'struktur') {
+
+                if (dropdownToggle) {
+                    dropdownToggle.classList.add('active');
+                }
+            } else if (currentSection) {
+
+                const targetLink = document.querySelector(`a.nav-link[href="/#${currentSection}"]`);
+                if (targetLink) {
+                    targetLink.classList.add('active');
+                }
+            } else {
+
+                const homeLink = document.querySelector('a.nav-link[href="/#home"]');
+                if (homeLink) {
+                    homeLink.classList.add('active');
+                }
+            }
+            
+
+            window.addEventListener('hashchange', function() {
+                const newHash = window.location.hash.replace('#', '');
+                navLinks.forEach(link => link.classList.remove('active'));
+                document.querySelectorAll('.dropdown-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                if (newHash === 'member' || newHash === 'struktur') {
+                    if (dropdownToggle) {
+                        dropdownToggle.classList.add('active');
+                    }
+                } else if (newHash) {
+                    const targetLink = document.querySelector(`a.nav-link[href="/#${newHash}"]`);
+                    if (targetLink) {
+                        targetLink.classList.add('active');
+                    }
+                } else {
+                    const homeLink = document.querySelector('a.nav-link[href="/#home"]');
+                    if (homeLink) {
+                        homeLink.classList.add('active');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>

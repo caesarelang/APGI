@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Homepage -->
+    <url>
+        <loc>https://asosiasipengusahagulaindonesia.or.id/</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- About Section -->
+    <url>
+        <loc>https://asosiasipengusahagulaindonesia.or.id/#about</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Members Section -->
+    <url>
+        <loc>https://asosiasipengusahagulaindonesia.or.id/#member</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Structure Section -->
+    <url>
+        <loc>https://asosiasipengusahagulaindonesia.or.id/#struktur</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Gallery Section -->
+    <url>
+        <loc>https://asosiasipengusahagulaindonesia.or.id/#galeri</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Contact Section -->
+    <url>
+        <loc>https://asosiasipengusahagulaindonesia.or.id/#contact</loc>
+        <lastmod>2025-09-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+</urlset>

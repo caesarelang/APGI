@@ -13,42 +13,56 @@ class HomeController extends Controller
     public function index()
     {
         // Set SEO meta tags for homepage
-        SEOMeta::setTitle('Beranda - Profil Perusahaan Terpercaya');
-        SEOMeta::setDescription('Profil perusahaan terpercaya dengan layanan berkualitas tinggi di Indonesia. Temukan solusi terbaik untuk kebutuhan bisnis Anda.');
-        SEOMeta::setKeywords(['profil perusahaan', 'layanan berkualitas', 'terpercaya', 'indonesia', 'solusi bisnis']);
+        SEOMeta::setTitle('Beranda - APGI | Asosiasi Pengusaha Gula Indonesia');
+        SEOMeta::setDescription('APGI (Asosiasi Pengusaha Gula Indonesia) adalah organisasi profesional yang menaungi para pengusaha gula di Indonesia sejak 2002. Bergabunglah dengan kami untuk mengembangkan industri gula nasional.');
+        SEOMeta::setKeywords(['APGI', 'Asosiasi Pengusaha Gula Indonesia', 'industri gula', 'gula Indonesia', 'pedagang gula', 'Surabaya']);
         SEOMeta::setCanonical(url('/'));
         
         // Open Graph tags
-        OpenGraph::setTitle('Beranda - Profil Perusahaan Terpercaya');
-        OpenGraph::setDescription('Profil perusahaan terpercaya dengan layanan berkualitas tinggi di Indonesia');
+        OpenGraph::setTitle('Beranda - APGI | Asosiasi Pengusaha Gula Indonesia');
+        OpenGraph::setDescription('APGI adalah organisasi profesional yang menaungi para pengusaha gula di Indonesia sejak 2002');
         OpenGraph::setUrl(url('/'));
         OpenGraph::setType('website');
-        OpenGraph::addImage(asset('images/logo.png'));
-        OpenGraph::setSiteName('Perusahaan');
+        OpenGraph::addImage(asset('images/logo-apgi.png'));
+        OpenGraph::setSiteName('APGI');
         OpenGraph::addProperty('locale', 'id_ID');
         
         // Twitter Card tags
         TwitterCard::setType('summary_large_image');
-        TwitterCard::setTitle('Beranda - Profil Perusahaan Terpercaya');
-        TwitterCard::setDescription('Profil perusahaan terpercaya dengan layanan berkualitas tinggi di Indonesia');
-        TwitterCard::setImage(asset('images/logo.png'));
+        TwitterCard::setTitle('Beranda - APGI | Asosiasi Pengusaha Gula Indonesia');
+        TwitterCard::setDescription('APGI adalah organisasi profesional yang menaungi para pengusaha gula di Indonesia sejak 2002');
+        TwitterCard::setImage(asset('images/logo-apgi.png'));
+        TwitterCard::setSite('@apgi_indonesia');
         
         // JSON-LD Structured Data
-        JsonLd::setTitle('Profil Perusahaan Terpercaya');
-        JsonLd::setDescription('Perusahaan terpercaya dengan layanan berkualitas tinggi di Indonesia');
+        JsonLd::setTitle('APGI - Asosiasi Pengusaha Gula Indonesia');
+        JsonLd::setDescription('Asosiasi Pengusaha Gula Indonesia (APGI) adalah organisasi profesional yang menaungi para pengusaha gula di Indonesia sejak 2002');
         JsonLd::setType('Organization');
+        JsonLd::addValue('url', url('/'));
+        JsonLd::addValue('logo', asset('images/logo-apgi.png'));
+        JsonLd::addValue('sameAs', [
+            'https://www.facebook.com/apgi.indonesia',
+            'https://www.instagram.com/apgi_indonesia',
+            'https://www.linkedin.com/company/apgi-indonesia'
+        ]);
         JsonLd::addValue('address', [
             '@type' => 'PostalAddress',
-            'streetAddress' => 'Jl. Contoh No. 123',
-            'addressLocality' => 'Jakarta',
-            'addressRegion' => 'DKI Jakarta',
+            'streetAddress' => 'Margomulyo',
+            'addressLocality' => 'Surabaya',
+            'addressRegion' => 'Jawa Timur',
+            'postalCode' => '60183',
             'addressCountry' => 'ID'
         ]);
         JsonLd::addValue('contactPoint', [
             '@type' => 'ContactPoint',
+            'telephone' => '+62-31-033-011',
             'contactType' => 'customer service',
-            'availableLanguage' => 'Indonesian'
+            'email' => 'contact@asosiasipengusahagulaindonesia.or.id',
+            'availableLanguage' => ['Indonesian', 'English']
         ]);
+        JsonLd::addValue('foundingDate', '2002');
+        JsonLd::addValue('numberOfEmployees', '8+');
+        JsonLd::addValue('industry', 'Sugar Industry Association');
         
         return view('home');
     }
