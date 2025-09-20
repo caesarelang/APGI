@@ -111,7 +111,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'contact@asosiasipengusahagulaindonesia.or.id'),
+        'address' => env('MAIL_FROM_ADDRESS', 'contact@pengusahagulaindonesia.com'),
         'name' => env('MAIL_FROM_NAME', 'APGI'),
     ],
 

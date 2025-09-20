@@ -686,14 +686,26 @@
 
         .splash-logo {
             margin-bottom: 2rem;
-            animation: logoZoom 1.2s ease-out;
+            opacity: 0;
+            transform: scale(0.1);
+        }
+
+        .splash-logo.loaded {
+            animation: logoZoomDramatic 2s ease-out forwards;
+            animation-delay: 0.2s;
         }
 
         .splash-logo-img {
-            width: 200px;
-            height: 200px;
+            width: 280px;
+            height: 280px;
             object-fit: contain;
-            filter: drop-shadow(0 0 30px rgba(255,255,255,0.4));
+            filter: drop-shadow(0 0 40px rgba(255,255,255,0.8)) brightness(1.3) contrast(1.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .splash-logo-img.loaded {
+            opacity: 1;
         }
 
         .splash-title {
@@ -847,18 +859,31 @@
         }
 
         
-        @keyframes logoZoom {
+        @keyframes logoZoomDramatic {
             0% {
-                transform: scale(0.3);
+                transform: scale(0.1) rotate(-10deg);
                 opacity: 0;
+                filter: blur(10px) brightness(0.5);
+            }
+            25% {
+                transform: scale(0.6) rotate(-5deg);
+                opacity: 0.4;
+                filter: blur(5px) brightness(0.8);
             }
             50% {
-                transform: scale(1.05);
-                opacity: 0.8;
+                transform: scale(1.4) rotate(2deg);
+                opacity: 0.9;
+                filter: blur(0px) brightness(1.5);
+            }
+            75% {
+                transform: scale(0.95) rotate(-1deg);
+                opacity: 1;
+                filter: blur(0px) brightness(1.3);
             }
             100% {
-                transform: scale(1);
+                transform: scale(1) rotate(0deg);
                 opacity: 1;
+                filter: brightness(1.3) contrast(1.2) drop-shadow(0 0 40px rgba(255, 255, 255, 0.8));
             }
         }
 
@@ -1365,10 +1390,27 @@
                                 </a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#galeri" title="Kegiatan">
-                                <i class="fas fa-images"></i><span class="nav-text d-lg-none" data-en="Activities" data-id="Kegiatan">Kegiatan</span>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Kegiatan">
+                                <i class="fas fa-calendar"></i><span class="nav-text d-lg-none" data-en="Activities" data-id="Kegiatan">Kegiatan</span>
                                 <span class="nav-label d-none d-lg-block" data-en="Activities" data-id="Kegiatan">Kegiatan</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/#galeri">
+                                    <i class="fas fa-images me-2"></i><span data-en="Gallery" data-id="Galeri">Galeri</span>
+                                </a></li>
+                                <li><a class="dropdown-item" href="#">
+                                    <i class="fas fa-star me-2"></i><span data-en="Event" data-id="Event">Event</span>
+                                </a></li>
+                                <li><a class="dropdown-item" href="#">
+                                    <i class="fas fa-heart me-2"></i><span data-en="Social" data-id="Sosial">Sosial</span>
+                                </a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/#news" title="News">
+                                <i class="fas fa-newspaper"></i><span class="nav-text d-lg-none" data-en="News" data-id="News">News</span>
+                                <span class="nav-label d-none d-lg-block" data-en="News" data-id="News">News</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -1486,6 +1528,8 @@
                         <h6 data-en="Activities" data-id="Kegiatan">Kegiatan</h6>
                         <ul class="list-unstyled">
                             <li class="mb-2"><a href="/#galeri" class="footer-link" data-en="Gallery" data-id="Galeri">Galeri</a></li>
+                            <li class="mb-2"><a href="#" class="footer-link" data-en="Event" data-id="Event">Event</a></li>
+                            <li class="mb-2"><a href="#" class="footer-link" data-en="Social" data-id="Sosial">Sosial</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1503,7 +1547,7 @@
                         </div>
                         <div class="contact-item mb-3">
                             <i class="fas fa-envelope"></i>
-                            <span>contact@asosiasipengusahagulaindonesia.or.id</span>
+                            <span>contact@pengusahagulaindonesia.com</span>
                         </div>
                         
                         <div class="map-container mt-3" style="height: 150px; border-radius: 8px; overflow: hidden;" onclick="window.open('https://maps.google.com/?q=Margomulyo,Surabaya,Jawa+Timur', '_blank')">
@@ -1538,6 +1582,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
+        // Splash Logo Loading Handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const splashLogo = document.querySelector('.splash-logo');
+            const splashLogoImg = document.querySelector('.splash-logo-img');
+            
+            if (splashLogoImg) {
+                // Function to start animation
+                function startLogoAnimation() {
+                    splashLogoImg.classList.add('loaded');
+                    setTimeout(() => {
+                        splashLogo.classList.add('loaded');
+                    }, 100);
+                }
+                
+                // Check if image is already loaded
+                if (splashLogoImg.complete && splashLogoImg.naturalHeight !== 0) {
+                    startLogoAnimation();
+                } else {
+                    // Wait for image to load
+                    splashLogoImg.addEventListener('load', startLogoAnimation);
+                    splashLogoImg.addEventListener('error', function() {
+                        // Even if image fails to load, start animation to prevent endless waiting
+                        startLogoAnimation();
+                    });
+                }
+            }
+        });
 
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -2090,26 +2161,40 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             const splashScreen = document.getElementById('splashScreen');
-            const minimumDisplayTime = 3500; 
+            const minimumDisplayTime = 4000; // Increased to accommodate logo animation
             const startTime = Date.now();
+            let logoAnimationCompleted = false;
 
+            // Track logo animation completion
+            const splashLogo = document.querySelector('.splash-logo');
+            if (splashLogo) {
+                splashLogo.addEventListener('animationend', function() {
+                    logoAnimationCompleted = true;
+                });
+            }
 
             function hideSplashScreen() {
                 const elapsedTime = Date.now() - startTime;
                 const remainingTime = Math.max(0, minimumDisplayTime - elapsedTime);
                 
-                setTimeout(() => {
-                    splashScreen.classList.add('hidden');
-                    document.body.style.overflow = 'auto'; 
-                    
-
-                    setTimeout(() => {
-                        splashScreen.remove();
-                    }, 1200);
-                }, remainingTime);
+                // Wait for both minimum time and logo animation to complete
+                const checkAndHide = () => {
+                    if (logoAnimationCompleted || elapsedTime >= minimumDisplayTime) {
+                        splashScreen.classList.add('hidden');
+                        document.body.style.overflow = 'auto'; 
+                        
+                        setTimeout(() => {
+                            splashScreen.remove();
+                        }, 1200);
+                    } else {
+                        setTimeout(checkAndHide, 100);
+                    }
+                };
+                
+                setTimeout(checkAndHide, remainingTime);
             }
 
-
+            // Set body overflow hidden initially
             document.body.style.overflow = 'hidden';
 
 

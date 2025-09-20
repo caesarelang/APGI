@@ -16,9 +16,9 @@
     
     <!-- Hero Content -->
     <div class="container position-relative">
-        <div class="row align-items-start min-vh-100 pt-5">
-            <div class="col-lg-8">
-                <div class="hero-content text-white mt-5 pt-4">
+        <div class="row align-items-center min-vh-100 pt-5">
+            <div class="col-12">
+                <div class="hero-content text-white mt-5 pt-4 text-center">
                     <div class="hero-badge mb-4">
                         <span class="badge bg-success bg-opacity-90 px-4 py-2 rounded-pill fs-5">
                             <i class="fas fa-leaf me-2"></i>
@@ -34,7 +34,7 @@
                     <p class="lead mb-4 text-shadow" data-en="Providing the latest information and useful resources for the advancement of Indonesia's sugar industry towards food self-sufficiency." data-id="Menyediakan informasi terkini dan sumber daya yang berguna untuk kemajuan industri gula Indonesia menuju swasembada pangan.">
                         Menyediakan informasi terkini dan sumber daya yang berguna untuk kemajuan industri gula Indonesia menuju swasembada pangan.
                     </p>
-                    <div class="hero-buttons d-flex flex-wrap gap-3">
+                    <div class="hero-buttons d-flex flex-wrap gap-3 justify-content-center">
                         <a href="#about" class="btn btn-light btn-lg shadow px-4 py-3">
                             <i class="fas fa-arrow-right me-2"></i><span data-en="Learn More" data-id="Pelajari Lebih Lanjut">Pelajari Lebih Lanjut</span>
                         </a>
@@ -44,93 +44,123 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="hero-side-content text-center mt-5 pt-4">
-                    <div class="hero-carousel-container position-relative">
-                        <div class="hero-carousel">
-                            <div class="carousel-track">
-                                <div class="carousel-slide active">
-                                    <img src="{{ asset('images/people/people-1.png') }}" alt="Pieko Njotosetiadi - Ketua Umum APGI" class="img-fluid rounded-4 shadow-lg">
+        </div>
+    </div>
+</section>
+
+<!-- PEOPLE CAROUSEL SECTION -->
+<section id="leadership" class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col-12">
+                <h3 class="display-6 fw-bold text-gradient mb-3" data-en="Our Leadership" data-id="Kepemimpinan Kami">Kepemimpinan Kami</h3>
+                <p class="lead text-muted" data-en="Meet the dedicated leaders driving Indonesia's sugar industry forward" data-id="Berkenalan dengan para pemimpin berdedikasi yang menggerakkan industri gula Indonesia">Berkenalan dengan para pemimpin berdedikasi yang menggerakkan industri gula Indonesia</p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="people-carousel-container position-relative">
+                    <div class="people-carousel">
+                        <div class="people-slide active">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/people-1.png') }}" alt="Pieko Njotosetiadi" class="people-image">
                                 </div>
-                                <div class="carousel-slide">
-                                    <img src="{{ asset('images/people/people-2.png') }}" alt="Dimas Agung Mahendra, S.P. - Humas Dan Kelembagaan APGI" class="img-fluid rounded-4 shadow-lg">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="{{ asset('images/people/people-3.png') }}" alt="Teguh Dwi Jadmiko, S.E. - Sekjen APGI" class="img-fluid rounded-4 shadow-lg">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="{{ asset('images/people/people-4.png') }}" alt="Sugianto, S.E. - Kabid Kemitraan APGI" class="img-fluid rounded-4 shadow-lg">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="{{ asset('images/people/people-5.png') }}" alt="Liem Wan Seng - Kabid Perdagangan Dalam Negeri APGI" class="img-fluid rounded-4 shadow-lg">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="{{ asset('images/people/people-6.png') }}" alt="Drs. Chandra Harsono - Ketua Harian APGI" class="img-fluid rounded-4 shadow-lg">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="{{ asset('images/people/people-7.png') }}" alt="Drs. Bambang Senggono - Kabid SDM & Hukum APGI" class="img-fluid rounded-4 shadow-lg">
-                                </div>
-                                <div class="carousel-slide">
-                                    <img src="{{ asset('images/people/people-8.png') }}" alt="H. Massat Zakariyah, S.E. - Kabid Pengembangan APGI" class="img-fluid rounded-4 shadow-lg">
-                                </div>
+                                <h5 class="people-name fw-bold mb-2">Pieko Njotosetiadi</h5>
+                                <p class="people-title text-muted mb-0">Ketua Umum APGI</p>
                             </div>
                         </div>
                         
-
-                        <div class="person-info-container">
-                            <div class="person-info active" data-slide="0">
-                                <h5 class="person-name">Pieko Njotosetiadi</h5>
-                                <p class="person-position" data-en="General Chairman of APGI" data-id="Ketua Umum APGI">Ketua Umum APGI</p>
-                            </div>
-                            <div class="person-info" data-slide="1">
-                                <h5 class="person-name">Dimas Agung Mahendra, S.P.</h5>
-                                <p class="person-position" data-en="PR and Institutional APGI" data-id="Humas Dan Kelembagaan APGI">Humas Dan Kelembagaan APGI</p>
-                            </div>
-                            <div class="person-info" data-slide="2">
-                                <h5 class="person-name">Teguh Dwi Jadmiko, S.E.</h5>
-                                <p class="person-position" data-en="Secretary General APGI" data-id="Sekjen APGI">Sekjen APGI</p>
-                            </div>
-                            <div class="person-info" data-slide="3">
-                                <h5 class="person-name">Sugianto, S.E.</h5>
-                                <p class="person-position" data-en="Head of Partnership Division APGI" data-id="Kabid Kemitraan APGI">Kabid Kemitraan APGI</p>
-                            </div>
-                            <div class="person-info" data-slide="4">
-                                <h5 class="person-name">Liem Wan Seng</h5>
-                                <p class="person-position" data-en="Head of Domestic Trade Division APGI" data-id="Kabid Perdagangan Dalam Negeri APGI">Kabid Perdagangan Dalam Negeri APGI</p>
-                            </div>
-                            <div class="person-info" data-slide="5">
-                                <h5 class="person-name">Drs. Chandra Harsono</h5>
-                                <p class="person-position">Ketua Harian APGI</p>
-                            </div>
-                            <div class="person-info" data-slide="6">
-                                <h5 class="person-name">Drs. Bambang Senggono</h5>
-                                <p class="person-position">Kabid SDM & Hukum APGI</p>
-                            </div>
-                            <div class="person-info" data-slide="7">
-                                <h5 class="person-name">H. Massat Zakariyah, S.E.</h5>
-                                <p class="person-position">Kabid Pengembangan APGI</p>
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/people-2.png') }}" alt="Dimas Agung Mahendra" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Dimas Agung Mahendra, S.P.</h5>
+                                <p class="people-title text-muted mb-0">Humas Dan Kelembagaan APGI</p>
                             </div>
                         </div>
                         
-
-                        <button class="carousel-btn carousel-btn-prev" onclick="prevSlide()">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="carousel-btn carousel-btn-next" onclick="nextSlide()">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        
-
-                        <div class="carousel-dots">
-                            <span class="dot active" onclick="currentSlide(1)"></span>
-                            <span class="dot" onclick="currentSlide(2)"></span>
-                            <span class="dot" onclick="currentSlide(3)"></span>
-                            <span class="dot" onclick="currentSlide(4)"></span>
-                            <span class="dot" onclick="currentSlide(5)"></span>
-                            <span class="dot" onclick="currentSlide(6)"></span>
-                            <span class="dot" onclick="currentSlide(7)"></span>
-                            <span class="dot" onclick="currentSlide(8)"></span>
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/people-3.png') }}" alt="Teguh Dwi Jadmiko" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Teguh Dwi Jadmiko, S.E.</h5>
+                                <p class="people-title text-muted mb-0">Sekjen APGI</p>
+                            </div>
                         </div>
+                        
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/people-4.png') }}" alt="Sugianto" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Sugianto, S.E.</h5>
+                                <p class="people-title text-muted mb-0">Kabid Kemitraan APGI</p>
+                            </div>
+                        </div>
+                        
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/people-5.png') }}" alt="Liem Wan Seng" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Liem Wan Seng</h5>
+                                <p class="people-title text-muted mb-0">Kabid Perdagangan Dalam Negeri APGI</p>
+                            </div>
+                        </div>
+                        
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/people-6.png') }}" alt="Drs. Chandra Harsono" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Drs. Chandra Harsono</h5>
+                                <p class="people-title text-muted mb-0">Ketua Harian APGI</p>
+                            </div>
+                        </div>
+                        
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/people-7.png') }}" alt="Drs. Bambang Senggono" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Drs. Bambang Senggono</h5>
+                                <p class="people-title text-muted mb-0">Kabid SDM & Hukum APGI</p>
+                            </div>
+                        </div>
+                        
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/people-8.png') }}" alt="H. Massat Zakariyah" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">H. Massat Zakariyah, S.E.</h5>
+                                <p class="people-title text-muted mb-0">Kabid Pengembangan APGI</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <button class="people-nav-btn people-prev" onclick="prevPeopleSlide()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="people-nav-btn people-next" onclick="nextPeopleSlide()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <!-- Dots Indicator -->
+                    <div class="people-dots-container mt-4">
+                        <span class="people-dot active" onclick="currentPeopleSlide(1)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(2)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(3)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(4)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(5)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(6)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(7)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(8)"></span>
                     </div>
                 </div>
             </div>
@@ -186,8 +216,8 @@
                                     <div>
                                         <h6 class="mb-1 text-success" data-en="Current Achievement" data-id="Pencapaian Saat Ini">Pencapaian Saat Ini</h6>
                                         <p class="mb-0 text-muted small">
-                                            <span data-en="APGI has become a home for <strong>60 members</strong> from various sugarcane producing regions in Indonesia" data-id="APGI telah menjadi rumah bagi <strong>60 anggota</strong> dari berbagai daerah penghasil tebu di Indonesia">
-                                                APGI telah menjadi rumah bagi <strong>60 anggota</strong> dari berbagai daerah penghasil tebu di Indonesia
+                                            <span data-en="APGI has become a home for <strong>60+ members </strong> from various sugarcane producing regions in Indonesia" data-id="APGI telah menjadi rumah bagi <strong>60+ anggota </strong> dari berbagai daerah penghasil tebu di Indonesia">
+                                                APGI telah menjadi rumah bagi <strong>60+ anggota</strong> dari berbagai daerah penghasil tebu di Indonesia
                                             </span>
                                         </p>
                                     </div>
@@ -334,83 +364,33 @@
         </div>
         
 
-        <div class="row g-4 mb-5">
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="member-card member-style-1 bg-white rounded-3 shadow p-4 text-center">
-                    <div class="member-logo mb-3">
-                        <img src="{{ asset('images/members/member-1.png') }}" alt="CV Hasil Karya Wijaya" class="img-fluid member-small-logo">
-                    </div>
-                    <h6 class="member-name">CV Hasil Karya Wijaya</h6>
-                    <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="row g-4 mb-5 justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="member-card member-style-2 bg-white rounded-3 shadow p-4 text-center">
                     <div class="member-logo mb-3">
-                        <img src="{{ asset('images/members/member-2.png') }}" alt="PT Fajar Mulia Transindo" class="img-fluid member-small-logo">
+                        <img src="{{ asset('images/members/member-1.png') }}" alt="PT Fajar Mulia Transindo" class="img-fluid member-small-logo">
                     </div>
                     <h6 class="member-name">PT Fajar Mulia Transindo</h6>
                     <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
                 </div>
             </div>
             
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="member-card member-style-3 bg-white rounded-3 shadow p-4 text-center">
-                    <div class="member-logo mb-3">
-                        <img src="{{ asset('images/members/member-3.png') }}" alt="PT Mitra Pangan Nusantara" class="img-fluid member-small-logo">
-                    </div>
-                    <h6 class="member-name">PT Mitra Pangan Nusantara</h6>
-                    <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="member-card member-style-4 bg-white rounded-3 shadow p-4 text-center">
                     <div class="member-logo mb-3">
-                        <img src="{{ asset('images/members/member-4.png') }}" alt="PT Agung Samudra Mulia" class="img-fluid">
+                        <img src="{{ asset('images/members/member-2.png') }}" alt="PT Agung Samudra Mulia" class="img-fluid member-small-logo">
                     </div>
                     <h6 class="member-name">PT Agung Samudra Mulia</h6>
                     <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
                 </div>
             </div>
             
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="member-card member-style-5 bg-white rounded-3 shadow p-4 text-center">
-                    <div class="member-logo mb-3">
-                        <img src="{{ asset('images/members/member-5.png') }}" alt="PT Citra Gemini Mulya" class="img-fluid">
-                    </div>
-                    <h6 class="member-name">PT Citra Gemini Mulya</h6>
-                    <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="member-card member-style-6 bg-white rounded-3 shadow p-4 text-center">
                     <div class="member-logo mb-3">
-                        <img src="{{ asset('images/members/member-6.png') }}" alt="PT Nusantara Putra Mandiri" class="img-fluid">
+                        <img src="{{ asset('images/members/member-3.png') }}" alt="PT Nusantara Agro Mandiri" class="img-fluid member-small-logo">
                     </div>
-                    <h6 class="member-name">PT. Nusantara Putra Mandiri</h6>
-                    <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="member-card member-style-7 bg-white rounded-3 shadow p-4 text-center">
-                    <div class="member-logo mb-3">
-                        <img src="{{ asset('images/members/member-7.png') }}" alt="PT Wijaya Tama Langgengperkasa" class="img-fluid">
-                    </div>
-                    <h6 class="member-name">PT Wijaya Tama Langgengperkasa</h6>
-                    <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
-                </div>
-            </div>
-            
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="member-card member-style-8 bg-white rounded-3 shadow p-4 text-center">
-                    <div class="member-logo mb-3">
-                        <img src="{{ asset('images/members/member-8.png') }}" alt="PT Inti Kurnia Trading" class="img-fluid member-small-logo">
-                    </div>
-                    <h6 class="member-name">PT Inti Kurnia Trading</h6>
+                    <h6 class="member-name">PT Nusantara Agro Mandiri</h6>
                     <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
                 </div>
             </div>
@@ -434,7 +414,7 @@
                     <div class="stat-icon-modern mb-3">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="stat-number text-success">43</h3>
+                    <h3 class="stat-number text-success">60+</h3>
                     <p class="stat-label text-muted" data-en="Total Members" data-id="Total Anggota">Total Anggota</p>
                 </div>
             </div>
@@ -737,8 +717,8 @@
     <div class="container">
         <div class="row text-center mb-5">
             <div class="col-lg-8 mx-auto">
-                <h3 class="display-6 fw-bold text-gradient mb-3" data-en="Our Activities" data-id="Kegiatan Kami">Kegiatan Kami</h3>
-                <p class="lead text-muted" data-en="Documentation of APGI activities and achievements in developing Indonesia's sugar industry" data-id="Dokumentasi kegiatan dan pencapaian APGI dalam mengembangkan industri gula Indonesia">Dokumentasi kegiatan dan pencapaian APGI dalam mengembangkan industri gula Indonesia</p>
+                <h3 class="display-6 fw-bold text-gradient mb-3" data-en="Activity Gallery" data-id="Galeri Kegiatan">Galeri Kegiatan</h3>
+                <p class="lead text-muted" data-en="Documentation of APGI's activities and achievements in developing Indonesia's sugar industry" data-id="Dokumentasi kegiatan dan pencapaian APGI dalam mengembangkan industri gula Indonesia">Dokumentasi kegiatan dan pencapaian APGI dalam mengembangkan industri gula Indonesia</p>
             </div>
         </div>
         
@@ -858,6 +838,130 @@
     </div>
 </section>
 
+<!-- NEWS SECTION -->
+<section id="news" class="py-5 bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h3 class="display-6 fw-bold text-gradient mb-3" data-en="APGI NEWS" data-id="KEGIATAN APGI">KEGIATAN APGI</h3>
+                <p class="lead text-muted" data-en="Follow the latest developments about our activities, innovations, and achievements." data-id="Ikuti perkembangan terkini tentang aktivitas, inovasi, dan pencapaian kami.">Ikuti perkembangan terkini tentang aktivitas, inovasi, dan pencapaian kami.</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <!-- News Article 1 -->
+            <div class="col-lg-6 mb-4">
+                <div class="card news-card h-100 shadow-sm border-0" onclick="openNewsDetail('post1')" 
+                     data-title="APGI SELAMATKAN PASOKAN GULA 82.000 TON"
+                     data-image="{{ asset('images/gallerys/gallery-1.jpg') }}"
+                     data-writer="Dimas office"
+                     data-date="Sep 7 • 1 min read"
+                     data-views="3">
+                    <img src="{{ asset('images/gallerys/gallery-1.jpg') }}" class="card-img-top news-image" alt="APGI Selamatkan Pasokan Gula">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-primary">APGI SELAMATKAN PASOKAN GULA 82.000 TON</h5>
+                        <p class="card-text text-muted">Asosiasi Pengusaha Gula Indonesia (APGI) berhasil mengamankan pasokan gula sebanyak 82.000 ton untuk menjaga stabilitas kebutuhan pangan...</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{{ asset('images/avatar-placeholder.jpg') }}" class="rounded-circle me-3" width="40" height="40" alt="Writer">
+                            <div>
+                                <small class="text-muted">Writer: <strong>Dimas office</strong></small><br>
+                                <small class="text-muted">Sep 7 • 1 min read</small>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-eye me-1"></i> 3
+                            </small>
+                            <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation()">
+                                <i class="fas fa-heart me-1"></i> Like
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- News Article 2 -->
+            <div class="col-lg-6 mb-4">
+                <div class="card news-card h-100 shadow-sm border-0" onclick="openNewsDetail('post2')"
+                     data-title="APGI Tegak Mendukung Produksi Gula PG. Jatiroto Demi Menjaga Kestabilitas Harga Gula"
+                     data-image="{{ asset('images/gallerys/gallery-2.jpg') }}"
+                     data-writer="Dimas office"
+                     data-date="Sep 7 • 1 min read"
+                     data-views="2">
+                    <img src="{{ asset('images/gallerys/gallery-2.jpg') }}" class="card-img-top news-image" alt="APGI Mendukung Produksi Gula">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-primary">APGI Tegak Mendukung Produksi Gula PG. Jatiroto Demi Menjaga Kestabilitas Harga Gula</h5>
+                        <p class="card-text text-muted">Di tengah dinamika pasar dan tantangan ketahanan pangan, Asosiasi Pengusaha Gula Indonesia (APGI) berdiri di garis depan dengan...</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{{ asset('images/avatar-placeholder.jpg') }}" class="rounded-circle me-3" width="40" height="40" alt="Writer">
+                            <div>
+                                <small class="text-muted">Writer: <strong>Dimas office</strong></small><br>
+                                <small class="text-muted">Sep 7 • 1 min read</small>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-eye me-1"></i> 2
+                            </small>
+                            <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation()">
+                                <i class="fas fa-heart me-1"></i> Like
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</section>
+
+<!-- NEWS DETAIL MODAL -->
+<div class="modal fade" id="newsDetailModal" tabindex="-1" aria-labelledby="newsDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="news-detail-content">
+                    <div class="news-detail-image">
+                        <img id="modalNewsImage" src="" alt="" class="w-100">
+                    </div>
+                    <div class="news-detail-body p-4">
+                        <h2 id="modalNewsTitle" class="fw-bold text-primary mb-3"></h2>
+                        <div class="news-meta mb-4">
+                            <div class="d-flex align-items-center">
+                                <img src="{{ asset('images/avatar-placeholder.jpg') }}" class="rounded-circle me-3" width="50" height="50" alt="Writer">
+                                <div>
+                                    <h6 class="mb-0" id="modalNewsWriter">Writer: Dimas office</h6>
+                                    <small class="text-muted" id="modalNewsDate">Sep 7 • 1 min read</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-stats mb-4">
+                            <small class="text-muted">
+                                <i class="fas fa-eye me-1"></i> <span id="modalNewsViews">0</span> views
+                            </small>
+                        </div>
+                        <div class="news-content" id="modalNewsContent">
+                            <!-- Content will be loaded here -->
+                        </div>
+                        <div class="news-actions mt-4 pt-4 border-top">
+                            <button class="btn btn-outline-primary me-2">
+                                <i class="fas fa-heart me-1"></i> Like
+                            </button>
+                            <button class="btn btn-outline-secondary">
+                                <i class="fas fa-share me-1"></i> Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <section id="contact" class="py-5">
     <div class="container">
@@ -871,7 +975,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10">
                 <div class="contact-form-container bg-white rounded-4 shadow p-5">
-                    <form id="contactForm" action="mailto:contact@asosiasipengusahagulaindonesia.or.id" method="post" enctype="text/plain">
+                    <form id="contactForm" action="mailto:contact@pengusahagulaindonesia.com" method="post" enctype="text/plain">
                         <div class="row g-4">
 
                             <div class="col-md-6">
@@ -923,7 +1027,7 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h6 class="mb-2">Email</h6>
-                    <p class="text-muted mb-0">contact@asosiasipengusahagulaindonesia.or.id</p>
+                    <p class="text-muted mb-0">contact@pengusahagulaindonesia.com</p>
                 </div>
             </div>
             
@@ -1149,7 +1253,7 @@
     }
     
     .person-position {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         white-space: normal;
         overflow: visible;
         text-overflow: unset;
@@ -1381,10 +1485,11 @@
 
 .carousel-slide img {
     width: 100%;
-    height: 450px;
+    height: 500px;
     object-fit: cover;
     object-position: center top;
     display: block;
+    border-radius: 1rem;
 }
 
 
@@ -1490,10 +1595,10 @@
 }
 
 .person-position {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     color: rgba(255,255,255,0.9);
     margin-bottom: 0;
-    font-weight: 600;
+    font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     line-height: 1.3;
     white-space: normal;
@@ -2035,15 +2140,15 @@
 
 .org-title {
     margin: 0 0 5px 0;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    font-weight: 700;
     color: #333;
 }
 
 .org-name {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     color: #666;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .org-connector {
@@ -2085,7 +2190,8 @@
     padding: 0 30px;
     display: inline-block;
     color: #2E7D32;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.6rem;
     position: relative;
     z-index: 2;
     margin: 0;
@@ -2129,16 +2235,16 @@
 
 .dept-title {
     margin: 0 0 5px 0;
-    font-size: 0.95rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 700;
     color: #333;
     line-height: 1.3;
 }
 
 .dept-name {
-    font-size: 0.85rem;
+    font-size: 1.4rem;
     color: #666;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 
@@ -2179,15 +2285,15 @@
 
 .humas-title {
     margin: 0 0 8px 0;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    font-weight: 700;
     color: #00BCD4;
 }
 
 .humas-name {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #333;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 
@@ -2225,8 +2331,8 @@
 
 .dewan-title {
     margin: 0 0 15px 0;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.3rem;
+    font-weight: 700;
     color: #673AB7;
 }
 
@@ -2240,9 +2346,9 @@
     background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
     padding: 10px 15px;
     border-radius: 8px;
-    font-size: 0.85rem;
+    font-size: 1.4rem;
     color: #333;
-    font-weight: 500;
+    font-weight: 600;
     border-left: 4px solid #673AB7;
 }
 
@@ -2533,9 +2639,363 @@
     transform: translateY(-3px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
+
+/* News Section Styles */
+.news-card {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+
+.news-image {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.news-card .card-title {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+}
+
+.news-card .card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.news-card .btn-outline-primary {
+    border-color: var(--bs-primary);
+    color: var(--bs-primary);
+    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+}
+
+.news-card .btn-outline-primary:hover {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+/* Make news cards clickable */
+.news-card {
+    cursor: pointer;
+}
+
+.news-card:hover .card-title {
+    color: var(--bs-primary) !important;
+}
+
+/* News Detail Modal Styles */
+.news-detail-image img {
+    height: 300px;
+    object-fit: cover;
+}
+
+.news-detail-content {
+    background: white;
+}
+
+.news-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.news-content p {
+    margin-bottom: 1.5rem;
+}
+
+.news-meta h6 {
+    color: var(--bs-primary);
+    font-weight: 600;
+}
+
+.news-actions {
+    background: #f8f9fa;
+    margin: 0 -1.5rem -1.5rem;
+    padding: 1rem 1.5rem;
+}
+
+.modal-lg {
+    max-width: 800px;
+}
+
+/* People Carousel Styles */
+.people-carousel-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.people-carousel {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.people-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    background: white;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.people-slide.active {
+    opacity: 1;
+}
+
+.people-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.people-image-container {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.people-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.people-name {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    color: #2E7D32 !important;
+    font-weight: 700;
+}
+
+.people-title {
+    font-size: 1.3rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+/* Navigation Buttons */
+.people-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.people-nav-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.people-prev {
+    left: 20px;
+}
+
+.people-next {
+    right: 20px;
+}
+
+/* Dots Indicator */
+.people-dots-container {
+    text-align: center;
+}
+
+.people-dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bdc3c7;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.people-dot.active,
+.people-dot:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .people-carousel {
+        height: 500px;
+    }
+    
+    .people-image-container {
+        height: 300px;
+    }
+    
+    .people-name {
+        font-size: 1.3rem;
+    }
+    
+    .people-title {
+        font-size: 1rem;
+    }
+    
+    .people-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
 </style>
 
 <script>
+
+// People Carousel Functions
+let currentPeopleSlideIndex = 0;
+let peopleSlides, peopleDots, totalPeopleSlides;
+let peopleAutoSlideInterval;
+
+function initializePeopleCarousel() {
+    peopleSlides = document.querySelectorAll('.people-slide');
+    peopleDots = document.querySelectorAll('.people-dot');
+    totalPeopleSlides = peopleSlides.length;
+    
+    if (peopleSlides.length > 0) {
+        showPeopleSlide(0);
+        startPeopleAutoSlide();
+    }
+}
+
+function showPeopleSlide(index) {
+    if (!peopleSlides || !peopleDots) return;
+    
+    // Remove active class from all slides and dots
+    peopleSlides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+    peopleDots.forEach(dot => {
+        dot.classList.remove('active');
+    });
+    
+    // Add active class to current slide and dot
+    if (peopleSlides[index] && peopleDots[index]) {
+        peopleSlides[index].classList.add('active');
+        peopleDots[index].classList.add('active');
+    }
+}
+
+function nextPeopleSlide() {
+    currentPeopleSlideIndex = (currentPeopleSlideIndex + 1) % totalPeopleSlides;
+    showPeopleSlide(currentPeopleSlideIndex);
+    resetPeopleAutoSlide();
+}
+
+function prevPeopleSlide() {
+    currentPeopleSlideIndex = (currentPeopleSlideIndex - 1 + totalPeopleSlides) % totalPeopleSlides;
+    showPeopleSlide(currentPeopleSlideIndex);
+    resetPeopleAutoSlide();
+}
+
+function currentPeopleSlide(index) {
+    currentPeopleSlideIndex = index - 1;
+    showPeopleSlide(currentPeopleSlideIndex);
+    resetPeopleAutoSlide();
+}
+
+function startPeopleAutoSlide() {
+    peopleAutoSlideInterval = setInterval(() => {
+        nextPeopleSlide();
+    }, 5000); // Change slide every 5 seconds
+}
+
+function resetPeopleAutoSlide() {
+    clearInterval(peopleAutoSlideInterval);
+    startPeopleAutoSlide();
+}
+
+// News Detail Functions
+function openNewsDetail(postId) {
+    const newsContents = {
+        'post1': {
+            title: 'APGI SELAMATKAN PASOKAN GULA 82.000 TON',
+            content: `
+                <p>Asosiasi Pengusaha Gula Indonesia (APGI) berhasil mengamankan pasokan gula sebanyak 82.000 ton untuk menjaga stabilitas kebutuhan pangan nasional. Langkah strategis ini diambil sebagai bentuk komitmen APGI dalam mendukung ketahanan pangan Indonesia, khususnya di tengah tingginya permintaan gula dan gejolak harga komoditas global.</p>
+                
+                <p>Ketua Umum APGI menegaskan bahwa ketersediaan gula merupakan salah satu faktor penting dalam menjaga stabilitas pangan. Dengan adanya tambahan pasokan ini, diharapkan kebutuhan masyarakat tetap terpenuhi sekaligus menekan potensi lonjakan harga yang dapat membebani konsumen.</p>
+                
+                <p>Selain memastikan ketersediaan, APGI juga terus bekerja sama dengan pemerintah untuk memperkuat sistem distribusi sehingga gula dapat tersalurkan secara merata ke seluruh wilayah Indonesia. Upaya ini sejalan dengan visi pemerintah dalam mewujudkan swasembada pangan dan menjaga kesejahteraan masyarakat.</p>
+                
+                <p>Dengan penyelamatan pasokan sebesar 82.000 ton, APGI menunjukkan peran nyatanya sebagai mitra strategis pemerintah dan pilar penting dalam ekosistem pangan nasional. Ke depan, APGI berkomitmen memperkuat produksi dalam negeri, meningkatkan efisiensi distribusi, serta menjaga stabilitas harga demi ketahanan pangan Indonesia yang berkelanjutan.</p>
+            `
+        },
+        'post2': {
+            title: 'APGI Tegak Mendukung Produksi Gula PG. Jatiroto Demi Menjaga Kestabilitas Harga Gula',
+            content: `
+                <p>Di tengah dinamika pasar dan tantangan ketahanan pangan, Asosiasi Pengusaha Gula Indonesia (APGI) berdiri di garis depan dengan memberikan dukungan penuh terhadap produksi Pabrik Gula (PG) Jatiroto. Langkah ini menjadi simbol komitmen kuat APGI dalam menjaga stabilitas harga gula, sekaligus memastikan kebutuhan dasar masyarakat tetap terpenuhi.</p>
+                
+                <p>PG Jatiroto, sebagai salah satu benteng produksi gula nasional, tidak hanya menjadi pabrik, melainkan garda penjaga ketersediaan pangan strategis bangsa. Dukungan APGI terhadap keberlanjutan produksi di Jatiroto merupakan wujud nyata perjuangan kolektif demi melindungi rakyat dari gejolak harga serta menjaga kesejahteraan petani tebu yang menjadi ujung tombak industri gula.</p>
+                
+                <p><strong>"Menjaga stabilitas harga gula bukan sekadar angka, melainkan menjaga denyut kehidupan masyarakat Indonesia. Bersama PG Jatiroto, kami memastikan bahwa ketahanan pangan bukan hanya wacana, tetapi kenyataan,"</strong> tegas Ketua Umum APGI.</p>
+                
+                <p>Dengan keberanian dan konsistensi, APGI terus memimpin langkah kolaborasi nasional. Dukungan terhadap PG Jatiroto adalah bukti bahwa industri gula Indonesia mampu bangkit, berdikari, dan menjadi pilar kokoh bagi kedaulatan pangan negeri.</p>
+            `
+        }
+    };
+    
+    // Get content for the specific post
+    const content = newsContents[postId];
+    if (!content) return;
+    
+    // Find the clicked card to get its data
+    const card = event.target.closest('.news-card');
+    if (!card) return;
+    
+    // Fill modal with data
+    document.getElementById('modalNewsTitle').textContent = card.getAttribute('data-title');
+    document.getElementById('modalNewsImage').src = card.getAttribute('data-image');
+    document.getElementById('modalNewsImage').alt = card.getAttribute('data-title');
+    document.getElementById('modalNewsWriter').textContent = 'Writer: ' + card.getAttribute('data-writer');
+    document.getElementById('modalNewsDate').textContent = card.getAttribute('data-date');
+    document.getElementById('modalNewsViews').textContent = card.getAttribute('data-views');
+    document.getElementById('modalNewsContent').innerHTML = content.content;
+    
+    // Show modal
+    const modal = new bootstrap.Modal(document.getElementById('newsDetailModal'));
+    modal.show();
+}
 
 let currentSlideIndex = 0;
 let slides, dots, personInfos, totalSlides;
@@ -2604,10 +3064,12 @@ function resetAutoSlide() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-
+    // Initialize original hero carousel
     initializeCarousel();
     
-
+    // Initialize people carousel
+    initializePeopleCarousel();
+    
     startAutoSlide();
     
 
@@ -2769,7 +3231,7 @@ Sent from APGI Website Contact Form
             `.trim();
             
 
-            const mailtoLink = `mailto:contact@asosiasipengusahagulaindonesia.or.id?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            const mailtoLink = `mailto:contact@pengusahagulaindonesia.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
             
 
             window.location.href = mailtoLink;

@@ -57,7 +57,7 @@ class HomeController extends Controller
             '@type' => 'ContactPoint',
             'telephone' => '+62-31-033-011',
             'contactType' => 'customer service',
-            'email' => 'contact@asosiasipengusahagulaindonesia.or.id',
+            'email' => 'contact@pengusahagulaindonesia.com',
             'availableLanguage' => ['Indonesian', 'English']
         ]);
         JsonLd::addValue('foundingDate', '2002');

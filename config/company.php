@@ -18,8 +18,8 @@ return [
     'province' => env('COMPANY_PROVINCE', 'Jawa Timur'),
     'postal_code' => env('COMPANY_POSTAL_CODE', '60183'),
     'phone' => env('COMPANY_PHONE', '+62 31-033-011'),
-    'email' => env('COMPANY_EMAIL', 'contact@asosiasipengusahagulaindonesia.or.id'),
-    'website' => env('COMPANY_WEBSITE', 'https://asosiasipengusahagulaindonesia.or.id'),
+    'email' => env('COMPANY_EMAIL', 'contact@pengusahagulaindonesia.com'),
+    'website' => env('COMPANY_WEBSITE', 'https://pengusahagulaindonesia.com'),
 
     // Social Media
     'facebook' => env('COMPANY_FACEBOOK', 'https://facebook.com/apgi.indonesia'),
@@ -49,6 +49,6 @@ return [
         'stabilisasi pasar gula',
         'kemitraan gula',
         'investasi gula',
-        'asosiasipengusahagulaindonesia.or.id'
+        'pengusahagulaindonesia.com'
     ],
 ];
