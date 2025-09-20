@@ -107,7 +107,7 @@
                 <h6 class="m-0">Gambar Featured</h6>
             </div>
             <div class="card-body text-center">
-                <img src="{{ asset('storage/' . $news->image_path) }}" 
+                <img src="{{ asset('storage/app/public/' . $news->image_path) }}" 
                      alt="{{ $news->title }}" 
                      class="img-fluid rounded"
                      style="max-height: 300px;">

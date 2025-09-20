@@ -910,7 +910,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card news-card h-100 shadow-sm border-0">
                         @if($article->image_path)
-                            <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}">
+                            <img src="{{ storageAsset($article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}">
                         @endif
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-2">
@@ -928,7 +928,7 @@
                                 </div>
                             @endif
                             <button class="btn btn-outline-primary btn-sm mt-auto" 
-                                    onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '{{ $article->image_path ? asset('storage/' . $article->image_path) : '' }}', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
+                                    onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '{{ $article->image_path ? storageAsset($article->image_path) : '' }}', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
                                 <i class="fas fa-eye me-2"></i>Baca Selengkapnya
                             </button>
                         </div>

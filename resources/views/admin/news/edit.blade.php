@@ -102,7 +102,7 @@
                         @if($news->image_path)
                             <div class="mt-2">
                                 <small class="text-muted">Gambar saat ini:</small><br>
-                                <img src="{{ asset('storage/' . $news->image_path) }}" 
+                                <img src="{{ asset('storage/app/public/' . $news->image_path) }}" 
                                      alt="Current image" 
                                      class="img-thumbnail mt-1" 
                                      style="max-width: 200px;">
@@ -184,7 +184,7 @@
                 <h6 class="m-0">Preview Gambar</h6>
             </div>
             <div class="card-body text-center">
-                <img src="{{ asset('storage/' . $news->image_path) }}" 
+                <img src="{{ asset('storage/app/public/' . $news->image_path) }}" 
                      alt="{{ $news->title }}" 
                      class="img-fluid rounded"
                      style="max-height: 300px;">

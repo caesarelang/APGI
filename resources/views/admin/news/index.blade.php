@@ -37,7 +37,7 @@
                         <tr>
                             <td>
                                 @if($article->image_path)
-                                    <img src="{{ asset('storage/' . $article->image_path) }}" 
+                                    <img src="{{ asset('storage/app/public/' . $article->image_path) }}" 
                                          alt="{{ $article->title }}" 
                                          class="img-thumbnail" 
                                          style="width: 60px; height: 60px; object-fit: cover;">
