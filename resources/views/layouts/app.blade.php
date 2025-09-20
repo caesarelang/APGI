@@ -661,13 +661,27 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--gradient-primary);
+            background: url('/images/splash.jpeg') center center;
+            background-size: cover;
+            background-repeat: no-repeat;
             z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             transition: opacity 1.2s ease, visibility 1.2s ease;
+        }
+
+        /* Add overlay to maintain readability */
+        .splash-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(46, 125, 50, 0.7);
+            z-index: 1;
         }
 
         .splash-screen.hidden {
@@ -1399,10 +1413,10 @@
                                 <li><a class="dropdown-item" href="/#galeri">
                                     <i class="fas fa-images me-2"></i><span data-en="Gallery" data-id="Galeri">Galeri</span>
                                 </a></li>
-                                <li><a class="dropdown-item" href="#">
+                                <li><a class="dropdown-item" href="/#events">
                                     <i class="fas fa-star me-2"></i><span data-en="Event" data-id="Event">Event</span>
                                 </a></li>
-                                <li><a class="dropdown-item" href="#">
+                                <li><a class="dropdown-item" href="/#social">
                                     <i class="fas fa-heart me-2"></i><span data-en="Social" data-id="Sosial">Sosial</span>
                                 </a></li>
                             </ul>
@@ -1547,7 +1561,7 @@
                         </div>
                         <div class="contact-item mb-3">
                             <i class="fas fa-envelope"></i>
-                            <span>contact@pengusahagulaindonesia.com</span>
+                            <span>sekretariat@pengusahagulaindonesia.com</span>
                         </div>
                         
                         <div class="map-container mt-3" style="height: 150px; border-radius: 8px; overflow: hidden;" onclick="window.open('https://maps.google.com/?q=Margomulyo,Surabaya,Jawa+Timur', '_blank')">
@@ -1697,7 +1711,7 @@
         function updateActiveNavOnScroll() {
             if (window.location.pathname !== '/') return;
             
-            const sections = ['home', 'about', 'member', 'struktur', 'galeri', 'contact'];
+            const sections = ['home', 'about', 'member', 'struktur', 'galeri', 'events', 'social', 'news', 'contact'];
             let currentSection = 'home';
             
 
@@ -1731,6 +1745,12 @@
                 const organisasiLink = document.querySelector('.dropdown-toggle[title="Organisasi"]');
                 if (organisasiLink) {
                     organisasiLink.classList.add('active');
+                }
+            } else if (currentSection === 'galeri' || currentSection === 'events' || currentSection === 'social') {
+                // Set Kegiatan nav sebagai active untuk sub-sections
+                const kegiatanLink = document.querySelector('.dropdown-toggle[title="Kegiatan"]');
+                if (kegiatanLink) {
+                    kegiatanLink.classList.add('active');
                 }
             } else {
 
@@ -1769,13 +1789,107 @@
 
 
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function(e) {
+                // Jangan tutup navbar jika ini adalah dropdown toggle
+                if (this.classList.contains('dropdown-toggle')) {
+                    e.stopPropagation();
+                    return;
+                }
+                
                 const navbarCollapse = document.querySelector('.navbar-collapse');
                 if (navbarCollapse.classList.contains('show')) {
                     const bsCollapse = new bootstrap.Collapse(navbarCollapse);
                     bsCollapse.hide();
                 }
             });
+        });
+
+        // Handle dropdown behavior di mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hanya tutup navbar saat dropdown item di klik, bukan dropdown toggle
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                });
+            });
+
+            // Prevent navbar collapse saat klik dropdown toggle di mobile
+            document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    // Hanya untuk mobile (screen width < 992px)
+                    if (window.innerWidth < 992) {
+                        e.stopPropagation();
+                        
+                        // Toggle dropdown secara manual untuk mobile
+                        const dropdownMenu = this.nextElementSibling;
+                        if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                            const isShowing = dropdownMenu.classList.contains('show');
+                            
+                            // Tutup semua dropdown lain
+                            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                                menu.classList.remove('show');
+                            });
+                            
+                            // Toggle dropdown yang diklik
+                            if (!isShowing) {
+                                dropdownMenu.classList.add('show');
+                            }
+                        }
+                    }
+                });
+            });
+
+            // Tutup dropdown saat klik di luar area dropdown di mobile
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth < 992) {
+                    if (!e.target.closest('.dropdown')) {
+                        document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                            menu.classList.remove('show');
+                        });
+                    }
+                }
+            });
+
+            // Android specific fixes
+            const isAndroid = /Android/i.test(navigator.userAgent);
+            if (isAndroid) {
+                // Tambahan delay untuk Android touch events
+                document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+                    let touchStartTime;
+                    
+                    toggle.addEventListener('touchstart', function() {
+                        touchStartTime = Date.now();
+                    });
+                    
+                    toggle.addEventListener('touchend', function(e) {
+                        const touchDuration = Date.now() - touchStartTime;
+                        
+                        // Hanya proses jika touch duration wajar (bukan swipe)
+                        if (touchDuration < 300) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            setTimeout(() => {
+                                this.click();
+                            }, 50);
+                        }
+                    });
+                });
+                
+                // Prevent double tap zoom pada dropdown items
+                document.querySelectorAll('.dropdown-item').forEach(item => {
+                    item.addEventListener('touchend', function(e) {
+                        e.preventDefault();
+                        setTimeout(() => {
+                            this.click();
+                        }, 50);
+                    });
+                });
+            }
         });
 
 
@@ -1995,6 +2109,37 @@
                 background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%232E7D32' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
             }
             
+            /* Mobile touch improvements */
+            @media (max-width: 991px) {
+                .navbar-nav .nav-link {
+                    padding: 15px 20px;
+                    border-bottom: 1px solid rgba(0,0,0,0.05);
+                    -webkit-tap-highlight-color: transparent;
+                    touch-action: manipulation;
+                }
+                
+                .navbar-nav .dropdown-toggle {
+                    position: relative;
+                    -webkit-tap-highlight-color: transparent;
+                    touch-action: manipulation;
+                }
+                
+                .navbar-nav .dropdown-toggle::after {
+                    position: absolute;
+                    right: 20px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+                
+                .navbar .dropdown-item {
+                    -webkit-tap-highlight-color: transparent;
+                    touch-action: manipulation;
+                    min-height: 44px;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+            
             @media (max-width: 767px) {
                 .hero-section {
                     padding: 100px 0 80px;
@@ -2024,21 +2169,60 @@
                 .navbar .dropdown-menu {
                     border: none;
                     box-shadow: none;
-                    background-color: transparent;
-                    padding: 0;
-                    margin: 0;
+                    background-color: rgba(248, 249, 250, 0.95);
+                    padding: 8px 0;
+                    margin: 8px 0;
                     position: static;
+                    border-radius: 8px;
+                    backdrop-filter: blur(10px);
+                    transform: none;
+                    display: none;
+                }
+                
+                .navbar .dropdown-menu.show {
+                    display: block;
+                    animation: slideDown 0.3s ease;
+                }
+                
+                @keyframes slideDown {
+                    from {
+                        opacity: 0;
+                        transform: translateY(-10px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
                 }
                 
                 .navbar .dropdown-item {
-                    padding: 8px 20px;
-                    color: inherit;
+                    padding: 12px 24px;
+                    color: var(--text-secondary);
                     background: transparent;
+                    border-radius: 6px;
+                    margin: 2px 8px;
+                    transition: all 0.2s ease;
+                    font-size: 14px;
                 }
                 
-                .navbar .dropdown-item:hover {
-                    background-color: var(--light-green);
-                    transform: none;
+                .navbar .dropdown-item:hover,
+                .navbar .dropdown-item:focus {
+                    background-color: var(--primary-color);
+                    color: white;
+                    transform: translateX(5px);
+                }
+                
+                .navbar .dropdown-item i {
+                    width: 16px;
+                    margin-right: 8px;
+                }
+                
+                .navbar .dropdown-toggle::after {
+                    transition: transform 0.3s ease;
+                }
+                
+                .navbar .dropdown.show .dropdown-toggle::after {
+                    transform: rotate(180deg);
                 }
                 
                 .navbar-nav .nav-item .auth-section .btn {
@@ -2213,6 +2397,7 @@
             const currentHash = window.location.hash;
             const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
             const dropdownToggle = document.querySelector('.dropdown-toggle[title="Organisasi"]');
+            const kegiatanToggle = document.querySelector('.dropdown-toggle[title="Kegiatan"]');
             
 
             navLinks.forEach(link => link.classList.remove('active'));
@@ -2226,6 +2411,11 @@
 
                 if (dropdownToggle) {
                     dropdownToggle.classList.add('active');
+                }
+            } else if (currentSection === 'galeri' || currentSection === 'events' || currentSection === 'social') {
+                // Set Kegiatan nav sebagai active untuk sub-sections
+                if (kegiatanToggle) {
+                    kegiatanToggle.classList.add('active');
                 }
             } else if (currentSection) {
 
@@ -2252,6 +2442,11 @@
                 if (newHash === 'member' || newHash === 'struktur') {
                     if (dropdownToggle) {
                         dropdownToggle.classList.add('active');
+                    }
+                } else if (newHash === 'galeri' || newHash === 'events' || newHash === 'social') {
+                    // Set Kegiatan nav sebagai active untuk sub-sections
+                    if (kegiatanToggle) {
+                        kegiatanToggle.classList.add('active');
                     }
                 } else if (newHash) {
                     const targetLink = document.querySelector(`a.nav-link[href="/#${newHash}"]`);

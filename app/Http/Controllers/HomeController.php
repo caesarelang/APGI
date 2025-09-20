@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Gallery;
+use App\Models\Event;
+use App\Models\SocialContent;
+use App\Models\News;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\TwitterCard;
@@ -12,6 +16,17 @@ class HomeController extends Controller
 {
     public function index()
     {
+        // Get dynamic content from database
+        $galleries = Gallery::active()->ordered()->take(8)->get();
+        $galleriesByCategory = [
+            'rapat' => Gallery::active()->byCategory('rapat')->ordered()->take(3)->get(),
+            'seminar' => Gallery::active()->byCategory('seminar')->ordered()->take(3)->get(),
+            'pelatihan' => Gallery::active()->byCategory('pelatihan')->ordered()->take(3)->get(),
+        ];
+        $events = Event::active()->upcoming()->take(6)->get();
+        $socialContents = SocialContent::active()->published()->latest()->take(6)->get();
+        $news = News::active()->published()->latest()->take(6)->get();
+        
         // Set SEO meta tags for homepage
         SEOMeta::setTitle('Beranda - APGI | Asosiasi Pengusaha Gula Indonesia');
         SEOMeta::setDescription('APGI (Asosiasi Pengusaha Gula Indonesia) adalah organisasi profesional yang menaungi para pengusaha gula di Indonesia sejak 2002. Bergabunglah dengan kami untuk mengembangkan industri gula nasional.');
@@ -57,14 +72,14 @@ class HomeController extends Controller
             '@type' => 'ContactPoint',
             'telephone' => '+62-31-033-011',
             'contactType' => 'customer service',
-            'email' => 'contact@pengusahagulaindonesia.com',
+            'email' => 'sekretariat@pengusahagulaindonesia.com',
             'availableLanguage' => ['Indonesian', 'English']
         ]);
         JsonLd::addValue('foundingDate', '2002');
         JsonLd::addValue('numberOfEmployees', '8+');
         JsonLd::addValue('industry', 'Sugar Industry Association');
         
-        return view('home');
+        return view('home', compact('galleries', 'galleriesByCategory', 'events', 'socialContents', 'news'));
     }
     
     public function about()

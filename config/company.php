@@ -18,7 +18,8 @@ return [
     'province' => env('COMPANY_PROVINCE', 'Jawa Timur'),
     'postal_code' => env('COMPANY_POSTAL_CODE', '60183'),
     'phone' => env('COMPANY_PHONE', '+62 31-033-011'),
-    'email' => env('COMPANY_EMAIL', 'contact@pengusahagulaindonesia.com'),
+        // Contact information
+    'email' => env('COMPANY_EMAIL', 'sekretariat@pengusahagulaindonesia.com'),
     'website' => env('COMPANY_WEBSITE', 'https://pengusahagulaindonesia.com'),
 
     // Social Media

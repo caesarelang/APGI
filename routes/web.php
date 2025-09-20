@@ -37,3 +37,6 @@ Route::post('/logout', [GoogleController::class, 'logout'])->name('logout');
 
 // Profile route (protected)
 Route::get('/profile', [GoogleController::class, 'profile'])->name('profile')->middleware('auth');
+
+// Admin Routes
+Route::prefix('admin')->name('admin.')->group(base_path('routes/admin.php'));

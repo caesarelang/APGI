@@ -722,102 +722,35 @@
             </div>
         </div>
         
-        <div class="gallery-grid">
-            <div class="gallery-item-modern featured" data-category="seminar">
-                <div class="gallery-overlay">
-                    <div class="gallery-content">
-                        <div class="gallery-icon">
-                            <i class="fas fa-graduation-cap"></i>
+        <div class="gallery-grid" id="galleryContainer">
+            @forelse($galleries as $gallery)
+                <div class="gallery-item-modern gallery-item" data-category="{{ $gallery->category }}">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <div class="gallery-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <h5 class="gallery-title">{{ $gallery->title }}</h5>
+                            <span class="gallery-category badge bg-primary mb-2">{{ $gallery->category_label }}</span>
+                            @if($gallery->description)
+                                <p class="gallery-desc">{{ Str::limit($gallery->description, 50) }}</p>
+                            @endif
+                            <button class="btn btn-gallery-view" onclick="viewGalleryImage('{{ $gallery->image_url }}', '{{ $gallery->title }}')">
+                                <i class="fas fa-eye me-2"></i><span data-en="View Details" data-id="Lihat Detail">Lihat Detail</span>
+                            </button>
                         </div>
-                        <h5 class="gallery-title" data-en="Industry Seminar" data-id="Seminar Industri">Seminar Industri</h5>
-                        <p class="gallery-desc" data-en="Workshop for quality improvement" data-id="Workshop peningkatan kualitas">Workshop peningkatan kualitas</p>
-                        <button class="btn btn-gallery-view" onclick="viewGalleryDetails('seminar')">
-                            <i class="fas fa-eye me-2"></i><span data-en="View Details" data-id="Lihat Detail">Lihat Detail</span>
-                        </button>
+                    </div>
+                    <img src="{{ $gallery->image_url }}" alt="{{ $gallery->alt_text ?: $gallery->title }}" class="gallery-image">
+                </div>
+            @empty
+                <div class="col-12 text-center">
+                    <div class="py-5">
+                        <i class="fas fa-images text-muted mb-3" style="font-size: 4rem;"></i>
+                        <h5 class="text-muted">Belum ada galeri tersedia</h5>
+                        <p class="text-muted">Galeri akan ditampilkan setelah admin menambahkan konten.</p>
                     </div>
                 </div>
-                <img src="{{ asset('images/gallerys/gallery-1.jpg') }}" alt="Seminar dan workshop industri gula APGI" class="gallery-image">
-            </div>
-            
-            <div class="gallery-item-modern" data-category="factory">
-                <div class="gallery-overlay">
-                    <div class="gallery-content">
-                        <div class="gallery-icon">
-                            <i class="fas fa-industry"></i>
-                        </div>
-                        <h5 class="gallery-title" data-en="Factory Visit" data-id="Kunjungan Pabrik">Kunjungan Pabrik</h5>
-                        <p class="gallery-desc" data-en="Production monitoring & evaluation" data-id="Monitoring & evaluasi produksi">Monitoring & evaluasi produksi</p>
-                        <button class="btn btn-gallery-view" onclick="viewGalleryDetails('factory')">
-                            <i class="fas fa-eye me-2"></i><span data-en="View Details" data-id="Lihat Detail">Lihat Detail</span>
-                        </button>
-                    </div>
-                </div>
-                <img src="{{ asset('images/gallerys/gallery-2.jpg') }}" alt="Kunjungan pabrik gula anggota APGI" class="gallery-image">
-            </div>
-            
-            <div class="gallery-item-modern" data-category="meeting">
-                <div class="gallery-overlay">
-                    <div class="gallery-content">
-                        <div class="gallery-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h5 class="gallery-title" data-en="Coordination Meeting" data-id="Rapat Koordinasi">Rapat Koordinasi</h5>
-                        <p class="gallery-desc" data-en="Stakeholder collaboration" data-id="Kolaborasi stakeholder">Kolaborasi stakeholder</p>
-                        <button class="btn btn-gallery-view" onclick="viewGalleryDetails('meeting')">
-                            <i class="fas fa-eye me-2"></i><span data-en="View Details" data-id="Lihat Detail">Lihat Detail</span>
-                        </button>
-                    </div>
-                </div>
-                <img src="{{ asset('images/gallerys/gallery-3.jpg') }}" alt="Rapat koordinasi APGI dengan stakeholder" class="gallery-image">
-            </div>
-            
-            <div class="gallery-item-modern" data-category="exhibition">
-                <div class="gallery-overlay">
-                    <div class="gallery-content">
-                        <div class="gallery-icon">
-                            <i class="fas fa-store"></i>
-                        </div>
-                        <h5 class="gallery-title" data-en="Industry Exhibition" data-id="Pameran Industri">Pameran Industri</h5>
-                        <p class="gallery-desc" data-en="Product showcase & innovation" data-id="Showcase produk & inovasi">Showcase produk & inovasi</p>
-                        <button class="btn btn-gallery-view" onclick="viewGalleryDetails('exhibition')">
-                            <i class="fas fa-eye me-2"></i><span data-en="View Details" data-id="Lihat Detail">Lihat Detail</span>
-                        </button>
-                    </div>
-                </div>
-                <img src="{{ asset('images/gallerys/gallery-4.jpg') }}" alt="Pameran industri gula Indonesia" class="gallery-image">
-            </div>
-            
-            <div class="gallery-item-modern" data-category="training">
-                <div class="gallery-overlay">
-                    <div class="gallery-content">
-                        <div class="gallery-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                        </div>
-                        <h5 class="gallery-title" data-en="Training Program" data-id="Program Pelatihan">Program Pelatihan</h5>
-                        <p class="gallery-desc" data-en="HR development & modernization" data-id="Pengembangan SDM & modernisasi">Pengembangan SDM & modernisasi</p>
-                        <button class="btn btn-gallery-view" onclick="viewGalleryDetails('training')">
-                            <i class="fas fa-eye me-2"></i><span data-en="View Details" data-id="Lihat Detail">Lihat Detail</span>
-                        </button>
-                    </div>
-                </div>
-                <img src="{{ asset('images/gallerys/gallery-5.jpg') }}" alt="Program pelatihan SDM industri gula" class="gallery-image">
-            </div>
-            
-            <div class="gallery-item-modern" data-category="annual">
-                <div class="gallery-overlay">
-                    <div class="gallery-content">
-                        <div class="gallery-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <h5 class="gallery-title" data-en="Annual Meeting" data-id="Rapat Tahunan">Rapat Tahunan</h5>
-                        <p class="gallery-desc" data-en="Performance evaluation & planning" data-id="Evaluasi kinerja & perencanaan">Evaluasi kinerja & perencanaan</p>
-                        <button class="btn btn-gallery-view" onclick="viewGalleryDetails('annual')">
-                            <i class="fas fa-eye me-2"></i><span data-en="View Details" data-id="Lihat Detail">Lihat Detail</span>
-                        </button>
-                    </div>
-                </div>
-                <img src="{{ asset('images/gallerys/gallery-6.jpg') }}" alt="Rapat tahunan anggota APGI" class="gallery-image">
-            </div>
+            @endforelse
         </div>
         
 
@@ -825,15 +758,140 @@
             <button class="btn btn-filter active" data-filter="all">
                 <i class="fas fa-th me-2"></i><span data-en="All Activities" data-id="Semua Kegiatan">Semua Kegiatan</span>
             </button>
+            <button class="btn btn-filter" data-filter="rapat">
+                <i class="fas fa-users me-2"></i><span data-en="Meetings" data-id="Rapat">Rapat</span>
+            </button>
             <button class="btn btn-filter" data-filter="seminar">
                 <i class="fas fa-graduation-cap me-2"></i><span data-en="Seminars" data-id="Seminar">Seminar</span>
             </button>
-            <button class="btn btn-filter" data-filter="meeting">
-                <i class="fas fa-handshake me-2"></i><span data-en="Meetings" data-id="Rapat">Rapat</span>
-            </button>
-            <button class="btn btn-filter" data-filter="training">
+            <button class="btn btn-filter" data-filter="pelatihan">
                 <i class="fas fa-chalkboard-teacher me-2"></i><span data-en="Training" data-id="Pelatihan">Pelatihan</span>
             </button>
+        </div>
+    </div>
+</section>
+
+<!-- EVENTS SECTION -->
+<section id="events" class="py-5 bg-light">
+    <div class="container">
+        <!-- Events Section -->
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h3 class="display-6 fw-bold text-gradient mb-3" data-en="Upcoming Events" data-id="KEGIATAN MENDATANG">KEGIATAN MENDATANG</h3>
+                <p class="lead text-muted" data-en="Join our upcoming events and be part of Indonesia's sugar industry development" data-id="Ikuti kegiatan mendatang kami dan jadilah bagian dari pengembangan industri gula Indonesia">Ikuti kegiatan mendatang kami dan jadilah bagian dari pengembangan industri gula Indonesia</p>
+            </div>
+        </div>
+        
+        <div class="row mb-5">
+            @forelse($events as $event)
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card event-card h-100 shadow-sm border-0">
+                        @if($event->image_path)
+                            <img src="{{ $event->image_url }}" class="card-img-top news-image" alt="{{ $event->title }}">
+                        @endif
+                        <div class="card-body">
+                            <div class="event-date mb-2">
+                                <span class="badge bg-primary">
+                                    <i class="fas fa-calendar me-1"></i>
+                                    {{ $event->formatted_date }}
+                                </span>
+                                @if($event->event_time)
+                                    <span class="badge bg-info ms-2">
+                                        <i class="fas fa-clock me-1"></i>
+                                        {{ $event->formatted_time }}
+                                    </span>
+                                @endif
+                            </div>
+                            <h5 class="card-title fw-bold text-primary">{{ $event->title }}</h5>
+                            <p class="card-text text-muted">{{ Str::limit($event->description, 100) }}</p>
+                            @if($event->location)
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        <i class="fas fa-map-marker-alt me-1"></i>
+                                        {{ $event->location }}
+                                    </small>
+                                </p>
+                            @endif
+                            @if($event->organizer)
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        Penyelenggara: {{ $event->organizer }}
+                                    </small>
+                                </p>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <div class="col-12 text-center">
+                    <div class="py-5">
+                        <i class="fas fa-calendar-alt text-muted mb-3" style="font-size: 4rem;"></i>
+                        <h5 class="text-muted">Belum ada kegiatan mendatang</h5>
+                        <p class="text-muted">Kegiatan akan ditampilkan setelah admin menambahkan event.</p>
+                    </div>
+                </div>
+            @endforelse
+        </div>
+    </div>
+</section>
+
+<!-- SOCIAL CONTENT SECTION -->
+<section id="social" class="py-5">
+    <div class="container">
+        <!-- Social Content Section -->
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h3 class="display-6 fw-bold text-gradient mb-3" data-en="Social Content" data-id="KONTEN SOSIAL">KONTEN SOSIAL</h3>
+                <p class="lead text-muted" data-en="Follow the latest developments about our activities, innovations, and achievements." data-id="Ikuti perkembangan terkini tentang aktivitas, inovasi, dan pencapaian kami.">Ikuti perkembangan terkini tentang aktivitas, inovasi, dan pencapaian kami.</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            @forelse($socialContents as $content)
+                <div class="col-lg-6 mb-4">
+                    <div class="card news-card h-100 shadow-sm border-0">
+                        @if($content->image_path)
+                            <img src="{{ $content->image_url }}" class="card-img-top news-image" alt="{{ $content->title }}">
+                        @endif
+                        <div class="card-body">
+                            <div class="content-meta mb-2">
+                                @switch($content->type)
+                                    @case('news')
+                                        <span class="badge bg-primary">Berita</span>
+                                        @break
+                                    @case('announcement') 
+                                        <span class="badge bg-warning">Pengumuman</span>
+                                        @break
+                                    @case('activity')
+                                        <span class="badge bg-info">Kegiatan</span>
+                                        @break
+                                    @default
+                                        <span class="badge bg-secondary">{{ ucfirst($content->type) }}</span>
+                                @endswitch
+                                
+                                @if($content->published_at)
+                                    <small class="text-muted ms-2">{{ $content->formatted_published_date }}</small>
+                                @endif
+                            </div>
+                            <h5 class="card-title fw-bold text-primary">{{ $content->title }}</h5>
+                            <p class="card-text text-muted">{{ $content->excerpt }}</p>
+                            @if($content->is_featured)
+                                <span class="badge bg-warning mb-2">
+                                    <i class="fas fa-star me-1"></i>Unggulan
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @empty
+                <div class="col-12 text-center">
+                    <div class="py-5">
+                        <i class="fas fa-newspaper text-muted mb-3" style="font-size: 4rem;"></i>
+                        <h5 class="text-muted">Belum ada berita tersedia</h5>
+                        <p class="text-muted">Berita akan ditampilkan setelah admin menambahkan konten.</p>
+                    </div>
+                </div>
+            @endforelse
         </div>
     </div>
 </section>
@@ -841,78 +899,51 @@
 <!-- NEWS SECTION -->
 <section id="news" class="py-5 bg-light">
     <div class="container">
-        <div class="row text-center mb-5">
-            <div class="col-lg-8 mx-auto">
-                <h3 class="display-6 fw-bold text-gradient mb-3" data-en="APGI NEWS" data-id="KEGIATAN APGI">KEGIATAN APGI</h3>
-                <p class="lead text-muted" data-en="Follow the latest developments about our activities, innovations, and achievements." data-id="Ikuti perkembangan terkini tentang aktivitas, inovasi, dan pencapaian kami.">Ikuti perkembangan terkini tentang aktivitas, inovasi, dan pencapaian kami.</p>
+        <div class="row text-center mb-4">
+            <div class="col-12">
+                <h3 class="display-6 fw-bold text-gradient mb-3" data-en="Latest News" data-id="BERITA TERKINI">BERITA TERKINI</h3>
+                <p class="lead text-muted" data-en="Stay updated with the latest news and insights from APGI" data-id="Tetap terkini dengan berita dan wawasan terbaru dari APGI">Tetap terkini dengan berita dan wawasan terbaru dari APGI</p>
             </div>
         </div>
-        
-        <div class="row">
-            <!-- News Article 1 -->
-            <div class="col-lg-6 mb-4">
-                <div class="card news-card h-100 shadow-sm border-0" onclick="openNewsDetail('post1')" 
-                     data-title="APGI SELAMATKAN PASOKAN GULA 82.000 TON"
-                     data-image="{{ asset('images/gallerys/gallery-1.jpg') }}"
-                     data-writer="Dimas office"
-                     data-date="Sep 7 • 1 min read"
-                     data-views="3">
-                    <img src="{{ asset('images/gallerys/gallery-1.jpg') }}" class="card-img-top news-image" alt="APGI Selamatkan Pasokan Gula">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold text-primary">APGI SELAMATKAN PASOKAN GULA 82.000 TON</h5>
-                        <p class="card-text text-muted">Asosiasi Pengusaha Gula Indonesia (APGI) berhasil mengamankan pasokan gula sebanyak 82.000 ton untuk menjaga stabilitas kebutuhan pangan...</p>
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="{{ asset('images/avatar-placeholder.jpg') }}" class="rounded-circle me-3" width="40" height="40" alt="Writer">
-                            <div>
-                                <small class="text-muted">Writer: <strong>Dimas office</strong></small><br>
-                                <small class="text-muted">Sep 7 • 1 min read</small>
+        <div class="row g-4">
+            @forelse($news as $article)
+                <div class="col-lg-4 col-md-6">
+                    <div class="card news-card h-100 shadow-sm border-0">
+                        @if($article->image_path)
+                            <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}">
+                        @endif
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge bg-warning text-dark">News</span>
+                                @if($article->published_at)
+                                    <small class="text-muted">{{ $article->formatted_published_date }}</small>
+                                @endif
                             </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">
-                                <i class="fas fa-eye me-1"></i> 3
-                            </small>
-                            <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation()">
-                                <i class="fas fa-heart me-1"></i> Like
+                            <h5 class="card-title">{{ $article->title }}</h5>
+                            <p class="card-text text-muted flex-grow-1">{{ $article->excerpt }}</p>
+                            @if($article->author)
+                                <div class="d-flex align-items-center mb-3">
+                                    <img src="{{ asset('images/avatar-placeholder.jpg') }}" class="rounded-circle me-2" width="30" height="30" alt="Author">
+                                    <small class="text-muted">{{ $article->author }}</small>
+                                </div>
+                            @endif
+                            <button class="btn btn-outline-primary btn-sm mt-auto" 
+                                    onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '{{ $article->image_path ? asset('storage/' . $article->image_path) : '' }}', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
+                                <i class="fas fa-eye me-2"></i>Baca Selengkapnya
                             </button>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- News Article 2 -->
-            <div class="col-lg-6 mb-4">
-                <div class="card news-card h-100 shadow-sm border-0" onclick="openNewsDetail('post2')"
-                     data-title="APGI Tegak Mendukung Produksi Gula PG. Jatiroto Demi Menjaga Kestabilitas Harga Gula"
-                     data-image="{{ asset('images/gallerys/gallery-2.jpg') }}"
-                     data-writer="Dimas office"
-                     data-date="Sep 7 • 1 min read"
-                     data-views="2">
-                    <img src="{{ asset('images/gallerys/gallery-2.jpg') }}" class="card-img-top news-image" alt="APGI Mendukung Produksi Gula">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold text-primary">APGI Tegak Mendukung Produksi Gula PG. Jatiroto Demi Menjaga Kestabilitas Harga Gula</h5>
-                        <p class="card-text text-muted">Di tengah dinamika pasar dan tantangan ketahanan pangan, Asosiasi Pengusaha Gula Indonesia (APGI) berdiri di garis depan dengan...</p>
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="{{ asset('images/avatar-placeholder.jpg') }}" class="rounded-circle me-3" width="40" height="40" alt="Writer">
-                            <div>
-                                <small class="text-muted">Writer: <strong>Dimas office</strong></small><br>
-                                <small class="text-muted">Sep 7 • 1 min read</small>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">
-                                <i class="fas fa-eye me-1"></i> 2
-                            </small>
-                            <button class="btn btn-sm btn-outline-primary" onclick="event.stopPropagation()">
-                                <i class="fas fa-heart me-1"></i> Like
-                            </button>
-                        </div>
+            @empty
+                <div class="col-12 text-center">
+                    <div class="py-5">
+                        <i class="fas fa-newspaper text-muted mb-3" style="font-size: 4rem;"></i>
+                        <h5 class="text-muted">Belum ada berita utama tersedia</h5>
+                        <p class="text-muted">Berita akan ditampilkan setelah admin menambahkan konten.</p>
                     </div>
                 </div>
-            </div>
+            @endforelse
         </div>
-        
-
     </div>
 </section>
 
@@ -975,7 +1006,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10">
                 <div class="contact-form-container bg-white rounded-4 shadow p-5">
-                    <form id="contactForm" action="mailto:contact@pengusahagulaindonesia.com" method="post" enctype="text/plain">
+                    <form id="contactForm" action="mailto:sekretariat@pengusahagulaindonesia.com" method="post" enctype="text/plain">
                         <div class="row g-4">
 
                             <div class="col-md-6">
@@ -1027,7 +1058,7 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h6 class="mb-2">Email</h6>
-                    <p class="text-muted mb-0">contact@pengusahagulaindonesia.com</p>
+                    <p class="text-muted mb-0">sekretariat@pengusahagulaindonesia.com</p>
                 </div>
             </div>
             
@@ -2378,6 +2409,14 @@
     z-index: 2;
 }
 
+.gallery-category {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+    font-size: 0.8rem;
+}
+
 .gallery-item-modern {
     position: relative;
     border-radius: 20px;
@@ -3231,7 +3270,7 @@ Sent from APGI Website Contact Form
             `.trim();
             
 
-            const mailtoLink = `mailto:contact@pengusahagulaindonesia.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            const mailtoLink = `mailto:sekretariat@pengusahagulaindonesia.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
             
 
             window.location.href = mailtoLink;
