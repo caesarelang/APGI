@@ -5,34 +5,48 @@
 
 @section('content')
 
-<section id="home" class="hero-section py-5">
-    <div class="container">
-        <div class="row align-items-center min-vh-75">
-            <div class="col-lg-7">
-                <div class="hero-content">
-                    <h1 class="hero-title display-4 fw-bold mb-4">
-                        <span class="text-gradient" data-en="Indonesian Sugar Entrepreneurs Association" data-id="Asosiasi Pengusaha Gula Indonesia">Asosiasi Pengusaha Gula Indonesia</span>
+<section id="home" class="hero-section position-relative overflow-hidden">
+    <!-- Background Video -->
+    <video id="heroVideo" class="hero-background-video" autoplay muted loop playsinline>
+        <source src="{{ asset('videos/intro.mp4') }}" type="video/mp4">
+    </video>
+    
+    <!-- Video Overlay -->
+    <div class="hero-overlay"></div>
+    
+    <!-- Hero Content -->
+    <div class="container position-relative">
+        <div class="row align-items-start min-vh-100 pt-5">
+            <div class="col-lg-8">
+                <div class="hero-content text-white mt-5 pt-4">
+                    <div class="hero-badge mb-4">
+                        <span class="badge bg-success bg-opacity-90 px-4 py-2 rounded-pill fs-5">
+                            <i class="fas fa-leaf me-2"></i>
+                            <span data-en="Sugar Industry Leader" data-id="Pemimpin Industri Gula">Pemimpin Industri Gula</span>
+                        </span>
+                    </div>
+                    <h1 class="display-4 fw-bold mb-4 text-shadow-strong">
+                        <span data-en="Association of Indonesian Sugar Entrepreneurs" data-id="Asosiasi Pengusaha Gula Indonesia">Asosiasi Pengusaha Gula Indonesia</span>
                     </h1>
-                    <h2 class="hero-subtitle h4 text-muted mb-4" data-en="Developing National Sugar Trade Stability" data-id="Mengembangkan Stabilitas Perdagangan Gula Nasional">
+                    <h2 class="h3 mb-4 text-shadow fw-bold" data-en="Developing National Sugar Trade Stability" data-id="Mengembangkan Stabilitas Perdagangan Gula Nasional">
                         Mengembangkan Stabilitas Perdagangan Gula Nasional
                     </h2>
-                    <p class="lead mb-5" style="line-height: 1.8; color: #6c757d;" data-en="Providing the latest information and useful resources for the advancement of Indonesia's sugar industry towards food self-sufficiency." data-id="Menyediakan informasi terkini dan sumber daya yang berguna untuk kemajuan industri gula Indonesia menuju swasembada pangan.">
+                    <p class="lead mb-4 text-shadow" data-en="Providing the latest information and useful resources for the advancement of Indonesia's sugar industry towards food self-sufficiency." data-id="Menyediakan informasi terkini dan sumber daya yang berguna untuk kemajuan industri gula Indonesia menuju swasembada pangan.">
                         Menyediakan informasi terkini dan sumber daya yang berguna untuk kemajuan industri gula Indonesia menuju swasembada pangan.
                     </p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="#about" class="btn btn-gradient btn-lg">
+                    <div class="hero-buttons d-flex flex-wrap gap-3">
+                        <a href="#about" class="btn btn-light btn-lg shadow px-4 py-3">
                             <i class="fas fa-arrow-right me-2"></i><span data-en="Learn More" data-id="Pelajari Lebih Lanjut">Pelajari Lebih Lanjut</span>
                         </a>
-                        <a href="#member" class="btn btn-outline-success btn-lg">
+                        <a href="#member" class="btn btn-outline-light btn-lg px-4 py-3">
                             <i class="fas fa-users me-2"></i><span data-en="View Members" data-id="Lihat Anggota">Lihat Anggota</span>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5">
-                <div class="hero-image-container text-center">
+            <div class="col-lg-4">
+                <div class="hero-side-content text-center mt-5 pt-4">
                     <div class="hero-carousel-container position-relative">
-
                         <div class="hero-carousel">
                             <div class="carousel-track">
                                 <div class="carousel-slide active">
@@ -938,9 +952,403 @@
 
 <style>
 
+/* Hero Background Video Styles */
+.hero-section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hero-background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(46,125,50,0.3) 50%, rgba(0,0,0,0.6) 100%);
+    z-index: -1;
+}
+
+/* Text Shadows for Readability */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.text-shadow-strong {
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+}
+
+/* Hero Content Enhancements */
+.hero-content {
+    padding: 1rem 0;
+    animation: fadeInUp 1s ease-out;
+    position: relative;
+    z-index: 3;
+}
+
+.hero-side-content {
+    position: relative;
+    z-index: 3;
+}
+
+/* Custom positioning classes */
+.hero-section .row {
+    position: relative;
+    z-index: 2;
+    padding-top: 3rem;
+}
+
+.mb-6 {
+    margin-bottom: 4rem !important;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-badge .badge {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.btn-light {
+    background-color: rgba(255,255,255,0.95);
+    border-color: rgba(255,255,255,0.95);
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.btn-light:hover {
+    background-color: rgba(255,255,255,1);
+    border-color: rgba(255,255,255,1);
+    color: #1b5e20;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.btn-outline-light:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,1);
+    transform: translateY(-2px);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+    
+    .hero-background-video {
+        object-position: center center;
+    }
+    
+    .hero-content {
+        text-align: center;
+        padding: 0.5rem 0;
+        margin-top: 1rem !important;
+        padding-top: 1rem !important;
+    }
+    
+    .hero-side-content {
+        margin-top: 2rem !important;
+        padding-top: 1rem !important;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+        line-height: 1.1;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .hero-content .lead {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        line-height: 1.4;
+    }
+    
+    .hero-badge .badge {
+        font-size: 1.1rem;
+        padding: 0.7rem 1rem;
+    }
+    
+    .person-name {
+        font-size: 1.8rem;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
+    
+    .person-position {
+        font-size: 1.2rem;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+        line-height: 1.1;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .hero-content .lead {
+        font-size: 1.1rem;
+    }
+    
+    .hero-badge .badge {
+        font-size: 1rem;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .person-name {
+        font-size: 1.6rem;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
+    
+    .person-position {
+        font-size: 1.1rem;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
+}
+
 .hero-carousel-container {
     max-width: 400px;
     margin: 0 auto;
+}
+
+.hero-video-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.video-wrapper {
+    position: relative;
+    background: #000;
+    border: 3px solid rgba(46, 125, 50, 0.2);
+    transition: all 0.3s ease;
+}
+
+.video-wrapper:hover {
+    border-color: rgba(46, 125, 50, 0.5);
+    box-shadow: 0 15px 35px rgba(46, 125, 50, 0.2);
+}
+
+.hero-video {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.4) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.video-wrapper:hover .video-overlay {
+    opacity: 1;
+}
+
+.play-button-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video-play-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(46, 125, 50, 0.9);
+    border: 3px solid white;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-play-btn:hover {
+    background: rgba(46, 125, 50, 1);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(46, 125, 50, 0.5);
+}
+
+.video-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    text-align: center;
+}
+
+.video-info h5 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.video-wrapper:hover .video-controls {
+    opacity: 1;
+}
+
+.progress-container {
+    flex: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2e7d32, #4caf50);
+    width: 0%;
+    transition: width 0.1s ease;
+    border-radius: 2px;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.control-btn {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(46, 125, 50, 0.8);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.control-btn:hover {
+    background: rgba(46, 125, 50, 1);
+    transform: scale(1.1);
+}
+
+/* Mobile Video Responsive */
+@media (max-width: 768px) {
+    .hero-video {
+        height: 250px;
+    }
+    
+    .video-play-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+    
+    .control-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+    
+    .video-info h5 {
+        font-size: 1rem;
+    }
+    
+    .video-controls {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-video {
+        height: 200px;
+    }
+    
+    .video-info h5 {
+        font-size: 0.9rem;
+    }
 }
 
 .hero-carousel {
@@ -975,6 +1383,7 @@
     width: 100%;
     height: 450px;
     object-fit: cover;
+    object-position: center top;
     display: block;
 }
 
@@ -1027,25 +1436,30 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(46, 125, 50, 0.3);
+    background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
     transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .dot.active {
-    background: #2E7D32;
-    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.3);
+    border: 2px solid rgba(255, 255, 255, 1);
 }
 
 .dot:hover {
-    background: #4CAF50;
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+    border: 2px solid rgba(255, 255, 255, 1);
 }
 
 
 .person-info-container {
     margin-top: 25px;
-    min-height: 80px;
+    min-height: 100px;
     text-align: center;
+    padding: 0 10px;
 }
 
 .person-info {
@@ -1062,21 +1476,31 @@
 }
 
 .person-name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #2E7D32;
-    margin-bottom: 8px;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 10px;
     font-family: 'Playfair Display', serif;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+    line-height: 1.1;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    max-width: 100%;
 }
 
 .person-position {
-    font-size: 1rem;
-    color: #6c757d;
+    font-size: 1.4rem;
+    color: rgba(255,255,255,0.9);
     margin-bottom: 0;
-    font-weight: 500;
-    line-height: 1.4;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    line-height: 1.3;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    max-width: 100%;
 }
-
 
 .contact-form-container {
     border: 1px solid #e9ecef;
@@ -1090,8 +1514,8 @@
 }
 
 .contact-form-container .form-control:focus {
-    border-color: #2E7D32;
-    box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25);
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
 }
 
 .contact-form-container .form-label {
@@ -1869,6 +2293,29 @@
         grid-column: span 1;
         height: 300px;
     }
+    
+    .hero-video-container {
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-video {
+        height: 250px;
+    }
+    
+    .video-play-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+    
+    .video-info h5 {
+        font-size: 1rem;
+    }
+    
+    .hero-carousel-container {
+        max-width: 350px;
+    }
 }
 
 .gallery-item-modern:hover {
@@ -2443,6 +2890,99 @@ document.addEventListener('DOMContentLoaded', function() {
                     }, 300);
                 }
             });
+        });
+    });
+    
+    // Hero Video Controls
+    function toggleVideo() {
+        const video = document.getElementById('heroVideo');
+        const playIcon = document.getElementById('playIcon');
+        const pauseIcon = document.getElementById('pauseIcon');
+        
+        if (video.paused) {
+            video.play();
+            playIcon.classList.add('d-none');
+            pauseIcon.classList.remove('d-none');
+        } else {
+            video.pause();
+            playIcon.classList.remove('d-none');
+            pauseIcon.classList.add('d-none');
+        }
+    }
+    
+    function toggleMute() {
+        const video = document.getElementById('heroVideo');
+        const volumeIcon = document.getElementById('volumeIcon');
+        
+        if (video.muted) {
+            video.muted = false;
+            volumeIcon.className = 'fas fa-volume-up';
+        } else {
+            video.muted = true;
+            volumeIcon.className = 'fas fa-volume-mute';
+        }
+    }
+    
+    function toggleFullscreen() {
+        const video = document.getElementById('heroVideo');
+        const fullscreenIcon = document.getElementById('fullscreenIcon');
+        
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+            fullscreenIcon.className = 'fas fa-expand';
+        } else {
+            video.requestFullscreen();
+            fullscreenIcon.className = 'fas fa-compress';
+        }
+    }
+    
+    // Auto hide/show video controls
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.getElementById('heroVideo');
+        const overlay = document.querySelector('.video-overlay');
+        const progressFill = document.getElementById('progressFill');
+        const progressBar = document.getElementById('progressBar');
+        
+        // Update progress bar
+        video.addEventListener('timeupdate', function() {
+            if (video.duration) {
+                const progress = (video.currentTime / video.duration) * 100;
+                progressFill.style.width = progress + '%';
+            }
+        });
+        
+        // Click to seek
+        progressBar.addEventListener('click', function(e) {
+            const rect = progressBar.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            video.currentTime = percent * video.duration;
+        });
+        
+        // Auto hide overlay after 3 seconds
+        setTimeout(() => {
+            if (!video.paused) {
+                overlay.style.opacity = '0';
+            }
+        }, 3000);
+        
+        // Show overlay on hover
+        video.addEventListener('mouseenter', function() {
+            overlay.style.opacity = '1';
+        });
+        
+        video.addEventListener('mouseleave', function() {
+            if (!video.paused) {
+                setTimeout(() => {
+                    overlay.style.opacity = '0';
+                }, 1000);
+            }
+        });
+        
+        // Handle video end
+        video.addEventListener('ended', function() {
+            document.getElementById('playIcon').classList.remove('d-none');
+            document.getElementById('pauseIcon').classList.add('d-none');
+            overlay.style.opacity = '1';
         });
     });
 });
