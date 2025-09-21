@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Validation\Rules\Password;
 
 class AdminAuthController extends Controller
 {
@@ -48,5 +49,56 @@ class AdminAuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('admin.login');
+    }
+
+    public function showProfile()
+    {
+        $admin = Auth::guard('admin')->user();
+        return view('admin.profile.index', compact('admin'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $admin = Auth::guard('admin')->user();
+        
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:admins,email,' . $admin->id,
+        ]);
+
+        $admin->update($request->only(['name', 'email']));
+
+        return redirect()->route('admin.profile')
+                        ->with('success', 'Profile berhasil diperbarui.');
+    }
+
+    public function showChangePasswordForm()
+    {
+        return view('admin.change-password');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $admin = Auth::guard('admin')->user();
+        
+        $request->validate([
+            'current_password' => 'required',
+            'password' => ['required', 'confirmed', Password::min(8)->mixedCase()->numbers()],
+        ]);
+
+        // Check if current password is correct
+        if (!Hash::check($request->current_password, $admin->password)) {
+            throw ValidationException::withMessages([
+                'current_password' => ['Password saat ini tidak benar.'],
+            ]);
+        }
+
+        // Update password
+        $admin->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('admin.change-password')
+                        ->with('success', 'Password berhasil diubah.');
     }
 }

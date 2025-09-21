@@ -136,6 +136,19 @@
                                 <li><span class="dropdown-item-text">{{ Auth::guard('admin')->user()->role }}</span></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
+                                    <a class="dropdown-item" href="{{ route('admin.profile') }}">
+                                        <i class="bi bi-person me-2"></i>
+                                        Profil
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('admin.change-password') }}">
+                                        <i class="bi bi-key me-2"></i>
+                                        Ganti Password
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
                                     <form action="{{ route('admin.logout') }}" method="POST">
                                         @csrf
                                         <button type="submit" class="dropdown-item">

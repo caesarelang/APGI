@@ -33,6 +33,14 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.alt');
     
+    // Profile Management
+    Route::get('/profile', [AdminAuthController::class, 'showProfile'])->name('profile');
+    Route::put('/profile', [AdminAuthController::class, 'updateProfile'])->name('profile.update');
+    
+    // Change Password
+    Route::get('/change-password', [AdminAuthController::class, 'showChangePasswordForm'])->name('change-password');
+    Route::post('/change-password', [AdminAuthController::class, 'changePassword'])->name('change-password.post');
+    
     // Gallery Management
     Route::resource('galleries', GalleryController::class);
     
