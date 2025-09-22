@@ -1504,8 +1504,8 @@
                         </div>
                     </div>
                     
-                    <p class="text-muted mb-3" data-en="Professional organization for sugar entrepreneurs in Indonesia since 2002. Building sustainable and competitive national sugar industry." data-id="Organisasi profesional pengusaha gula di Indonesia sejak 2002. Membangun industri gula nasional yang berkelanjutan dan berdaya saing.">
-                        Organisasi profesional pengusaha gula di Indonesia sejak 2002. Membangun industri gula nasional yang berkelanjutan dan berdaya saing.
+                    <p class="text-muted mb-3" data-en="Professional organization for sugar entrepreneurs in Indonesia since 2001. Building sustainable and competitive national sugar industry." data-id="Organisasi profesional pengusaha gula di Indonesia sejak 2001. Membangun industri gula nasional yang berkelanjutan dan berdaya saing.">
+                        Organisasi profesional pengusaha gula di Indonesia sejak 2001. Membangun industri gula nasional yang berkelanjutan dan berdaya saing.
                     </p>
               
                     <div class="d-flex gap-2">
@@ -1553,20 +1553,20 @@
                         <h6 data-en="Contact & Location" data-id="Kontak & Lokasi">Kontak & Lokasi</h6>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span data-en="Margomulyo, Surabaya, East Java" data-id="Margomulyo, Surabaya, Jawa Timur">Margomulyo, Surabaya, Jawa Timur</span>
+                            <span data-en="Jl. Tanjung Batu No.38-54, Perak Barat, Krembangan, Surabaya, East Java (60177)" data-id="Jl. Tanjung Batu No.38-54, Perak Barat, Kecamatan Krembangan, Kota Surabaya, Jawa Timur (60177)">Jl. Tanjung Batu No.38-54, Perak Barat, Kecamatan Krembangan, Kota Surabaya, Jawa Timur (60177)</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
-                            <span>+62 31-033-011</span>
+                            <span>+62 317490000</span>
                         </div>
                         <div class="contact-item mb-3">
                             <i class="fas fa-envelope"></i>
                             <span>sekretariat@pengusahagulaindonesia.com</span>
                         </div>
                         
-                        <div class="map-container mt-3" style="height: 150px; border-radius: 8px; overflow: hidden;" onclick="window.open('https://maps.google.com/?q=Margomulyo,Surabaya,Jawa+Timur', '_blank')">
+                        <div class="map-container mt-3" style="height: 150px; border-radius: 8px; overflow: hidden;" onclick="window.open('https://maps.google.com/?q=Jl.+Tanjung+Batu+No.38-54+Perak+Barat+Krembangan+Surabaya+Jawa+Timur+60177', '_blank')">
                             <iframe 
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.2346838582!2d112.68614148166769!3d-7.256538938034943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbc0f51e15b3%3A0x9c0f2b9e2f9a7c8b!2sMargomulyo%2C%20Tandes%2C%20Surabaya%2C%20East%20Java!5e0!3m2!1sen!2sid!4v1639123456789!5m2!1sen!2sid" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5234567890!2d112.7234567!3d-7.2345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbc123456789%3A0x123456789abcdef!2sJl.+Tanjung+Batu+No.38-54%2C+Perak+Barat%2C+Krembangan%2C+Surabaya%2C+Jawa+Timur+60177!5e0!3m2!1sen!2sid!4v1639123456789!5m2!1sen!2sid" 
                                 width="100%" 
                                 height="100%" 
                                 style="border:0; pointer-events: none;" 
