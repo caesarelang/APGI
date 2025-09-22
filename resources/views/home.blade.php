@@ -344,8 +344,8 @@
                                     <div>
                                         <h6 class="mb-1 text-success" data-en="Current Achievement" data-id="Pencapaian Saat Ini">Pencapaian Saat Ini</h6>
                                         <p class="mb-0 text-muted small">
-                                            <span data-en="APGI has become a home for <strong>9 members </strong> from various sugarcane producing regions in Indonesia" data-id="APGI telah menjadi rumah bagi <strong>9 anggota </strong> dari berbagai daerah penghasil tebu di Indonesia">
-                                                APGI telah menjadi rumah bagi <strong>9 anggota</strong> dari berbagai daerah penghasil tebu di Indonesia
+                                            <span data-en="APGI has become a home for <strong>60+ members </strong> from various sugarcane producing regions in Indonesia" data-id="APGI telah menjadi rumah bagi <strong>60+ anggota </strong> dari berbagai daerah penghasil tebu di Indonesia">
+                                                APGI telah menjadi rumah bagi <strong>60+ anggota</strong> dari berbagai daerah penghasil tebu di Indonesia
                                             </span>
                                         </p>
                                     </div>
@@ -3342,7 +3342,43 @@ function showAllMembers() {
         'PT Agung Samudra Mulia',
         'CV Puncak Jaya',
         'CV Swasembada',
-        'CV Indika Multi Karya'
+        'CV Indika Multi Karya',
+        'CV Hasil Karya Wijaya',
+        'PT. Putra Benteng Sejahtera',
+        'CV Sumber Kencana Abadi',
+        'PT Mitra Agro Utama',
+        'CV Agro Prima Santoso',
+        'CV Anugrah Bersama Cemerlang',
+        'PT Berkah Sarana Irjatama',
+        'CV Kasih Karunianya',
+        'PT Mitra Pangan Nusantara',
+        'CV Citra Mulia Abadi',
+        'CV Sentosa',
+        'PT Rambi Jaya',
+        'CV Surya Kencana',
+        'PT Wijaya Tama Langgengperkasa',
+        'CV Manunggal Jaya Abadi',
+        'PT Inti Kurnia Trading',
+        'PT Pamer',
+        'CV Puncak Raya',
+        'PT Tiga Bintang Cemerlang',
+        'CV Rukun Makmur',
+        'CV Tiga Berlian',
+        'CV Inti Gula Manias',
+        'CV Agro Tani Sejahtera',
+        'PT Setia Mandiri Sentra Makmur',
+        'PT Mandiri Berlian Perkasa',
+        'PT Berlian Penta Sukses',
+        'CV Sri Rejeki',
+        'PT Energi Muda Nusantara',
+        'PT Cipta Karya Pratama',
+        'CV Ardana Sukses Makmur',
+        'PT. Berkah Sarana Irjatama',
+        'CV Semangat Jaya Makmur',
+        'PT. Arthajaya Putra Perdana',
+        'CV Sumber Pangan',
+        'PT Sumatra Sejahtera',
+        'PT Mahakam Lestari Transindo'
     ];
     
     let memberList = '<div class="container-fluid"><div class="row g-3">';
