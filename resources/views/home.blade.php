@@ -327,8 +327,8 @@
                                 <i class="fas fa-seedling text-success me-3"></i><span data-en="History of APGI Foundation" data-id="Sejarah Berdirinya APGI">Sejarah Berdirinya APGI</span>
                             </h4>
                             <p class="text-muted mb-4" style="line-height: 1.8;">
-                                <span data-en="Amid the turmoil of the national sugar industry after its independence from Bulog, Indonesian sugarcane farmers felt adrift. Market uncertainty and unfair business practices became a specter that haunted them. Seeing this condition, <strong class='text-primary'>Pieko Njotosetiadi</strong>, a sugar entrepreneur who cared about the fate of farmers, took the initiative to establish the Indonesian Sugar Farmers Association (APGI) in <strong class='text-success'>2001</strong>." data-id="Di tengah gejolak industri gula nasional pasca lepas dari Bulog, para petani tebu Indonesia merasa terombang-ambing. Ketidakpastian pasar dan praktik bisnis yang tidak adil menjadi momok yang menghantui mereka. Melihat kondisi tersebut, <strong class='text-primary'>Pieko Njotosetiadi</strong>, seorang pengusaha gula yang peduli pada nasib petani, berinisiatif mendirikan Asosiasi Petani Gula Indonesia (APGI) pada tahun <strong class='text-success'>2001</strong>.">
-                                    Di tengah gejolak industri gula nasional pasca lepas dari Bulog, para petani tebu Indonesia merasa terombang-ambing. Ketidakpastian pasar dan praktik bisnis yang tidak adil menjadi momok yang menghantui mereka. Melihat kondisi tersebut, <strong class="text-primary">Pieko Njotosetiadi</strong>, seorang pengusaha gula yang peduli pada nasib petani, berinisiatif mendirikan Asosiasi Petani Gula Indonesia (APGI) pada tahun <strong class="text-success">2001</strong>.
+                                <span data-en="Amid the turmoil of the national sugar industry after its independence from Bulog, Indonesian sugarcane farmers felt adrift. Market uncertainty and unfair business practices became a specter that haunted them. Seeing this condition, <strong class='text-success'>Pieko Njotosetiadi</strong> along with <strong class='text-success'>Alex Sugiri, Alamsyah, Chandra Harsono, Zaenal Kholik, Samiasih, Hadi Gunawan, Soegiono, Lim Winarto Halim, Hadi Sutanto, and Listyono Sumali</strong>, sugar entrepreneurs who cared about the fate of farmers, took the initiative to establish the Indonesian Sugar Farmers Association (APGI) in <strong class='text-success'>2001</strong>." data-id="Di tengah gejolak industri gula nasional pasca lepas dari Bulog, para petani tebu Indonesia merasa terombang-ambing. Ketidakpastian pasar dan praktik bisnis yang tidak adil menjadi momok yang menghantui mereka. Melihat kondisi tersebut, <strong class='text-success'>Pieko Njotosetiadi</strong> bersama <strong class='text-success'>Alex Sugiri, Alamsyah, Chandra Harsono, Zaenal Kholik, Samiasih, Hadi Gunawan, Soegiono, Lim Winarto Halim, Hadi Sutanto, dan Listyono Sumali</strong>, para pengusaha gula yang peduli pada nasib petani, berinisiatif mendirikan Asosiasi Petani Gula Indonesia (APGI) pada tahun <strong class='text-success'>2001</strong>.">
+                                    Di tengah gejolak industri gula nasional pasca lepas dari Bulog, para petani tebu Indonesia merasa terombang-ambing. Ketidakpastian pasar dan praktik bisnis yang tidak adil menjadi momok yang menghantui mereka. Melihat kondisi tersebut, <strong class="text-success">Pieko Njotosetiadi</strong> bersama <strong class="text-success">Alex Sugiri, Alamsyah, Chandra Harsono, Zaenal Kholik, Samiasih, Hadi Gunawan, Soegiono, Lim Winarto Halim, Hadi Sutanto, dan Listyono Sumali</strong>, para pengusaha gula yang peduli pada nasib petani, berinisiatif mendirikan Asosiasi Petani Gula Indonesia (APGI) pada tahun <strong class="text-success">2001</strong>.
                                 </span>
                             </p>
                             <p class="text-muted mb-4" style="line-height: 1.8;">
@@ -351,6 +351,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -2314,8 +2315,10 @@
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
     border: 2px solid transparent;
-    max-width: 320px;
+    max-width: 380px;
+    min-width: 300px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .org-card-modern:hover {
@@ -2374,9 +2377,11 @@
 }
 
 .org-name {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #666;
     font-weight: 600;
+    word-wrap: break-word;
+    line-height: 1.3;
 }
 
 .org-connector {
@@ -3121,6 +3126,7 @@
         font-size: 1rem;
     }
 }
+
 </style>
 
 <script>
