@@ -62,83 +62,201 @@
             <div class="col-lg-8 col-md-10">
                 <div class="people-carousel-container position-relative">
                     <div class="people-carousel">
+                        <!-- 1. Pieko -->
                         <div class="people-slide active">
                             <div class="people-card text-center">
                                 <div class="people-image-container mb-4">
-                                    <img src="{{ asset('images/people/people-1.png') }}" alt="Pieko Njotosetiadi" class="people-image">
+                                    <img src="{{ asset('images/people/pak pieko.png') }}" alt="Pieko Njotosetiadi" class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Pieko Njotosetiadi</h5>
                                 <p class="people-title text-muted mb-0">Ketua Umum APGI</p>
                             </div>
                         </div>
                         
+                        <!-- 2. Vinsen -->
                         <div class="people-slide">
                             <div class="people-card text-center">
                                 <div class="people-image-container mb-4">
-                                    <img src="{{ asset('images/people/people-2.png') }}" alt="Dimas Agung Mahendra" class="people-image">
+                                    <img src="{{ asset('images/people/placeholder.png') }}" alt="Vinsen Njotosetiadi" class="people-image">
                                 </div>
-                                <h5 class="people-name fw-bold mb-2">Dimas Agung Mahendra, S.P.</h5>
-                                <p class="people-title text-muted mb-0">Humas Dan Kelembagaan APGI</p>
+                                <h5 class="people-name fw-bold mb-2">Vinsen Njotosetiadi</h5>
+                                <p class="people-title text-muted mb-0">Wakil Ketua Umum APGI</p>
                             </div>
                         </div>
                         
+                        <!-- 3. Chandra -->
                         <div class="people-slide">
                             <div class="people-card text-center">
                                 <div class="people-image-container mb-4">
-                                    <img src="{{ asset('images/people/people-3.png') }}" alt="Teguh Dwi Jadmiko" class="people-image">
-                                </div>
-                                <h5 class="people-name fw-bold mb-2">Teguh Dwi Jadmiko, S.E.</h5>
-                                <p class="people-title text-muted mb-0">Sekjen APGI</p>
-                            </div>
-                        </div>
-                        
-                        <div class="people-slide">
-                            <div class="people-card text-center">
-                                <div class="people-image-container mb-4">
-                                    <img src="{{ asset('images/people/people-4.png') }}" alt="Sugianto" class="people-image">
-                                </div>
-                                <h5 class="people-name fw-bold mb-2">Sugianto, S.E.</h5>
-                                <p class="people-title text-muted mb-0">Kabid Kemitraan APGI</p>
-                            </div>
-                        </div>
-                        
-                        <div class="people-slide">
-                            <div class="people-card text-center">
-                                <div class="people-image-container mb-4">
-                                    <img src="{{ asset('images/people/people-5.png') }}" alt="Liem Wan Seng" class="people-image">
-                                </div>
-                                <h5 class="people-name fw-bold mb-2">Liem Wan Seng</h5>
-                                <p class="people-title text-muted mb-0">Kabid Perdagangan Dalam Negeri APGI</p>
-                            </div>
-                        </div>
-                        
-                        <div class="people-slide">
-                            <div class="people-card text-center">
-                                <div class="people-image-container mb-4">
-                                    <img src="{{ asset('images/people/people-6.png') }}" alt="Drs. Chandra Harsono" class="people-image">
+                                    <img src="{{ asset('images/people/Chandra Harsono.png') }}" alt="Drs. Chandra Harsono" class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Drs. Chandra Harsono</h5>
-                                <p class="people-title text-muted mb-0">Ketua Harian APGI</p>
+                                <p class="people-title text-muted mb-0">Dewan Pembina APGI</p>
                             </div>
                         </div>
                         
+                        <!-- 4. Lim Wan Seng -->
                         <div class="people-slide">
                             <div class="people-card text-center">
                                 <div class="people-image-container mb-4">
-                                    <img src="{{ asset('images/people/people-7.png') }}" alt="Drs. Bambang Senggono" class="people-image">
+                                    <img src="{{ asset('images/people/Lim wan seng.png') }}" alt="Liem Wan Seng" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Liem Wan Seng</h5>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Perdagangan Dalam Negeri APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 5. Bambang Senggono -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Bambang Senggono.png') }}" alt="Drs. Bambang Senggono" class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Drs. Bambang Senggono</h5>
-                                <p class="people-title text-muted mb-0">Kabid SDM & Hukum APGI</p>
+                                <p class="people-title text-muted mb-0">Kepala Bidang SDM & Hukum APGI</p>
                             </div>
                         </div>
                         
+                        <!-- 6. Dimas Agung -->
                         <div class="people-slide">
                             <div class="people-card text-center">
                                 <div class="people-image-container mb-4">
-                                    <img src="{{ asset('images/people/people-8.png') }}" alt="H. Massat Zakariyah" class="people-image">
+                                    <img src="{{ asset('images/people/Dimas Agung.png') }}" alt="Dimas Agung Mahendra" class="people-image">
                                 </div>
-                                <h5 class="people-name fw-bold mb-2">H. Massat Zakariyah, S.E.</h5>
-                                <p class="people-title text-muted mb-0">Kabid Pengembangan APGI</p>
+                                <h5 class="people-name fw-bold mb-2">Dimas Agung Mahendra, S.P.</h5>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Humas & Kelembagaan APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 7. Alvin -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Alvin.png') }}" alt="Alvin Tandiawan" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Alvin Tandiawan</h5>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Perdagangan Antar Pulau APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 8. Hadi Gunawan -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Hadi Gunawan.png') }}" alt="Hadi Goenawan" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Hadi Goenawan</h5>
+                                <p class="people-title text-muted mb-0">Bendahara APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 9. Hendri Oie -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Hendri Oie.png') }}" alt="Hendri Oei" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Hendri Oei</h5>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Investasi APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 10. Harjianto -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Harijanto.png') }}" alt="Harijianto" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Harijianto</h5>
+                                <p class="people-title text-muted mb-0">Dewan Pembina APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 11. Fatrudin -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Fatrudin.png') }}" alt="Drs. Fatchuddin" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Drs. Fatchuddin</h5>
+                                <p class="people-title text-muted mb-0">Dewan Pembina APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 12. Adi Prasongko -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Adi Prasongko.png') }}" alt="Ir. Adi Prasongko" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Ir. Adi Prasongko</h5>
+                                <p class="people-title text-muted mb-0">Dewan Pembina APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 13. Irjen Pol -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Irjen pol mudji.png') }}" alt="Irjen. Pol. (P) Drs. H. Mudji Waluyo, S.H., M.M." class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Irjen. Pol. (P) Drs. H. Mudji Waluyo, S.H., M.M.</h5>
+                                <p class="people-title text-muted mb-0">Dewan Penasihat Kehormatan APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 14. Vivi -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Vivi.png') }}" alt="Vivi Soegito, S.E." class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Vivi Soegito, S.E.</h5>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Pendistribusian APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 15. Daniyanto -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Daniyanto.png') }}" alt="Ir. Daniyanto" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Ir. Daniyanto</h5>
+                                <p class="people-title text-muted mb-0">Dewan Pembina APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 16. H Masak -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/H masak.png') }}" alt="H Massat Zakariyah, S.E." class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">H Massat Zakariyah, S.E.</h5>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Pengembangan APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 17. Teguh -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Teguh.png') }}" alt="Teguh Dwi Jadmiko, S.E." class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Teguh Dwi Jadmiko, S.E.</h5>
+                                <p class="people-title text-muted mb-0">Sekretaris APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 18. Sugianto -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Sugianto.png') }}" alt="Sugianto, S.E." class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Sugianto, S.E.</h5>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Kemitraan APGI</p>
                             </div>
                         </div>
                     </div>
@@ -161,6 +279,16 @@
                         <span class="people-dot" onclick="currentPeopleSlide(6)"></span>
                         <span class="people-dot" onclick="currentPeopleSlide(7)"></span>
                         <span class="people-dot" onclick="currentPeopleSlide(8)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(9)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(10)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(11)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(12)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(13)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(14)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(15)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(16)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(17)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(18)"></span>
                     </div>
                 </div>
             </div>
@@ -175,8 +303,8 @@
         <div class="row text-center mb-5">
             <div class="col-lg-8 mx-auto">
                 <h3 class="display-6 fw-bold text-gradient mb-4" data-en="About Indonesian Sugar Entrepreneurs Association" data-id="Tentang Asosiasi Pengusaha Gula Indonesia">Tentang Asosiasi Pengusaha Gula Indonesia</h3>
-                <p class="lead mb-0" data-en="The Indonesian Sugar Entrepreneurs Association (APGI) is a professional organization that has united business actors in the national sugar trading sector since 2002. We are committed to realizing the stability, sustainability, and welfare of Indonesian and global sugar trade." data-id="Asosiasi Pengusaha Gula Indonesia (APGI) adalah organisasi profesi yang sejak 2002 menyatukan para pelaku usaha di sektor perdagangan gula nasional. Kami berkomitmen mewujudkan stabilitas, keberlanjutan, dan kesejahteraan perdagangan gula Indonesia dan dunia.">
-                    Asosiasi Pengusaha Gula Indonesia (APGI) adalah organisasi profesi yang sejak 2002 menyatukan para pelaku usaha di sektor perdagangan gula nasional. Kami berkomitmen mewujudkan stabilitas, keberlanjutan, dan kesejahteraan perdagangan gula Indonesia dan dunia.
+                <p class="lead mb-0" data-en="The Indonesian Sugar Entrepreneurs Association (APGI) is a professional organization that has united business actors in the national sugar trading sector since 2001. We are committed to realizing the stability, sustainability, and welfare of Indonesian and global sugar trade." data-id="Asosiasi Pengusaha Gula Indonesia (APGI) adalah organisasi profesi yang sejak 2001 menyatukan para pelaku usaha di sektor perdagangan gula nasional. Kami berkomitmen mewujudkan stabilitas, keberlanjutan, dan kesejahteraan perdagangan gula Indonesia dan dunia.">
+                    Asosiasi Pengusaha Gula Indonesia (APGI) adalah organisasi profesi yang sejak 2001 menyatukan para pelaku usaha di sektor perdagangan gula nasional. Kami berkomitmen mewujudkan stabilitas, keberlanjutan, dan kesejahteraan perdagangan gula Indonesia dan dunia.
                 </p>
             </div>
         </div>
@@ -189,7 +317,7 @@
                         <div class="col-md-2 text-center mb-4 mb-md-0">
                             <div class="history-timeline">
                                 <div class="timeline-year">
-                                    <span class="year-number">2002</span>
+                                    <span class="year-number">2001</span>
                                     <div class="timeline-line"></div>
                                 </div>
                             </div>
@@ -199,8 +327,8 @@
                                 <i class="fas fa-seedling text-success me-3"></i><span data-en="History of APGI Foundation" data-id="Sejarah Berdirinya APGI">Sejarah Berdirinya APGI</span>
                             </h4>
                             <p class="text-muted mb-4" style="line-height: 1.8;">
-                                <span data-en="Amid the turmoil of the national sugar industry after its independence from Bulog, Indonesian sugarcane farmers felt adrift. Market uncertainty and unfair business practices became a specter that haunted them. Seeing this condition, <strong class='text-primary'>Pieko Njotosetiadi</strong>, a sugar entrepreneur who cared about the fate of farmers, took the initiative to establish the Indonesian Sugar Farmers Association (APGI) in <strong class='text-success'>2002</strong>." data-id="Di tengah gejolak industri gula nasional pasca lepas dari Bulog, para petani tebu Indonesia merasa terombang-ambing. Ketidakpastian pasar dan praktik bisnis yang tidak adil menjadi momok yang menghantui mereka. Melihat kondisi tersebut, <strong class='text-primary'>Pieko Njotosetiadi</strong>, seorang pengusaha gula yang peduli pada nasib petani, berinisiatif mendirikan Asosiasi Petani Gula Indonesia (APGI) pada tahun <strong class='text-success'>2002</strong>.">
-                                    Di tengah gejolak industri gula nasional pasca lepas dari Bulog, para petani tebu Indonesia merasa terombang-ambing. Ketidakpastian pasar dan praktik bisnis yang tidak adil menjadi momok yang menghantui mereka. Melihat kondisi tersebut, <strong class="text-primary">Pieko Njotosetiadi</strong>, seorang pengusaha gula yang peduli pada nasib petani, berinisiatif mendirikan Asosiasi Petani Gula Indonesia (APGI) pada tahun <strong class="text-success">2002</strong>.
+                                <span data-en="Amid the turmoil of the national sugar industry after its independence from Bulog, Indonesian sugarcane farmers felt adrift. Market uncertainty and unfair business practices became a specter that haunted them. Seeing this condition, <strong class='text-primary'>Pieko Njotosetiadi</strong>, a sugar entrepreneur who cared about the fate of farmers, took the initiative to establish the Indonesian Sugar Farmers Association (APGI) in <strong class='text-success'>2001</strong>." data-id="Di tengah gejolak industri gula nasional pasca lepas dari Bulog, para petani tebu Indonesia merasa terombang-ambing. Ketidakpastian pasar dan praktik bisnis yang tidak adil menjadi momok yang menghantui mereka. Melihat kondisi tersebut, <strong class='text-primary'>Pieko Njotosetiadi</strong>, seorang pengusaha gula yang peduli pada nasib petani, berinisiatif mendirikan Asosiasi Petani Gula Indonesia (APGI) pada tahun <strong class='text-success'>2001</strong>.">
+                                    Di tengah gejolak industri gula nasional pasca lepas dari Bulog, para petani tebu Indonesia merasa terombang-ambing. Ketidakpastian pasar dan praktik bisnis yang tidak adil menjadi momok yang menghantui mereka. Melihat kondisi tersebut, <strong class="text-primary">Pieko Njotosetiadi</strong>, seorang pengusaha gula yang peduli pada nasib petani, berinisiatif mendirikan Asosiasi Petani Gula Indonesia (APGI) pada tahun <strong class="text-success">2001</strong>.
                                 </span>
                             </p>
                             <p class="text-muted mb-4" style="line-height: 1.8;">
@@ -216,8 +344,8 @@
                                     <div>
                                         <h6 class="mb-1 text-success" data-en="Current Achievement" data-id="Pencapaian Saat Ini">Pencapaian Saat Ini</h6>
                                         <p class="mb-0 text-muted small">
-                                            <span data-en="APGI has become a home for <strong>60+ members </strong> from various sugarcane producing regions in Indonesia" data-id="APGI telah menjadi rumah bagi <strong>60+ anggota </strong> dari berbagai daerah penghasil tebu di Indonesia">
-                                                APGI telah menjadi rumah bagi <strong>60+ anggota</strong> dari berbagai daerah penghasil tebu di Indonesia
+                                            <span data-en="APGI has become a home for <strong>9 members </strong> from various sugarcane producing regions in Indonesia" data-id="APGI telah menjadi rumah bagi <strong>9 anggota </strong> dari berbagai daerah penghasil tebu di Indonesia">
+                                                APGI telah menjadi rumah bagi <strong>9 anggota</strong> dari berbagai daerah penghasil tebu di Indonesia
                                             </span>
                                         </p>
                                     </div>
@@ -365,32 +493,101 @@
         
 
         <div class="row g-4 mb-5 justify-content-center">
+            <!-- 1. Fajar Mulia -->
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="member-card member-style-2 bg-white rounded-3 shadow p-4 text-center">
                     <div class="member-logo mb-3">
-                        <img src="{{ asset('images/members/member-1.png') }}" alt="PT Fajar Mulia Transindo" class="img-fluid member-small-logo">
+                        <img src="{{ asset('images/members/fajarmulia.png') }}" alt="PT Fajar Mulia Transindo" class="img-fluid member-large-logo">
                     </div>
                     <h6 class="member-name">PT Fajar Mulia Transindo</h6>
                     <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
                 </div>
             </div>
             
+            <!-- 2. CGM -->
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="member-card member-style-4 bg-white rounded-3 shadow p-4 text-center">
                     <div class="member-logo mb-3">
-                        <img src="{{ asset('images/members/member-2.png') }}" alt="PT Agung Samudra Mulia" class="img-fluid member-small-logo">
+                        <img src="{{ asset('images/members/cgm.png') }}" alt="PT Citra Gemini Mulya" class="img-fluid member-small-logo">
+                    </div>
+                    <h6 class="member-name">PT Citra Gemini Mulya</h6>
+                    <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
+                </div>
+            </div>
+            
+            <!-- 3. Nusantara Agro Mandiri -->
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="member-card member-style-6 bg-white rounded-3 shadow p-4 text-center">
+                    <div class="member-logo mb-3">
+                        <img src="{{ asset('images/members/nusantaraagromandiri.png') }}" alt="PT Nusantara Agro Mandiri" class="img-fluid member-large-logo">
+                    </div>
+                    <h6 class="member-name">PT Nusantara Agro Mandiri</h6>
+                    <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
+                </div>
+            </div>
+            
+            <!-- 4. NPM -->
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="member-card member-style-2 bg-white rounded-3 shadow p-4 text-center">
+                    <div class="member-logo mb-3">
+                        <img src="{{ asset('images/members/npm.png') }}" alt="PT Nusantara Putra Mandiri" class="img-fluid member-small-logo">
+                    </div>
+                    <h6 class="member-name">PT Nusantara Putra Mandiri</h6>
+                    <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
+                </div>
+            </div>
+            
+            <!-- 5. CV Hasil Karya -->
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="member-card member-style-4 bg-white rounded-3 shadow p-4 text-center">
+                    <div class="member-logo mb-3">
+                        <img src="{{ asset('images/members/cvhasilkarya.png') }}" alt="CV Hasil Karya Wijaya" class="img-fluid member-large-logo">
+                    </div>
+                    <h6 class="member-name">CV Hasil Karya Wijaya</h6>
+                    <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
+                </div>
+            </div>
+            
+            <!-- 6. ASM -->
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="member-card member-style-6 bg-white rounded-3 shadow p-4 text-center">
+                    <div class="member-logo mb-3">
+                        <img src="{{ asset('images/members/asm.png') }}" alt="PT Agung Samudra Mulia" class="img-fluid member-small-logo">
                     </div>
                     <h6 class="member-name">PT Agung Samudra Mulia</h6>
                     <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
                 </div>
             </div>
             
+            <!-- 7. CV Puncak Jaya -->
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="member-card member-style-2 bg-white rounded-3 shadow p-4 text-center">
+                    <div class="member-logo mb-3">
+                        <img src="{{ asset('images/members/puncakjaya.png') }}" alt="CV Puncak Jaya" class="img-fluid member-small-logo">
+                    </div>
+                    <h6 class="member-name">CV Puncak Jaya</h6>
+                    <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
+                </div>
+            </div>
+            
+            <!-- 8. CV Swasembada -->
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="member-card member-style-4 bg-white rounded-3 shadow p-4 text-center">
+                    <div class="member-logo mb-3">
+                        <img src="{{ asset('images/members/placeholder.png') }}" alt="CV Swasembada" class="img-fluid member-small-logo">
+                    </div>
+                    <h6 class="member-name">CV Swasembada</h6>
+                    <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
+                </div>
+            </div>
+            
+            <!-- 9. CV Indika -->
             <div class="col-lg-4 col-md-6 col-sm-8">
                 <div class="member-card member-style-6 bg-white rounded-3 shadow p-4 text-center">
                     <div class="member-logo mb-3">
-                        <img src="{{ asset('images/members/member-3.png') }}" alt="PT Nusantara Agro Mandiri" class="img-fluid member-small-logo">
+                        <img src="{{ asset('images/members/placeholder.png') }}" alt="CV Indika Multi Karya" class="img-fluid member-small-logo">
                     </div>
-                    <h6 class="member-name">PT Nusantara Agro Mandiri</h6>
+                    <h6 class="member-name">CV Indika Multi Karya</h6>
                     <p class="text-muted small mb-0" data-en="APGI Member" data-id="Anggota APGI">Anggota APGI</p>
                 </div>
             </div>
@@ -495,7 +692,7 @@
                         
 
                         <div class="row justify-content-center mb-5">
-                            <div class="col-lg-4 text-center mb-3">
+                            <div class="col-lg-6 text-center mb-3">
                                 <div class="org-card-modern org-staff">
                                     <div class="org-icon">
                                         <i class="fas fa-file-alt"></i>
@@ -506,7 +703,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 text-center mb-3">
+                            <div class="col-lg-6 text-center mb-3">
                                 <div class="org-card-modern org-staff">
                                     <div class="org-icon">
                                         <i class="fas fa-coins"></i>
@@ -514,17 +711,6 @@
                                     <div class="org-content">
                                         <h6 class="org-title" data-en="Treasurer" data-id="Bendahara">Bendahara</h6>
                                         <div class="org-name">Hadi Goenawan</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 text-center mb-3">
-                                <div class="org-card-modern org-staff">
-                                    <div class="org-icon">
-                                        <i class="fas fa-calendar-day"></i>
-                                    </div>
-                                    <div class="org-content">
-                                        <h6 class="org-title" data-en="Daily Chairman" data-id="Ketua Harian">Ketua Harian</h6>
-                                        <div class="org-name">Drs. Chandra Harsono</div>
                                     </div>
                                 </div>
                             </div>
@@ -680,6 +866,7 @@
                                     <div class="dewan-content">
                                         <h6 class="dewan-title" data-en="Advisory Board" data-id="Dewan Pembina">Dewan Pembina</h6>
                                         <div class="dewan-members">
+                                            <div class="member-item">Drs. Chandra Harsono</div>
                                             <div class="member-item">Drs. Fatchuddin</div>
                                             <div class="member-item">Ir. Adi Prasongko</div>
                                             <div class="member-item">Ir. Daniyanto</div>
@@ -910,7 +1097,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card news-card h-100 shadow-sm border-0">
                         @if($article->image_path)
-                            <img src="{{ storageAsset($article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}">
+                            <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}">
                         @endif
                         <div class="card-body d-flex flex-column">
                             <div class="d-flex justify-content-between align-items-center mb-2">
@@ -928,7 +1115,7 @@
                                 </div>
                             @endif
                             <button class="btn btn-outline-primary btn-sm mt-auto" 
-                                    onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '{{ $article->image_path ? storageAsset($article->image_path) : '' }}', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
+                                    onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '{{ $article->image_path ? asset('storage/' . $article->image_path) : '' }}', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
                                 <i class="fas fa-eye me-2"></i>Baca Selengkapnya
                             </button>
                         </div>
@@ -1853,6 +2040,11 @@
     transform: scale(1.5) !important;
 }
 
+.member-large-logo {
+    max-height: 250px !important;
+    transform: scale(2.0) !important;
+}
+
 .member-card:hover .member-logo img {
     filter: grayscale(0%);
     transform: scale(1.05);
@@ -1861,6 +2053,11 @@
 .member-card:hover .member-small-logo {
     filter: grayscale(0%);
     transform: scale(1.6) !important;
+}
+
+.member-card:hover .member-large-logo {
+    filter: grayscale(0%);
+    transform: scale(2.1) !important;
 }
 
 .member-name {
@@ -2817,9 +3014,10 @@
 }
 
 .people-image {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center top;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
@@ -2904,6 +3102,11 @@
         height: 300px;
     }
     
+    .people-image {
+        width: 200px;
+        height: 250px;
+    }
+    
     .people-name {
         font-size: 1.3rem;
     }
@@ -2934,7 +3137,7 @@ function initializePeopleCarousel() {
     
     if (peopleSlides.length > 0) {
         showPeopleSlide(0);
-        startPeopleAutoSlide();
+        // Auto slide disabled per user request
     }
 }
 
@@ -2959,19 +3162,16 @@ function showPeopleSlide(index) {
 function nextPeopleSlide() {
     currentPeopleSlideIndex = (currentPeopleSlideIndex + 1) % totalPeopleSlides;
     showPeopleSlide(currentPeopleSlideIndex);
-    resetPeopleAutoSlide();
 }
 
 function prevPeopleSlide() {
     currentPeopleSlideIndex = (currentPeopleSlideIndex - 1 + totalPeopleSlides) % totalPeopleSlides;
     showPeopleSlide(currentPeopleSlideIndex);
-    resetPeopleAutoSlide();
 }
 
 function currentPeopleSlide(index) {
     currentPeopleSlideIndex = index - 1;
     showPeopleSlide(currentPeopleSlideIndex);
-    resetPeopleAutoSlide();
 }
 
 function startPeopleAutoSlide() {
@@ -3134,49 +3334,15 @@ function loadMoreGallery() {
 
 function showAllMembers() {
     const allMembers = [
-        'CV Hasil Karya Wijaya',
-        'PT. Putra Benteng Sejahtera',
-        'CV Sumber Kencana Abadi',
-        'PT Mitra Agro Utama',
         'PT Fajar Mulia Transindo',
-        'CV Agro Prima Santoso',
-        'CV Anugrah Bersama Cemerlang',
-        'PT Berkah Sarana Irjatama',
-        'CV Kasih Karunianya',
-        'PT Mitra Pangan Nusantara',
-        'CV Citra Mulia Abadi',
-        'CV Swasembada',
-        'PT Agung Samudra Mulia',
-        'CV Indika Multi Karya',
-        'CV Sentosa',
-        'PT Rambi Jaya',
         'PT Citra Gemini Mulya',
-        'CV Surya Kencana',
-        'PT. Nusantara Putra Mandiri',
-        'PT Wijaya Tama Langgengperkasa',
-        'CV Manunggal Jaya Abadi',
-        'PT Inti Kurnia Trading',
-        'PT Pamer',
-        'CV Puncak Raya',
-        'PT Tiga Bintang Cemerlang',
-        'CV Rukun Makmur',
-        'CV Tiga Berlian',
-        'CV Inti Gula Manias',
-        'CV Agro Tani Sejahtera',
         'PT Nusantara Agro Mandiri',
-        'PT Setia Mandiri Sentra Makmur',
-        'PT Mandiri Berlian Perkasa',
-        'PT Berlian Penta Sukses',
-        'CV Sri Rejeki',
-        'PT Energi Muda Nusantara',
-        'PT Cipta Karya Pratama',
-        'CV Ardana Sukses Makmur',
-        'PT. Berkah Sarana Irjatama',
-        'CV Semangat Jaya Makmur',
-        'PT. Arthajaya Putra Perdana',
-        'CV Sumber Pangan',
-        'PT Sumatra Sejahtera',
-        'PT Mahakam Lestari Transindo'
+        'PT Nusantara Putra Mandiri',
+        'CV Hasil Karya Wijaya',
+        'PT Agung Samudra Mulia',
+        'CV Puncak Jaya',
+        'CV Swasembada',
+        'CV Indika Multi Karya'
     ];
     
     let memberList = '<div class="container-fluid"><div class="row g-3">';
