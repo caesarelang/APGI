@@ -53,7 +53,7 @@
     <div class="container">
         <div class="row text-center mb-4">
             <div class="col-12">
-                <h3 class="display-6 fw-bold text-gradient mb-3" data-en="Our Leadership" data-id="Kepemimpinan Kami">Kepemimpinan Kami</h3>
+                <h3 class="display-6 fw-bold text-gradient mb-3" data-en="Our Leadership" data-id="Kepengurusan Kami">Kepengurusan Kami</h3>
                 <p class="lead text-muted" data-en="Meet the dedicated leaders driving Indonesia's sugar industry forward" data-id="Berkenalan dengan para pemimpin berdedikasi yang menggerakkan industri gula Indonesia">Berkenalan dengan para pemimpin berdedikasi yang menggerakkan industri gula Indonesia</p>
             </div>
         </div>
