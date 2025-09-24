@@ -102,7 +102,7 @@
                                     <img src="{{ asset('images/people/Lim wan seng.png') }}" alt="Liem Wan Seng" class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Liem Wan Seng</h5>
-                                <p class="people-title text-muted mb-0">Perdagangan Dalam Negeri APGI</p>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Perdagangan Dalam Negeri APGI</p>
                             </div>
                         </div>
                         
@@ -113,7 +113,7 @@
                                     <img src="{{ asset('images/people/Bambang Senggono.png') }}" alt="Drs. Bambang Senggono" class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Drs. Bambang Senggono</h5>
-                                <p class="people-title text-muted mb-0">SDM & Hukum APGI</p>
+                                <p class="people-title text-muted mb-0">Kepala Bidang SDM & Hukum APGI</p>
                             </div>
                         </div>
                         
@@ -135,7 +135,7 @@
                                     <img src="{{ asset('images/people/Alvin.png') }}" alt="Alvin Tandiawan" class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Alvin Tandiawan</h5>
-                                <p class="people-title text-muted mb-0">Perdagangan Antar Pulau APGI</p>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Perdagangan Antar Pulau APGI</p>
                             </div>
                         </div>
                         
@@ -157,7 +157,7 @@
                                     <img src="{{ asset('images/people/Hendri Oie.png') }}" alt="Hendri Oei" class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Hendri Oei</h5>
-                                <p class="people-title text-muted mb-0">Investasi APGI</p>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Investasi APGI</p>
                             </div>
                         </div>
                         
@@ -212,7 +212,7 @@
                                     <img src="{{ asset('images/people/Vivi.png') }}" alt="Vivi Soegito, S.E." class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Vivi Soegito, S.E.</h5>
-                                <p class="people-title text-muted mb-0">Pendistribusian APGI</p>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Pendistribusian APGI</p>
                             </div>
                         </div>
                         
@@ -234,7 +234,7 @@
                                     <img src="{{ asset('images/people/H masak.png') }}" alt="H Massat Zakariyah, S.E." class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">H Massat Zakariyah, S.E.</h5>
-                                <p class="people-title text-muted mb-0">Pengembangan APGI</p>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Pengembangan APGI</p>
                             </div>
                         </div>
                         
@@ -256,7 +256,7 @@
                                     <img src="{{ asset('images/people/Sugianto.png') }}" alt="Sugianto, S.E." class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Sugianto, S.E.</h5>
-                                <p class="people-title text-muted mb-0">Kemitraan APGI</p>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Kemitraan APGI</p>
                             </div>
                         </div>
                     </div>
@@ -327,8 +327,8 @@
                                 <i class="fas fa-seedling text-success me-3"></i><span data-en="History of APGI Foundation" data-id="Sejarah Berdirinya APGI">Sejarah Berdirinya APGI</span>
                             </h4>
                             <p class="text-muted mb-4" style="line-height: 1.8;">
-                                <span data-en="Amid the turmoil of the national sugar industry, Indonesian sugarcane farmers felt adrift. Market uncertainty and unfair business practices became a specter that haunted them. Seeing this condition, <strong class='text-success'>Pieko Njotosetiadi</strong> along with <strong class='text-success'>Alex Sugiri, Alamsyah, Chandra Harsono, Zaenal Kholik, Samiasih, Hadi Gunawan, Soegiono, Lim Winarto Halim, Hadi Sutanto, and Listyono Sumali</strong>, sugar entrepreneurs who cared about the fate of farmers, took the initiative to establish the Indonesian Sugar Farmers Association (APGI) in <strong class='text-success'>2001</strong>." data-id="Di tengah gejolak industri gula nasional, para petani tebu Indonesia merasa terombang-ambing. Ketidakpastian pasar dan praktik bisnis yang tidak adil menjadi momok yang menghantui mereka. Melihat kondisi tersebut, <strong class='text-success'>Pieko Njotosetiadi</strong> bersama <strong class='text-success'>Alex Sugiri, Alamsyah, Chandra Harsono, Zaenal Kholik, Samiasih, Hadi Gunawan, Soegiono, Lim Winarto Halim, Hadi Sutanto, dan Listyono Sumali</strong>, para pengusaha gula yang peduli pada nasib petani, berinisiatif mendirikan Asosiasi Petani Gula Indonesia (APGI) pada tahun <strong class='text-success'>2001</strong>.">
-                                    Di tengah gejolak industri gula nasional, para petani tebu Indonesia merasa terombang-ambing. Ketidakpastian pasar dan praktik bisnis yang tidak adil menjadi momok yang menghantui mereka. Melihat kondisi tersebut, <strong class="text-success">Pieko Njotosetiadi</strong> bersama <strong class="text-success">Alex Sugiri, Alamsyah, Chandra Harsono, Zaenal Kholik, Samiasih, Hadi Gunawan, Soegiono, Lim Winarto Halim, Hadi Sutanto, dan Listyono Sumali</strong>, para pengusaha gula yang peduli pada nasib petani, berinisiatif mendirikan Asosiasi Petani Gula Indonesia (APGI) pada tahun <strong class="text-success">2001</strong>.
+                                <span data-en="Amid the turmoil of the national sugar industry, Indonesian sugarcane farmers felt adrift. Market uncertainty and unfair business practices became a specter that haunted them. Seeing this condition, <strong class='text-success'>Pieko Njotosetiadi</strong> along with <strong class='text-success'>Alex Sugiri, Alamsyah, Chandra Harsono, Zaenal Kholik, Samiasih, Hadi Gunawan, Soegiono, Lim Winarto Halim, Hadi Sutanto, and Listyono Sumali</strong>, sugar entrepreneurs who cared about the fate of farmers, took the initiative to establish the Indonesian Sugar Farmers Association (APGI) in <strong class='text-success'>2001</strong>." data-id="Di tengah gejolak industri gula nasional, para petani tebu Indonesia merasa terombang-ambing. Ketidakpastian pasar dan praktik bisnis yang tidak adil menjadi momok yang menghantui mereka. Melihat kondisi tersebut, <strong class='text-success'>Pieko Njotosetiadi</strong> bersama <strong class='text-success'>Alex Sugiri, Alamsyah, Chandra Harsono, Zaenal Kholik, Samiasih, Hadi Gunawan, Soegiono, Lim Winarto Halim, Hadi Sutanto, dan Listyono Sumali</strong>, para pengusaha gula yang peduli pada nasib petani, berinisiatif mendirikan Asosiasi Pengusaha Gula Indonesia (APGI) pada tahun <strong class='text-success'>2001</strong>.">
+                                    Di tengah gejolak industri gula nasional, para petani tebu Indonesia merasa terombang-ambing. Ketidakpastian pasar dan praktik bisnis yang tidak adil menjadi momok yang menghantui mereka. Melihat kondisi tersebut, <strong class="text-success">Pieko Njotosetiadi</strong> bersama <strong class="text-success">Alex Sugiri, Alamsyah, Chandra Harsono, Zaenal Kholik, Samiasih, Hadi Gunawan, Soegiono, Lim Winarto Halim, Hadi Sutanto, dan Listyono Sumali</strong>, para pengusaha gula yang peduli pada nasib petani, berinisiatif mendirikan Asosiasi Pengusaha Gula Indonesia (APGI) pada tahun <strong class="text-success">2001</strong>.
                                 </span>
                             </p>
                             <p class="text-muted mb-4" style="line-height: 1.8;">
