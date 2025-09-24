@@ -102,7 +102,7 @@
                                     <img src="{{ asset('images/people/Lim wan seng.png') }}" alt="Liem Wan Seng" class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Liem Wan Seng</h5>
-                                <p class="people-title text-muted mb-0">Kepala Bidang Perdagangan Dalam Negeri APGI</p>
+                                <p class="people-title text-muted mb-0">Perdagangan Dalam Negeri APGI</p>
                             </div>
                         </div>
                         
@@ -113,7 +113,7 @@
                                     <img src="{{ asset('images/people/Bambang Senggono.png') }}" alt="Drs. Bambang Senggono" class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Drs. Bambang Senggono</h5>
-                                <p class="people-title text-muted mb-0">Kepala Bidang SDM & Hukum APGI</p>
+                                <p class="people-title text-muted mb-0">SDM & Hukum APGI</p>
                             </div>
                         </div>
                         
@@ -124,7 +124,7 @@
                                     <img src="{{ asset('images/people/Dimas Agung.png') }}" alt="Dimas Agung Mahendra" class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Dimas Agung Mahendra, S.P.</h5>
-                                <p class="people-title text-muted mb-0">Kepala Bidang Humas & Kelembagaan APGI</p>
+                                <p class="people-title text-muted mb-0">Humas & Kelembagaan APGI</p>
                             </div>
                         </div>
                         
@@ -135,7 +135,7 @@
                                     <img src="{{ asset('images/people/Alvin.png') }}" alt="Alvin Tandiawan" class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Alvin Tandiawan</h5>
-                                <p class="people-title text-muted mb-0">Kepala Bidang Perdagangan Antar Pulau APGI</p>
+                                <p class="people-title text-muted mb-0">Perdagangan Antar Pulau APGI</p>
                             </div>
                         </div>
                         
@@ -157,7 +157,7 @@
                                     <img src="{{ asset('images/people/Hendri Oie.png') }}" alt="Hendri Oei" class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Hendri Oei</h5>
-                                <p class="people-title text-muted mb-0">Kepala Bidang Investasi APGI</p>
+                                <p class="people-title text-muted mb-0">Investasi APGI</p>
                             </div>
                         </div>
                         
@@ -212,7 +212,7 @@
                                     <img src="{{ asset('images/people/Vivi.png') }}" alt="Vivi Soegito, S.E." class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Vivi Soegito, S.E.</h5>
-                                <p class="people-title text-muted mb-0">Kepala Bidang Pendistribusian APGI</p>
+                                <p class="people-title text-muted mb-0">Pendistribusian APGI</p>
                             </div>
                         </div>
                         
@@ -234,7 +234,7 @@
                                     <img src="{{ asset('images/people/H masak.png') }}" alt="H Massat Zakariyah, S.E." class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">H Massat Zakariyah, S.E.</h5>
-                                <p class="people-title text-muted mb-0">Kepala Bidang Pengembangan APGI</p>
+                                <p class="people-title text-muted mb-0">Pengembangan APGI</p>
                             </div>
                         </div>
                         
@@ -256,7 +256,7 @@
                                     <img src="{{ asset('images/people/Sugianto.png') }}" alt="Sugianto, S.E." class="people-image">
                                 </div>
                                 <h5 class="people-name fw-bold mb-2">Sugianto, S.E.</h5>
-                                <p class="people-title text-muted mb-0">Kepala Bidang Kemitraan APGI</p>
+                                <p class="people-title text-muted mb-0">Kemitraan APGI</p>
                             </div>
                         </div>
                     </div>
