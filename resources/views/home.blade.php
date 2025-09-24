@@ -216,7 +216,18 @@
                             </div>
                         </div>
                         
-                        <!-- 15. Daniyanto -->
+                        <!-- 15. Willy Fernando Candra -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/placeholder.png') }}" alt="Willy Fernando Candra" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Willy Fernando Candra</h5>
+                                <p class="people-title text-muted mb-0">Kepala Bidang Organisasi APGI</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 16. Daniyanto -->
                         <div class="people-slide">
                             <div class="people-card text-center">
                                 <div class="people-image-container mb-4">
@@ -227,7 +238,7 @@
                             </div>
                         </div>
                         
-                        <!-- 16. H Masak -->
+                        <!-- 17. H Masak -->
                         <div class="people-slide">
                             <div class="people-card text-center">
                                 <div class="people-image-container mb-4">
@@ -238,7 +249,7 @@
                             </div>
                         </div>
                         
-                        <!-- 17. Teguh -->
+                        <!-- 18. Teguh -->
                         <div class="people-slide">
                             <div class="people-card text-center">
                                 <div class="people-image-container mb-4">
@@ -249,7 +260,7 @@
                             </div>
                         </div>
                         
-                        <!-- 18. Sugianto -->
+                        <!-- 19. Sugianto -->
                         <div class="people-slide">
                             <div class="people-card text-center">
                                 <div class="people-image-container mb-4">
@@ -289,6 +300,7 @@
                         <span class="people-dot" onclick="currentPeopleSlide(16)"></span>
                         <span class="people-dot" onclick="currentPeopleSlide(17)"></span>
                         <span class="people-dot" onclick="currentPeopleSlide(18)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(19)"></span>
                     </div>
                 </div>
             </div>
