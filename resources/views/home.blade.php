@@ -183,6 +183,17 @@
                             </div>
                         </div>
                         
+                           <!-- 12. Adi Prasongko -->
+                        <div class="people-slide">
+                            <div class="people-card text-center">
+                                <div class="people-image-container mb-4">
+                                    <img src="{{ asset('images/people/Lie Kamadjaja.png') }}" alt="Lie Kamadjaja" class="people-image">
+                                </div>
+                                <h5 class="people-name fw-bold mb-2">Lie Kamadjaja</h5>
+                                <p class="people-title text-muted mb-0">Dewan Pembina APGI</p>
+                            </div>
+                        </div>
+
                         <!-- 12. Adi Prasongko -->
                         <div class="people-slide">
                             <div class="people-card text-center">
@@ -226,15 +237,16 @@
                                 <p class="people-title text-muted mb-0">Kepala Bidang Organisasi APGI</p>
                             </div>
                         </div>
-                        
-                        <!-- 16. Daniyanto -->
+                                                
+
+                        <!-- 16. Arief -->
                         <div class="people-slide">
                             <div class="people-card text-center">
                                 <div class="people-image-container mb-4">
-                                    <img src="{{ asset('images/people/Daniyanto.png') }}" alt="Ir. Daniyanto" class="people-image">
+                                    <img src="{{ asset('images/people/Arief Gunawan.png') }}" alt="Arief" class="people-image">
                                 </div>
-                                <h5 class="people-name fw-bold mb-2">Ir. Daniyanto</h5>
-                                <p class="people-title text-muted mb-0">Dewan Pembina APGI</p>
+                                <h5 class="people-name fw-bold mb-2">Arief Gunawan</h5>
+                                <p class="people-title text-muted mb-0">APGI</p>
                             </div>
                         </div>
                         
@@ -301,6 +313,8 @@
                         <span class="people-dot" onclick="currentPeopleSlide(17)"></span>
                         <span class="people-dot" onclick="currentPeopleSlide(18)"></span>
                         <span class="people-dot" onclick="currentPeopleSlide(19)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(20)"></span>
+                        <span class="people-dot" onclick="currentPeopleSlide(21)"></span>
                     </div>
                 </div>
             </div>
@@ -882,6 +896,7 @@
                                             <div class="member-item">Drs. Chandra Harsono</div>
                                             <div class="member-item">Drs. Fatchuddin</div>
                                             <div class="member-item">Ir. Adi Prasongko</div>
+                                            <div class="member-item">Lie Kamadjaja</div>
                                             <div class="member-item">Ir. Daniyanto</div>
                                             <div class="member-item">Harijianto</div>
                                         </div>
