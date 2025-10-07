@@ -21,7 +21,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="{{ asset('css/leadership-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/leadership-grid.css') }}?v={{ time() }}">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1323,6 +1323,176 @@
             .year-number {
                 font-size: 1.2rem;
                 padding: 12px 18px;
+            }
+        }
+
+        /* Leadership Grid Styles - Inline Backup */
+        .leadership-card-main {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem 1.5rem 2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            min-height: 420px;
+        }
+
+        .leadership-card-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+        }
+
+        .leadership-card-main:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .leadership-image-main {
+            width: 220px;
+            height: 290px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 0 auto;
+            border: 4px solid #4CAF50;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .leadership-image-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .leadership-name-main {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .leadership-title-main {
+            color: #2E7D32;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .leadership-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem 1rem 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            min-height: 310px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            border-color: #4CAF50;
+        }
+
+        .leadership-image {
+            width: 140px;
+            height: 185px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 0 auto;
+            border: 3px solid #e0e0e0;
+            transition: border-color 0.3s ease;
+        }
+
+        .leadership-card:hover .leadership-image {
+            border-color: #4CAF50;
+        }
+
+        .leadership-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .leadership-name {
+            color: #2c3e50;
+            font-size: 0.95rem;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .leadership-title {
+            color: #666;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 991px) {
+            .leadership-image-main {
+                width: 180px;
+                height: 240px;
+            }
+            
+            .leadership-name-main {
+                font-size: 1.2rem;
+            }
+            
+            .leadership-title-main {
+                font-size: 1rem;
+            }
+            
+            .leadership-image {
+                width: 120px;
+                height: 160px;
+            }
+            
+            .leadership-card-main {
+                min-height: 380px;
+                padding: 2rem 1.5rem;
+            }
+            
+            .leadership-card {
+                min-height: 280px;
+                padding: 1.8rem 1rem 1.3rem;
+            }
+            
+            .leadership-name {
+                font-size: 0.9rem;
+            }
+            
+            .leadership-title {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .leadership-card-main {
+                padding: 1.8rem 1rem;
+                min-height: 340px;
+            }
+            
+            .leadership-image-main {
+                width: 150px;
+                height: 200px;
+            }
+            
+            .leadership-name-main {
+                font-size: 1.1rem;
+            }
+            
+            .leadership-image {
+                width: 110px;
+                height: 145px;
+            }
+            
+            .leadership-card {
+                min-height: 260px;
+                padding: 1.6rem 0.8rem 1.2rem;
             }
         }
     </style>
