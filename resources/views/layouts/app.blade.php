@@ -1417,6 +1417,16 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center top;
+        }
+
+        /* Specific positioning for photos that get cropped */
+        .leadership-img-liem {
+            object-position: center 20% !important;
+        }
+
+        .leadership-img-bambang {
+            object-position: center 15% !important;
         }
 
         .leadership-name {

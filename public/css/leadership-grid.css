@@ -86,13 +86,21 @@
     border-color: #4CAF50;
 }
 
-.leadership-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+    .leadership-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
 
-.leadership-name {
+    /* Specific positioning for photos that get cropped */
+    .leadership-img-liem {
+        object-position: center 20% !important;
+    }
+
+    .leadership-img-bambang {
+        object-position: center 15% !important;
+    }.leadership-name {
     color: #2c3e50;
     font-size: 0.95rem;
     line-height: 1.3;

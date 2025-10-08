@@ -99,10 +99,10 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="leadership-card text-center">
                     <div class="leadership-image mb-3">
-                        <img src="{{ asset('images/people/Lim wan seng.png') }}" alt="Liem Wan Seng" class="img-fluid">
+                        <img src="{{ asset('images/people/Lim wan seng.png') }}" alt="Liem Wan Seng" class="img-fluid leadership-img-liem">
                     </div>
                     <h6 class="leadership-name fw-bold mb-1">Liem Wan Seng</h6>
-                    <p class="leadership-title text-muted small mb-0">Kepala Bidang Perdagangan Dalam Negeri APGI</p>
+                    <p class="leadership-title text-muted small mb-0">Kabid Perdagangan Dalam Negeri APGI</p>
                 </div>
             </div>
 
@@ -110,10 +110,10 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="leadership-card text-center">
                     <div class="leadership-image mb-3">
-                        <img src="{{ asset('images/people/Bambang Senggono.png') }}" alt="Drs. Bambang Senggono" class="img-fluid">
+                        <img src="{{ asset('images/people/Bambang Senggono.png') }}" alt="Drs. Bambang Senggono" class="img-fluid leadership-img-bambang">
                     </div>
                     <h6 class="leadership-name fw-bold mb-1">Drs. Bambang Senggono</h6>
-                    <p class="leadership-title text-muted small mb-0">Kepala Bidang SDM & Hukum APGI</p>
+                    <p class="leadership-title text-muted small mb-0">Kabid SDM & Hukum APGI</p>
                 </div>
             </div>
 
@@ -135,18 +135,7 @@
                         <img src="{{ asset('images/people/Alvin.png') }}" alt="Alvin Tandiawan" class="img-fluid">
                     </div>
                     <h6 class="leadership-name fw-bold mb-1">Alvin Tandiawan</h6>
-                    <p class="leadership-title text-muted small mb-0">Kepala Bidang Perdagangan Antar Pulau APGI</p>
-                </div>
-            </div>
-
-            <!-- Tjandra Tanuwijaya -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="leadership-card text-center">
-                    <div class="leadership-image mb-3">
-                        <img src="{{ asset('images/people/placeholder.png') }}" alt="Tjandra Tanuwijaya" class="img-fluid">
-                    </div>
-                    <h6 class="leadership-name fw-bold mb-1">Tjandra Tanuwijaya</h6>
-                    <p class="leadership-title text-muted small mb-0">Bendahara 1 APGI</p>
+                    <p class="leadership-title text-muted small mb-0">Kabid Perdagangan Antar Pulau APGI</p>
                 </div>
             </div>
 
@@ -157,7 +146,7 @@
                         <img src="{{ asset('images/people/Hadi Gunawan.png') }}" alt="Hadi Goenawan" class="img-fluid">
                     </div>
                     <h6 class="leadership-name fw-bold mb-1">Hadi Goenawan</h6>
-                    <p class="leadership-title text-muted small mb-0">Bendahara 2 APGI</p>
+                    <p class="leadership-title text-muted small mb-0">Bendahara APGI</p>
                 </div>
             </div>
 
@@ -168,7 +157,7 @@
                         <img src="{{ asset('images/people/Hendri Oie.png') }}" alt="Hendri Oei" class="img-fluid">
                     </div>
                     <h6 class="leadership-name fw-bold mb-1">Hendri Oei</h6>
-                    <p class="leadership-title text-muted small mb-0">Kepala Bidang Investasi APGI</p>
+                    <p class="leadership-title text-muted small mb-0">Kabid Investasi APGI</p>
                 </div>
             </div>
 
@@ -234,7 +223,7 @@
                         <img src="{{ asset('images/people/Vivi.png') }}" alt="Vivi Soegito, S.E." class="img-fluid">
                     </div>
                     <h6 class="leadership-name fw-bold mb-1">Vivi Soegito, S.E.</h6>
-                    <p class="leadership-title text-muted small mb-0">Kepala Bidang Pendistribusian APGI</p>
+                    <p class="leadership-title text-muted small mb-0">Kabid Pendistribusian APGI</p>
                 </div>
             </div>
 
@@ -245,7 +234,7 @@
                         <img src="{{ asset('images/people/placeholder.png') }}" alt="Willy Fernando Candra" class="img-fluid">
                     </div>
                     <h6 class="leadership-name fw-bold mb-1">Willy Fernando Candra</h6>
-                    <p class="leadership-title text-muted small mb-0">Kepala Bidang Organisasi APGI</p>
+                    <p class="leadership-title text-muted small mb-0">Kabid Organisasi APGI</p>
                 </div>
             </div>
 
@@ -256,7 +245,7 @@
                         <img src="{{ asset('images/people/Arief Gunawan.png') }}" alt="B.Sc, Arief Gunawan" class="img-fluid">
                     </div>
                     <h6 class="leadership-name fw-bold mb-1">B.Sc, Arief Gunawan</h6>
-                    <p class="leadership-title text-muted small mb-0">Perdagangan Luar Negeri APGI</p>
+                    <p class="leadership-title text-muted small mb-0">Kabid Perdagangan Luar Negeri APGI</p>
                 </div>
             </div>
 
@@ -267,7 +256,7 @@
                         <img src="{{ asset('images/people/H masak.png') }}" alt="H Massat Zakariyah, S.E." class="img-fluid">
                     </div>
                     <h6 class="leadership-name fw-bold mb-1">H Massat Zakariyah, S.E.</h6>
-                    <p class="leadership-title text-muted small mb-0">Kepala Bidang Pengembangan APGI</p>
+                    <p class="leadership-title text-muted small mb-0">Kabid Pengembangan APGI</p>
                 </div>
             </div>
 
@@ -289,7 +278,7 @@
                         <img src="{{ asset('images/people/Sugianto.png') }}" alt="Sugianto, S.E." class="img-fluid">
                     </div>
                     <h6 class="leadership-name fw-bold mb-1">Sugianto, S.E.</h6>
-                    <p class="leadership-title text-muted small mb-0">Kepala Bidang Kemitraan APGI</p>
+                    <p class="leadership-title text-muted small mb-0">Kabid Kemitraan APGI</p>
                 </div>
             </div>
         </div>
@@ -704,24 +693,14 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="col-md-6 mb-3">
                                 <div class="org-card-modern org-staff text-center">
                                     <div class="org-icon">
                                         <i class="fas fa-coins"></i>
                                     </div>
                                     <div class="org-content">
-                                        <h6 class="org-title" data-en="Treasurer 1" data-id="Bendahara 1">Bendahara 1</h6>
-                                        <div class="org-name">Tjandra Tanuwijaya</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <div class="org-card-modern org-staff text-center">
-                                    <div class="org-icon">
-                                        <i class="fas fa-coins"></i>
-                                    </div>
-                                    <div class="org-content">
-                                        <h6 class="org-title" data-en="Treasurer 2" data-id="Bendahara 2">Bendahara 2</h6>
+                                        <h6 class="org-title" data-en="Treasurer" data-id="Bendahara">Bendahara</h6>
                                         <div class="org-name">Hadi Goenawan</div>
                                     </div>
                                 </div>
@@ -878,7 +857,6 @@
                                     <div class="dewan-content">
                                         <h6 class="dewan-title" data-en="Advisory Board" data-id="Dewan Pembina">Dewan Pembina</h6>
                                         <div class="dewan-members">
-                                            <div class="member-item">Drs. Chandra Harsono</div>
                                             <div class="member-item">Drs. Fatchuddin</div>
                                             <div class="member-item">Ir. Adi Prasongko</div>
                                             <div class="member-item">Lie Kamadjaja</div>
