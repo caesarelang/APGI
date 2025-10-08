@@ -875,7 +875,7 @@
                                         <h6 class="dewan-title" data-en="Honorary Advisory Board" data-id="Dewan Penasihat Kehormatan">Dewan Penasihat Kehormatan</h6>
                                         <div class="dewan-members">
                                             <div class="member-item">Irjen. Pol. (P) Drs. H. Mudji Waluyo, S.H., M.M.</div>
-                                            <div class="member-item">Chandra Harsono</div>
+                                            <div class="member-item">Drs. Chandra Harsono</div>
                                         </div>
                                     </div>
                                 </div>
