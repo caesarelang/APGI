@@ -1237,7 +1237,9 @@
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h6 class="mb-2">Email</h6>
+                    <p class="text-muted mb-0">apgi@pengusahagulaindonesia.com</p>
                     <p class="text-muted mb-0">sekretariat@pengusahagulaindonesia.com</p>
+
                 </div>
             </div>
             
@@ -3469,7 +3471,7 @@ Sent from APGI Website Contact Form
             `.trim();
             
 
-            const mailtoLink = `mailto:sekretariat@pengusahagulaindonesia.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            const mailtoLink = `mailto:apgi@pengusahagulaindonesia.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
             
 
             window.location.href = mailtoLink;
