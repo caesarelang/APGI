@@ -77,7 +77,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="leadership-card text-center">
                     <div class="leadership-image mb-3">
-                        <img src="{{ asset('images/people/placeholder.png') }}" alt="Vinsen Njotosetiadi" class="img-fluid">
+                        <img src="{{ asset('images/people/vinsen.png') }}" alt="Vinsen Njotosetiadi" class="img-fluid">
                     </div>
                     <h6 class="leadership-name fw-bold mb-1">Vinsen Njotosetiadi</h6>
                     <p class="leadership-title text-muted small mb-0">Wakil Ketua Umum APGI</p>
@@ -224,17 +224,6 @@
                     </div>
                     <h6 class="leadership-name fw-bold mb-1">Vivi Soegito, S.E.</h6>
                     <p class="leadership-title text-muted small mb-0">Kabid Pendistribusian APGI</p>
-                </div>
-            </div>
-
-            <!-- Willy Fernando Candra -->
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="leadership-card text-center">
-                    <div class="leadership-image mb-3">
-                        <img src="{{ asset('images/people/placeholder.png') }}" alt="Willy Fernando Candra" class="img-fluid">
-                    </div>
-                    <h6 class="leadership-name fw-bold mb-1">Willy Fernando Candra</h6>
-                    <p class="leadership-title text-muted small mb-0">Kabid Organisasi APGI</p>
                 </div>
             </div>
 
@@ -786,17 +775,10 @@
                             </div>
                             
 
-                            <div class="col-lg-4 col-md-6">
-                                <div class="dept-card">
-                                    <div class="dept-icon">
-                                        <i class="fas fa-sitemap"></i>
-                                    </div>
-                                    <div class="dept-content">
-                                        <h6 class="dept-title" data-en="Organization" data-id="Organisasi">Organisasi</h6>
-                                        <div class="dept-name">Willy Fernando Candra</div>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                        
+                        <!-- Bottom row with centered cards -->
+                        <div class="row g-4 justify-content-center mt-4">
                             <div class="col-lg-4 col-md-6">
                                 <div class="dept-card">
                                     <div class="dept-icon">
@@ -819,6 +801,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
 
