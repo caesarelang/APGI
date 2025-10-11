@@ -72,6 +72,33 @@ class CheckNewsCommand extends Command
         $this->info("DB timezone: " . now()->timezone);
         $this->info("Current timestamp: " . now()->timestamp);
         
+        // Check storage configuration
+        $this->info("\n=== STORAGE INFO ===");
+        $this->info("Storage path: " . storage_path('app/public'));
+        $this->info("Public storage path: " . public_path('storage'));
+        $this->info("Storage link exists: " . (is_link(public_path('storage')) ? 'Yes' : 'No'));
+        
+        // Check image paths
+        if ($finalNews->count() > 0) {
+            $this->info("\n=== IMAGE PATH TESTS ===");
+            $newsWithImage = $finalNews->where('image_path', '!=', null)->first();
+            if ($newsWithImage) {
+                $paths = [
+                    'storage/' . $newsWithImage->image_path,
+                    'storage/app/public/' . $newsWithImage->image_path,
+                ];
+                
+                foreach ($paths as $path) {
+                    $fullPath = public_path($path);
+                    $exists = file_exists($fullPath);
+                    $this->info("Path: {$path} -> " . ($exists ? 'EXISTS' : 'NOT FOUND'));
+                    if ($exists) {
+                        $this->info("  Size: " . filesize($fullPath) . " bytes");
+                    }
+                }
+            }
+        }
+        
         return Command::SUCCESS;
     }
 }

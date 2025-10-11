@@ -1074,7 +1074,23 @@
                         <a href="{{ $article->link }}" target="_blank" class="text-decoration-none">
                             <div class="card news-card h-100 shadow-sm border-0 card-hover">
                                 @if($article->image_path)
-                                    <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}" onerror="this.style.display='none'">
+                                    @php
+                                        $imagePaths = [
+                                            asset('storage/' . $article->image_path),
+                                            asset('storage/app/public/' . $article->image_path),
+                                            url('storage/' . $article->image_path),
+                                            url('storage/app/public/' . $article->image_path),
+                                        ];
+                                        $imagePathsJson = json_encode($imagePaths);
+                                    @endphp
+                                    <img src="{{ $imagePaths[0] }}" 
+                                         class="card-img-top news-image" 
+                                         alt="{{ $article->title }}"
+                                         onload="tryImageFallback(this, {{ $imagePathsJson }}, 0)"
+                                         onerror="tryImageFallback(this, {{ $imagePathsJson }}, 1)">
+                                    <div class="card-img-top news-image news-placeholder bg-light d-flex align-items-center justify-content-center" style="height: 200px; display: none;">
+                                        <i class="fas fa-newspaper text-muted" style="font-size: 3rem;"></i>
+                                    </div>
                                 @else
                                     <div class="card-img-top news-image bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
                                         <i class="fas fa-newspaper text-muted" style="font-size: 3rem;"></i>
@@ -1104,9 +1120,25 @@
                     @else
                         <div class="card news-card h-100 shadow-sm border-0 card-hover" 
                              style="cursor: pointer;"
-                             onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '{{ $article->image_path ? asset('storage/' . $article->image_path) : '' }}', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
+                             onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '{{ $article->image_path ? $imagePaths[0] : '' }}', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
                             @if($article->image_path)
-                                <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}" onerror="this.style.display='none'">
+                                @php
+                                    $imagePaths = [
+                                        asset('storage/' . $article->image_path),
+                                        asset('storage/app/public/' . $article->image_path),
+                                        url('storage/' . $article->image_path),
+                                        url('storage/app/public/' . $article->image_path),
+                                    ];
+                                    $imagePathsJson = json_encode($imagePaths);
+                                @endphp
+                                <img src="{{ $imagePaths[0] }}" 
+                                     class="card-img-top news-image" 
+                                     alt="{{ $article->title }}"
+                                     onload="tryImageFallback(this, {{ $imagePathsJson }}, 0)"
+                                     onerror="tryImageFallback(this, {{ $imagePathsJson }}, 1)">
+                                <div class="card-img-top news-image news-placeholder bg-light d-flex align-items-center justify-content-center" style="height: 200px; display: none;">
+                                    <i class="fas fa-newspaper text-muted" style="font-size: 3rem;"></i>
+                                </div>
                             @else
                                 <div class="card-img-top news-image bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
                                     <i class="fas fa-newspaper text-muted" style="font-size: 3rem;"></i>
@@ -3716,6 +3748,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Image fallback function for news images
+function tryImageFallback(img, paths, index = 0) {
+    if (index >= paths.length) {
+        // If all paths fail, show placeholder
+        const placeholder = img.nextElementSibling;
+        if (placeholder && placeholder.classList.contains('news-placeholder')) {
+            img.style.display = 'none';
+            placeholder.style.display = 'flex';
+        }
+        return;
+    }
+    
+    img.onerror = function() {
+        if (index + 1 < paths.length) {
+            img.src = paths[index + 1];
+            tryImageFallback(img, paths, index + 1);
+        } else {
+            // Show placeholder
+            const placeholder = img.nextElementSibling;
+            if (placeholder && placeholder.classList.contains('news-placeholder')) {
+                img.style.display = 'none';
+                placeholder.style.display = 'flex';
+            }
+        }
+    };
+    
+    img.onload = function() {
+        // Hide placeholder if image loads successfully
+        const placeholder = img.nextElementSibling;
+        if (placeholder && placeholder.classList.contains('news-placeholder')) {
+            placeholder.style.display = 'none';
+        }
+        img.style.display = 'block';
+    };
+}
 </script>
 
 </style>
