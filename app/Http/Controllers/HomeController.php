@@ -27,6 +27,9 @@ class HomeController extends Controller
         $socialContents = SocialContent::active()->published()->latest()->take(6)->get();
         $news = News::active()->published()->latest()->take(6)->get();
         
+        // Debug: check if news data exists
+        // dd($news->toArray());
+        
         // Set SEO meta tags for homepage
         SEOMeta::setTitle('Beranda - APGI | Asosiasi Pengusaha Gula Indonesia');
         SEOMeta::setDescription('APGI (Asosiasi Pengusaha Gula Indonesia) adalah organisasi profesional yang menaungi para pengusaha gula di Indonesia sejak 2002. Bergabunglah dengan kami untuk mengembangkan industri gula nasional.');
