@@ -1067,15 +1067,6 @@
                 <p class="lead text-muted" data-en="Stay updated with the latest news and insights from APGI" data-id="Tetap terkini dengan berita dan wawasan terbaru dari APGI">Tetap terkini dengan berita dan wawasan terbaru dari APGI</p>
             </div>
         </div>
-        <!-- Debug Info - Remove after fixing -->
-        @if(config('app.debug'))
-            <div class="col-12 alert alert-info">
-                <strong>Debug:</strong> Found {{ count($news) }} news articles | 
-                Environment: {{ app()->environment() }} |
-                Time: {{ now()->format('Y-m-d H:i:s') }}
-            </div>
-        @endif
-        
         <div class="row g-4">
             @forelse($news as $article)
                 <div class="col-lg-4 col-md-6">
