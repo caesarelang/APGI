@@ -29,7 +29,6 @@ class NewsController extends Controller
             'excerpt' => 'nullable|string',
             'author' => 'nullable|string|max:255',
             'published_at' => 'nullable|date',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'link' => 'nullable|url|max:500',
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
@@ -42,12 +41,12 @@ class NewsController extends Controller
         // Generate slug
         $data['slug'] = Str::slug($request->title);
         
-        // Handle image upload
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imagePath = $image->store('news', 'public');
-            $data['image_path'] = $imagePath;
-        }
+        // Remove image processing - feature disabled
+        // if ($request->hasFile('image')) {
+        //     $image = $request->file('image');
+        //     $imagePath = $image->store('news', 'public');
+        //     $data['image_path'] = $imagePath;
+        // }
 
         // Handle checkboxes
         $data['is_featured'] = $request->has('is_featured');
@@ -76,7 +75,6 @@ class NewsController extends Controller
             'excerpt' => 'nullable|string',
             'author' => 'nullable|string|max:255',
             'published_at' => 'nullable|date',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'link' => 'nullable|url|max:500',
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
@@ -91,17 +89,17 @@ class NewsController extends Controller
             $data['slug'] = Str::slug($request->title);
         }
         
-        // Handle image upload
-        if ($request->hasFile('image')) {
-            // Delete old image
-            if ($news->image_path) {
-                Storage::disk('public')->delete($news->image_path);
-            }
-            
-            $image = $request->file('image');
-            $imagePath = $image->store('news', 'public');
-            $data['image_path'] = $imagePath;
-        }
+        // Remove image processing - feature disabled
+        // if ($request->hasFile('image')) {
+        //     // Delete old image
+        //     if ($news->image_path) {
+        //         Storage::disk('public')->delete($news->image_path);
+        //     }
+        //     
+        //     $image = $request->file('image');
+        //     $imagePath = $image->store('news', 'public');
+        //     $data['image_path'] = $imagePath;
+        // }
 
         // Handle checkboxes
         $data['is_featured'] = $request->has('is_featured');
@@ -114,10 +112,10 @@ class NewsController extends Controller
 
     public function destroy(News $news)
     {
-        // Delete image if exists
-        if ($news->image_path) {
-            Storage::disk('public')->delete($news->image_path);
-        }
+        // Remove image deletion - feature disabled
+        // if ($news->image_path) {
+        //     Storage::disk('public')->delete($news->image_path);
+        // }
         
         $news->delete();
 

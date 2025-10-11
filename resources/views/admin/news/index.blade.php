@@ -24,10 +24,9 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th style="width: 80px;">Gambar</th>
-                            <th style="width: 35%;">Judul</th>
-                            <th style="width: 12%;">Author</th>
-                            <th style="width: 12%;">Publish</th>
+                            <th style="width: 45%;">Judul</th>
+                            <th style="width: 15%;">Author</th>
+                            <th style="width: 15%;">Publish</th>
                             <th style="width: 12%;">Link</th>
                             <th style="width: 10%;">Status</th>
                             <th style="width: 150px;">Aksi</th>
@@ -36,19 +35,6 @@
                     <tbody>
                         @foreach($news as $article)
                         <tr>
-                            <td>
-                                @if($article->image_path)
-                                    <img src="{{ asset('storage/app/public/' . $article->image_path) }}" 
-                                         alt="{{ $article->title }}" 
-                                         class="img-thumbnail" 
-                                         style="width: 60px; height: 60px; object-fit: cover;">
-                                @else
-                                    <div class="bg-light d-flex align-items-center justify-content-center" 
-                                         style="width: 60px; height: 60px;">
-                                        <i class="fas fa-image text-muted"></i>
-                                    </div>
-                                @endif
-                            </td>
                             <td>
                                 <strong>{{ Str::limit($article->title, 60) }}</strong>
                                 <br>

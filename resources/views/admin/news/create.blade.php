@@ -87,7 +87,8 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
+                    {{-- Image field disabled for now --}}
+                    {{-- <div class="mb-3">
                         <label for="image" class="form-label">Gambar Featured</label>
                         <input type="file" 
                                class="form-control @error('image') is-invalid @enderror" 
@@ -98,7 +99,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                         <div class="form-text">Format: JPEG, PNG, JPG, GIF. Maksimal 2MB</div>
-                    </div>
+                    </div> --}}
 
                     <div class="mb-3">
                         <label for="link" class="form-label">Link Eksternal</label>

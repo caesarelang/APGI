@@ -87,7 +87,8 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
+                    {{-- Image field disabled for now --}}
+                    {{-- <div class="mb-3">
                         <label for="image" class="form-label">Gambar Featured</label>
                         <input type="file" 
                                class="form-control @error('image') is-invalid @enderror" 
@@ -108,7 +109,7 @@
                                      style="max-width: 200px;">
                             </div>
                         @endif
-                    </div>
+                    </div> --}}
 
                     <div class="mb-3">
                         <label for="link" class="form-label">Link Eksternal</label>
