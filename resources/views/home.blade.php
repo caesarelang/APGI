@@ -1067,6 +1067,15 @@
                 <p class="lead text-muted" data-en="Stay updated with the latest news and insights from APGI" data-id="Tetap terkini dengan berita dan wawasan terbaru dari APGI">Tetap terkini dengan berita dan wawasan terbaru dari APGI</p>
             </div>
         </div>
+        <!-- Debug Info - Remove after fixing -->
+        @if(config('app.debug'))
+            <div class="col-12 alert alert-info">
+                <strong>Debug:</strong> Found {{ count($news) }} news articles | 
+                Environment: {{ app()->environment() }} |
+                Time: {{ now()->format('Y-m-d H:i:s') }}
+            </div>
+        @endif
+        
         <div class="row g-4">
             @forelse($news as $article)
                 <div class="col-lg-4 col-md-6">
@@ -1074,7 +1083,11 @@
                         <a href="{{ $article->link }}" target="_blank" class="text-decoration-none">
                             <div class="card news-card h-100 shadow-sm border-0 card-hover">
                                 @if($article->image_path)
-                                    <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}">
+                                    <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}" onerror="this.style.display='none'">
+                                @else
+                                    <div class="card-img-top news-image bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                        <i class="fas fa-newspaper text-muted" style="font-size: 3rem;"></i>
+                                    </div>
                                 @endif
                                 <div class="card-body d-flex flex-column">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -1102,7 +1115,11 @@
                              style="cursor: pointer;"
                              onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '{{ $article->image_path ? asset('storage/' . $article->image_path) : '' }}', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
                             @if($article->image_path)
-                                <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}">
+                                <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}" onerror="this.style.display='none'">
+                            @else
+                                <div class="card-img-top news-image bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <i class="fas fa-newspaper text-muted" style="font-size: 3rem;"></i>
+                                </div>
                             @endif
                             <div class="card-body d-flex flex-column">
                                 <div class="d-flex justify-content-between align-items-center mb-2">

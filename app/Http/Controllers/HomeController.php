@@ -25,7 +25,29 @@ class HomeController extends Controller
         ];
         $events = Event::active()->upcoming()->take(6)->get();
         $socialContents = SocialContent::active()->published()->latest()->take(6)->get();
-        $news = News::active()->published()->latest()->take(6)->get();
+        
+        // Get news with fallback for hosting issues
+        try {
+            $news = News::active()->published()->latest()->take(6)->get();
+            
+            // If empty, try without published constraint (maybe timezone issue)
+            if ($news->isEmpty()) {
+                $news = News::where('is_active', true)
+                           ->whereNotNull('published_at')
+                           ->latest('published_at')
+                           ->take(6)
+                           ->get();
+            }
+            
+            // If still empty, get all active news
+            if ($news->isEmpty()) {
+                $news = News::where('is_active', true)->latest()->take(6)->get();
+            }
+        } catch (\Exception $e) {
+            // Fallback in case of database issues
+            $news = collect();
+            \Log::error('News query failed: ' . $e->getMessage());
+        }
         
         // Debug: check if news data exists
         // dd($news->toArray());
