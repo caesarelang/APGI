@@ -111,6 +111,20 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="link" class="form-label">Link Eksternal</label>
+                        <input type="url" 
+                               class="form-control @error('link') is-invalid @enderror" 
+                               id="link" 
+                               name="link" 
+                               value="{{ old('link', $news->link) }}"
+                               placeholder="https://example.com">
+                        @error('link')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <div class="form-text">Kosongkan jika tidak ada link eksternal. Jika diisi, berita akan redirect ke link ini saat diklik.</div>
+                    </div>
+
+                    <div class="mb-3">
                         <label for="meta_title" class="form-label">Meta Title</label>
                         <input type="text" 
                                class="form-control @error('meta_title') is-invalid @enderror" 

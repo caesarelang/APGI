@@ -1070,31 +1070,58 @@
         <div class="row g-4">
             @forelse($news as $article)
                 <div class="col-lg-4 col-md-6">
-                    <div class="card news-card h-100 shadow-sm border-0">
-                        @if($article->image_path)
-                            <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}">
-                        @endif
-                        <div class="card-body d-flex flex-column">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-warning text-dark">News</span>
-                                @if($article->published_at)
-                                    <small class="text-muted">{{ $article->formatted_published_date }}</small>
+                    @if($article->link)
+                        <a href="{{ $article->link }}" target="_blank" class="text-decoration-none">
+                            <div class="card news-card h-100 shadow-sm border-0 card-hover">
+                                @if($article->image_path)
+                                    <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}">
+                                @endif
+                                <div class="card-body d-flex flex-column">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="badge bg-warning text-dark">News</span>
+                                        <div class="d-flex align-items-center">
+                                            @if($article->published_at)
+                                                <small class="text-muted me-2">{{ $article->formatted_published_date }}</small>
+                                            @endif
+                                            <i class="fas fa-external-link-alt text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <h5 class="card-title text-dark">{{ $article->title }}</h5>
+                                    <p class="card-text text-muted flex-grow-1">{{ $article->excerpt }}</p>
+                                    @if($article->author)
+                                        <div class="d-flex align-items-center">
+                                            <img src="{{ asset('images/avatar-placeholder.jpg') }}" class="rounded-circle me-2" width="30" height="30" alt="Author">
+                                            <small class="text-muted">{{ $article->author }}</small>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </a>
+                    @else
+                        <div class="card news-card h-100 shadow-sm border-0 card-hover" 
+                             style="cursor: pointer;"
+                             onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '{{ $article->image_path ? asset('storage/' . $article->image_path) : '' }}', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
+                            @if($article->image_path)
+                                <img src="{{ asset('storage/' . $article->image_path) }}" class="card-img-top news-image" alt="{{ $article->title }}">
+                            @endif
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-warning text-dark">News</span>
+                                    @if($article->published_at)
+                                        <small class="text-muted">{{ $article->formatted_published_date }}</small>
+                                    @endif
+                                </div>
+                                <h5 class="card-title">{{ $article->title }}</h5>
+                                <p class="card-text text-muted flex-grow-1">{{ $article->excerpt }}</p>
+                                @if($article->author)
+                                    <div class="d-flex align-items-center">
+                                        <img src="{{ asset('images/avatar-placeholder.jpg') }}" class="rounded-circle me-2" width="30" height="30" alt="Author">
+                                        <small class="text-muted">{{ $article->author }}</small>
+                                    </div>
                                 @endif
                             </div>
-                            <h5 class="card-title">{{ $article->title }}</h5>
-                            <p class="card-text text-muted flex-grow-1">{{ $article->excerpt }}</p>
-                            @if($article->author)
-                                <div class="d-flex align-items-center mb-3">
-                                    <img src="{{ asset('images/avatar-placeholder.jpg') }}" class="rounded-circle me-2" width="30" height="30" alt="Author">
-                                    <small class="text-muted">{{ $article->author }}</small>
-                                </div>
-                            @endif
-                            <button class="btn btn-outline-primary btn-sm mt-auto" 
-                                    onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '{{ $article->image_path ? asset('storage/' . $article->image_path) : '' }}', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
-                                <i class="fas fa-eye me-2"></i>Baca Selengkapnya
-                            </button>
                         </div>
-                    </div>
+                    @endif
                 </div>
             @empty
                 <div class="col-12 text-center">
@@ -2901,6 +2928,16 @@
 /* Make news cards clickable */
 .news-card {
     cursor: pointer;
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
 }
 
 .news-card:hover .card-title {

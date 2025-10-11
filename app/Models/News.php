@@ -18,7 +18,8 @@ class News extends Model
         'is_active',
         'meta_title',
         'meta_description',
-        'slug'
+        'slug',
+        'link'
     ];
 
     protected $casts = [

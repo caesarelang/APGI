@@ -25,10 +25,11 @@
                     <thead>
                         <tr>
                             <th style="width: 80px;">Gambar</th>
-                            <th style="width: 40%;">Judul</th>
-                            <th style="width: 15%;">Author</th>
-                            <th style="width: 15%;">Publish</th>
-                            <th style="width: 12%;">Status</th>
+                            <th style="width: 35%;">Judul</th>
+                            <th style="width: 12%;">Author</th>
+                            <th style="width: 12%;">Publish</th>
+                            <th style="width: 12%;">Link</th>
+                            <th style="width: 10%;">Status</th>
                             <th style="width: 150px;">Aksi</th>
                         </tr>
                     </thead>
@@ -60,6 +61,18 @@
                                     <br><small class="text-muted">{{ $article->published_at->format('H:i') }}</small>
                                 @else
                                     <span class="text-muted">Draft</span>
+                                @endif
+                            </td>
+                            <td>
+                                @if($article->link)
+                                    <a href="{{ $article->link }}" 
+                                       target="_blank" 
+                                       class="btn btn-sm btn-outline-primary"
+                                       title="{{ $article->link }}">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                @else
+                                    <span class="text-muted">-</span>
                                 @endif
                             </td>
                             <td>
