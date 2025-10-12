@@ -1074,10 +1074,16 @@
                         <a href="{{ $article->link }}" target="_blank" class="text-decoration-none">
                             <div class="card news-card h-100 shadow-sm border-0 card-hover">
                                 @if($article->image_path)
+                                    @php
+                                        $imagePaths = json_encode($article->image_paths);
+                                    @endphp
                                     <img src="{{ $article->image_url }}" 
                                          class="card-img-top news-image" 
                                          alt="{{ $article->title }}"
-                                         style="height: 200px; object-fit: cover;">
+                                         style="height: 200px; object-fit: cover;"
+                                         data-fallback-paths="{{ $imagePaths }}"
+                                         data-fallback-index="0"
+                                         onerror="tryNextImagePath(this);">
                                 @endif
                                 <div class="card-body d-flex flex-column">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
@@ -1105,10 +1111,16 @@
                              style="cursor: pointer;"
                              onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '{{ $article->image_url ?? '' }}', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
                             @if($article->image_path)
+                                @php
+                                    $imagePaths = json_encode($article->image_paths);
+                                @endphp
                                 <img src="{{ $article->image_url }}" 
                                      class="card-img-top news-image" 
                                      alt="{{ $article->title }}"
-                                     style="height: 200px; object-fit: cover;">
+                                     style="height: 200px; object-fit: cover;"
+                                     data-fallback-paths="{{ $imagePaths }}"
+                                     data-fallback-index="0"
+                                     onerror="tryNextImagePath(this);">
                             @endif
                             <div class="card-body d-flex flex-column">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
@@ -3730,3 +3742,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </style>
 @endsection
+
+@push('scripts')
+<script>
+function tryNextImagePath(img) {
+    const fallbackPaths = JSON.parse(img.getAttribute('data-fallback-paths'));
+    let currentIndex = parseInt(img.getAttribute('data-fallback-index')) || 0;
+    
+    // Try next path in the fallback array
+    currentIndex++;
+    
+    if (currentIndex < fallbackPaths.length) {
+        img.setAttribute('data-fallback-index', currentIndex);
+        img.src = fallbackPaths[currentIndex];
+    } else {
+        // If all paths fail, hide the image
+        img.style.display = 'none';
+        console.log('All image paths failed for:', img.alt);
+    }
+}
+</script>
+@endpush
