@@ -74,35 +74,13 @@ class News extends Model
         return Str::limit(strip_tags($this->content), 150);
     }
 
-        // Get image URL with hosting compatibility
+        // Get image URL
     public function getImageUrlAttribute()
     {
         if (!$this->image_path) {
             return null;
         }
 
-        // For hosting that might have different storage setup
-        $paths = [
-            asset('storage/' . $this->image_path),           // Standard Laravel
-            url('storage/' . $this->image_path),             // URL helper
-            asset('storage/app/public/' . $this->image_path), // Direct path
-        ];
-
-        return $paths[0]; // Use first path, fallback in view
-    }
-    
-    // Get all possible image paths for fallback
-    public function getImagePathsAttribute()
-    {
-        if (!$this->image_path) {
-            return [];
-        }
-
-        return [
-            asset('storage/' . $this->image_path),
-            url('storage/' . $this->image_path),
-            asset('storage/app/public/' . $this->image_path),
-            url('storage/app/public/' . $this->image_path),
-        ];
+        return asset('storage/app/public/' . $this->image_path);
     }
 }
