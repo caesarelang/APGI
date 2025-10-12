@@ -87,8 +87,7 @@
                         </div>
                     </div>
 
-                    {{-- Image field disabled for now --}}
-                    {{-- <div class="mb-3">
+                    <div class="mb-3">
                         <label for="image" class="form-label">Gambar Featured</label>
                         <input type="file" 
                                class="form-control @error('image') is-invalid @enderror" 
@@ -103,13 +102,13 @@
                         @if($news->image_path)
                             <div class="mt-2">
                                 <small class="text-muted">Gambar saat ini:</small><br>
-                                <img src="{{ asset('storage/app/public/' . $news->image_path) }}" 
+                                <img src="{{ $news->image_url }}" 
                                      alt="Current image" 
                                      class="img-thumbnail mt-1" 
                                      style="max-width: 200px;">
                             </div>
                         @endif
-                    </div> --}}
+                    </div>
 
                     <div class="mb-3">
                         <label for="link" class="form-label">Link Eksternal</label>

@@ -1073,9 +1073,12 @@
                     @if($article->link)
                         <a href="{{ $article->link }}" target="_blank" class="text-decoration-none">
                             <div class="card news-card h-100 shadow-sm border-0 card-hover">
-                                <div class="card-img-top news-header bg-primary d-flex align-items-center justify-content-center" style="height: 120px;">
-                                    <i class="fas fa-newspaper text-white" style="font-size: 2.5rem;"></i>
-                                </div>
+                                @if($article->image_path)
+                                    <img src="{{ $article->image_url }}" 
+                                         class="card-img-top news-image" 
+                                         alt="{{ $article->title }}"
+                                         style="height: 200px; object-fit: cover;">
+                                @endif
                                 <div class="card-body d-flex flex-column">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
                                         <span class="badge bg-warning text-dark">News</span>
@@ -1100,10 +1103,13 @@
                     @else
                         <div class="card news-card h-100 shadow-sm border-0 card-hover" 
                              style="cursor: pointer;"
-                             onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
-                            <div class="card-img-top news-header bg-primary d-flex align-items-center justify-content-center" style="height: 120px;">
-                                <i class="fas fa-newspaper text-white" style="font-size: 2.5rem;"></i>
-                            </div>
+                             onclick="showNewsDetail('{{ $article->title }}', '{{ $article->content }}', '{{ $article->image_url ?? '' }}', '{{ $article->author ?? 'APGI' }}', '{{ $article->formatted_published_date ?? '' }}')">
+                            @if($article->image_path)
+                                <img src="{{ $article->image_url }}" 
+                                     class="card-img-top news-image" 
+                                     alt="{{ $article->title }}"
+                                     style="height: 200px; object-fit: cover;">
+                            @endif
                             <div class="card-body d-flex flex-column">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
                                     <span class="badge bg-warning text-dark">News</span>
@@ -2945,9 +2951,13 @@
     color: var(--bs-primary) !important;
 }
 
-.news-header {
-    background: linear-gradient(135deg, var(--bs-primary), var(--bs-info)) !important;
-    border-radius: 0.375rem 0.375rem 0 0;
+/* News image styles */
+.news-image {
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover .news-image {
+    transform: scale(1.05);
 }
 
 /* News Detail Modal Styles */
