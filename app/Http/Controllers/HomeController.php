@@ -109,13 +109,11 @@ class HomeController extends Controller
     
     public function about()
     {
-        // Set SEO meta tags for about page
         SEOMeta::setTitle('Tentang Kami - Profil Perusahaan');
         SEOMeta::setDescription('Mengenal lebih dekat tentang perusahaan kami, visi misi, sejarah, dan komitmen terhadap kualitas layanan');
         SEOMeta::setKeywords(['tentang kami', 'profil perusahaan', 'visi misi', 'sejarah perusahaan']);
         SEOMeta::setCanonical(url('/tentang'));
         
-        // Open Graph tags
         OpenGraph::setTitle('Tentang Kami - Profil Perusahaan');
         OpenGraph::setDescription('Mengenal lebih dekat tentang perusahaan kami dan komitmen terhadap kualitas');
         OpenGraph::setUrl(url('/tentang'));
