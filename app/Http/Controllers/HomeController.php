@@ -17,18 +17,18 @@ class HomeController extends Controller
     public function index()
     {
         // Get dynamic content from database
-        $galleries = Gallery::active()->ordered()->take(1000)->get();
+        $galleries = Gallery::active()->ordered()->take(100)->get();
         $galleriesByCategory = [
-            'rapat' => Gallery::active()->byCategory('rapat')->ordered()->take(3)->get(),
-            'seminar' => Gallery::active()->byCategory('seminar')->ordered()->take(3)->get(),
-            'pelatihan' => Gallery::active()->byCategory('pelatihan')->ordered()->take(3)->get(),
+            'rapat' => Gallery::active()->byCategory('rapat')->ordered()->take(100)->get(),
+            'seminar' => Gallery::active()->byCategory('seminar')->ordered()->take(100)->get(),
+            'pelatihan' => Gallery::active()->byCategory('pelatihan')->ordered()->take(100)->get(),
         ];
-        $events = Event::active()->upcoming()->take(6)->get();
-        $socialContents = SocialContent::active()->published()->latest()->take(6)->get();
+        $events = Event::active()->upcoming()->take(100)->get();
+        $socialContents = SocialContent::active()->published()->latest()->take(100)->get();
         
         // Get news with fallback for hosting issues
         try {
-            $news = News::active()->published()->latest()->take(6)->get();
+            $news = News::active()->published()->latest()->take(100)->get();
             
             // If empty, try without published constraint (maybe timezone issue)
             if ($news->isEmpty()) {
