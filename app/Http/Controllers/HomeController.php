@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function index()
     {
         // Get dynamic content from database
-        $galleries = Gallery::active()->ordered()->take(100)->get();
+        $galleries = Gallery::active()->ordered()->take(1000)->get();
         $galleriesByCategory = [
             'rapat' => Gallery::active()->byCategory('rapat')->ordered()->take(3)->get(),
             'seminar' => Gallery::active()->byCategory('seminar')->ordered()->take(3)->get(),
