@@ -885,8 +885,8 @@
         </div>
         
         <div class="gallery-grid" id="galleryContainer">
-            @forelse($galleries as $gallery)
-                <div class="gallery-item-modern gallery-item" data-category="{{ $gallery->category }}">
+            @forelse($galleries as $index => $gallery)
+                <div class="gallery-item-modern gallery-item {{ $index >= 6 ? 'gallery-hidden' : '' }}" data-category="{{ $gallery->category }}">
                     <div class="gallery-overlay">
                         <div class="gallery-content">
                             <div class="gallery-icon">
@@ -916,20 +916,86 @@
         </div>
         
 
-        <div class="gallery-filter text-center mt-5">
-            <button class="btn btn-filter active" data-filter="all">
-                <i class="fas fa-th me-2"></i><span data-en="All Activities" data-id="Semua Kegiatan">Semua Kegiatan</span>
-            </button>
-            <button class="btn btn-filter" data-filter="rapat">
-                <i class="fas fa-users me-2"></i><span data-en="Meetings" data-id="Rapat">Rapat</span>
-            </button>
-            <button class="btn btn-filter" data-filter="seminar">
-                <i class="fas fa-graduation-cap me-2"></i><span data-en="Seminars" data-id="Seminar">Seminar</span>
-            </button>
-            <button class="btn btn-filter" data-filter="pelatihan">
-                <i class="fas fa-chalkboard-teacher me-2"></i><span data-en="Training" data-id="Pelatihan">Pelatihan</span>
+        <div class="gallery-actions text-center mt-5">
+            <div class="gallery-filter mb-4">
+                <button class="btn btn-filter active" data-filter="all">
+                    <i class="fas fa-th me-2"></i><span data-en="All Activities" data-id="Semua Kegiatan">Semua Kegiatan</span>
+                </button>
+                <button class="btn btn-filter" data-filter="rapat">
+                    <i class="fas fa-users me-2"></i><span data-en="Meetings" data-id="Rapat">Rapat</span>
+                </button>
+                <button class="btn btn-filter" data-filter="seminar">
+                    <i class="fas fa-graduation-cap me-2"></i><span data-en="Seminars" data-id="Seminar">Seminar</span>
+                </button>
+                <button class="btn btn-filter" data-filter="pelatihan">
+                    <i class="fas fa-chalkboard-teacher me-2"></i><span data-en="Training" data-id="Pelatihan">Pelatihan</span>
+                </button>
+            </div>
+
+            <button id="showMoreGallery" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i><span data-en="Show More" data-id="Tampilkan Lainnya">Tampilkan Lainnya</span>
             </button>
         </div>
+
+        <style>
+            .gallery-hidden {
+                display: none !important;
+            }
+            #showMoreGallery {
+                transition: all 0.3s ease;
+            }
+            #showMoreGallery:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
+        </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const showMoreBtn = document.getElementById('showMoreGallery');
+                const hiddenItems = document.querySelectorAll('.gallery-hidden');
+
+                if (hiddenItems.length === 0) {
+                    showMoreBtn.style.display = 'none';
+                }
+
+                showMoreBtn.addEventListener('click', function() {
+                    document.querySelectorAll('.gallery-hidden').forEach(item => {
+                        item.classList.remove('gallery-hidden');
+                    });
+                    this.style.display = 'none';
+                });
+
+                // Existing filter functionality
+                const filterButtons = document.querySelectorAll('.btn-filter');
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const filter = this.getAttribute('data-filter');
+                        
+                        // Remove active class from all buttons
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        // Add active class to clicked button
+                        this.classList.add('active');
+                        
+                        // Show all items when "all" is selected
+                        if (filter === 'all') {
+                            document.querySelectorAll('.gallery-item').forEach(item => {
+                                item.style.display = '';
+                            });
+                        } else {
+                            // Hide all items and show only those matching the filter
+                            document.querySelectorAll('.gallery-item').forEach(item => {
+                                if (item.getAttribute('data-category') === filter) {
+                                    item.style.display = '';
+                                } else {
+                                    item.style.display = 'none';
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
     </div>
 </section>
 
