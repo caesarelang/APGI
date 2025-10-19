@@ -929,22 +929,24 @@
         
 
         <div class="gallery-actions text-center mt-5">
-            <div class="gallery-filter mb-4">
-                <button class="btn btn-filter active" data-filter="all">
-                    <i class="fas fa-th me-2"></i><span data-en="All Activities" data-id="Semua Kegiatan">Semua Kegiatan</span>
-                </button>
-                <button class="btn btn-filter" data-filter="rapat">
-                    <i class="fas fa-users me-2"></i><span data-en="Meetings" data-id="Rapat">Rapat</span>
-                </button>
-                <button class="btn btn-filter" data-filter="seminar">
-                    <i class="fas fa-graduation-cap me-2"></i><span data-en="Seminars" data-id="Seminar">Seminar</span>
-                </button>
-                <button class="btn btn-filter" data-filter="pelatihan">
-                    <i class="fas fa-chalkboard-teacher me-2"></i><span data-en="Training" data-id="Pelatihan">Pelatihan</span>
-                </button>
+            <div class="mb-4">
+                <div class="btn-group gallery-filter">
+                    <button class="btn btn-outline-primary active" data-filter="all">
+                        <i class="fas fa-th me-2"></i><span data-en="All Activities" data-id="Semua Kegiatan">Semua Kegiatan</span>
+                    </button>
+                    <button class="btn btn-outline-primary" data-filter="rapat">
+                        <i class="fas fa-users me-2"></i><span data-en="Meetings" data-id="Rapat">Rapat</span>
+                    </button>
+                    <button class="btn btn-outline-primary" data-filter="seminar">
+                        <i class="fas fa-graduation-cap me-2"></i><span data-en="Seminars" data-id="Seminar">Seminar</span>
+                    </button>
+                    <button class="btn btn-outline-primary" data-filter="pelatihan">
+                        <i class="fas fa-chalkboard-teacher me-2"></i><span data-en="Training" data-id="Pelatihan">Pelatihan</span>
+                    </button>
+                </div>
             </div>
 
-            <button id="showMoreGallery" class="btn btn-primary">
+            <button type="button" onclick="showAllGallery()" class="btn btn-success" id="showMoreGallery">
                 <i class="fas fa-plus me-2"></i><span data-en="Show More" data-id="Tampilkan Lainnya">Tampilkan Lainnya</span>
             </button>
         </div>
@@ -961,11 +963,8 @@
                 position: relative;
                 overflow: hidden;
                 opacity: 0;
-                animation: fadeIn 0.5s forwards;
-            }
-
-            .gallery-item[style*="display: none"] {
-                animation: none;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
             }
             
             .gallery-image {
@@ -974,65 +973,89 @@
                 object-fit: cover;
             }
 
+            .btn-group.gallery-filter {
+                margin-bottom: 1rem;
+            }
+
+            .btn-group.gallery-filter .btn {
+                margin: 0 5px;
+            }
+
             #showMoreGallery {
                 padding: 12px 30px;
                 font-size: 1.1rem;
-                transition: transform 0.3s;
+                transition: all 0.3s ease;
             }
             
             #showMoreGallery:hover {
                 transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             }
 
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+            .gallery-filter .btn.active {
+                background-color: #198754;
+                color: white;
+                border-color: #198754;
             }
-            
+
             #galleryCounter {
                 display: none;
             }
         </style>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const showMoreBtn = document.getElementById('showMoreGallery');
+            // Function to show all gallery items
+            function showAllGallery() {
+                console.log('Showing all gallery items');
                 const galleryContainer = document.getElementById('galleryContainer');
-                const totalCountEl = document.getElementById('totalCount');
                 const items = galleryContainer.querySelectorAll('.gallery-item');
-                const totalItems = items.length;
                 
-                console.log('Total items found:', totalItems);
+                items.forEach((item, index) => {
+                    item.style.display = 'block';
+                    // Add animation
+                    if (index >= 6) {
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, (index - 6) * 100);
+                    }
+                });
+                
+                // Hide the button
+                document.getElementById('showMoreGallery').style.display = 'none';
+            }
+
+            // Initialize gallery on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                const galleryContainer = document.getElementById('galleryContainer');
+                const items = galleryContainer.querySelectorAll('.gallery-item');
+                const showMoreBtn = document.getElementById('showMoreGallery');
+                
+                // Initialize: show first 6 items, hide others
+                items.forEach((item, index) => {
+                    if (index < 6) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    } else {
+                        item.style.display = 'none';
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(20px)';
+                    }
+                });
 
                 // Hide show more button if there are 6 or fewer items
-                if (totalItems <= 6) {
+                if (items.length <= 6) {
                     showMoreBtn.style.display = 'none';
                 }
 
-                // Show More button click handler
-                showMoreBtn.addEventListener('click', function() {
-                    console.log('Show More clicked');
-                    items.forEach((item, index) => {
-                        if (index >= 6) {
-                            item.style.display = '';
-                            console.log('Showing item:', index + 1);
-                        }
-                    });
-                    this.style.display = 'none';
-                });
-
                 // Filter functionality
-                const filterButtons = document.querySelectorAll('.btn-filter');
+                const filterButtons = document.querySelectorAll('.gallery-filter button');
                 filterButtons.forEach(button => {
                     button.addEventListener('click', function() {
                         const filter = this.getAttribute('data-filter');
-                        console.log('Filter clicked:', filter);
                         
                         // Update active button
                         filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -1046,18 +1069,26 @@
                             
                             if (filter === 'all' || category === filter) {
                                 if (visibleCount < 6) {
-                                    item.style.display = '';
+                                    item.style.display = 'block';
+                                    setTimeout(() => {
+                                        item.style.opacity = '1';
+                                        item.style.transform = 'translateY(0)';
+                                    }, visibleCount * 100);
                                 } else {
                                     item.style.display = 'none';
+                                    item.style.opacity = '0';
+                                    item.style.transform = 'translateY(20px)';
                                 }
                                 visibleCount++;
                             } else {
                                 item.style.display = 'none';
+                                item.style.opacity = '0';
+                                item.style.transform = 'translateY(20px)';
                             }
                         });
 
-                        // Update show more button visibility
-                        showMoreBtn.style.display = visibleCount > 6 ? '' : 'none';
+                        // Show/hide "Show More" button
+                        showMoreBtn.style.display = visibleCount > 6 ? 'inline-block' : 'none';
                     });
                 });
             });
