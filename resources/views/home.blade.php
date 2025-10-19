@@ -885,8 +885,14 @@
         </div>
         
         <div class="gallery-grid" id="galleryContainer">
+            @php 
+                $totalGalleries = $galleries->count();
+            @endphp
             @forelse($galleries as $index => $gallery)
-                <div class="gallery-item-modern gallery-item {{ $index >= 6 ? 'gallery-hidden d-none' : '' }}" data-category="{{ $gallery->category }}" data-index="{{ $index }}">
+                <div class="gallery-item-modern gallery-item" 
+                     data-category="{{ $gallery->category }}" 
+                     data-index="{{ $index }}"
+                     style="{{ $index >= 6 ? 'display: none;' : '' }}">
                     <div class="gallery-overlay">
                         <div class="gallery-content">
                             <div class="gallery-icon">
@@ -904,6 +910,12 @@
                     </div>
                     <img src="{{ $gallery->image_url }}" alt="{{ $gallery->alt_text ?: $gallery->title }}" class="gallery-image" loading="lazy">
                 </div>
+                @if($index == 5)
+                    <div id="galleryCounter" class="d-none">
+                        <span id="totalCount">{{ $totalGalleries }}</span>
+                        <span id="shownCount">6</span>
+                    </div>
+                @endif
             @empty
                 <div class="col-12 text-center">
                     <div class="py-5">
@@ -942,74 +954,49 @@
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
                 gap: 2rem;
-                transition: all 0.3s ease;
-            }
-            
-            .gallery-hidden {
-                display: none !important;
-            }
-            
-            .d-none {
-                display: none !important;
-            }
-            
-            #showMoreGallery {
-                transition: all 0.3s ease;
-                padding: 10px 30px;
-                font-size: 1.1rem;
-            }
-            
-            #showMoreGallery:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             }
             
             .gallery-item {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: all 0.5s ease;
                 height: 300px;
-                overflow: hidden;
                 position: relative;
+                overflow: hidden;
+                opacity: 0;
+                animation: fadeIn 0.5s forwards;
             }
-            
-            .gallery-item.show {
-                opacity: 1;
-                transform: translateY(0);
-                display: block !important;
+
+            .gallery-item[style*="display: none"] {
+                animation: none;
             }
             
             .gallery-image {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                transition: transform 0.3s ease;
+            }
+
+            #showMoreGallery {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                transition: transform 0.3s;
             }
             
-            /* Loading animation for images */
-            .gallery-item::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
-                background-size: 200% 100%;
-                animation: loading 1.5s infinite;
+            #showMoreGallery:hover {
+                transform: translateY(-2px);
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
             
-            .gallery-item.show::before {
+            #galleryCounter {
                 display: none;
-            }
-            
-            @keyframes loading {
-                0% {
-                    background-position: 200% 0;
-                }
-                100% {
-                    background-position: -200% 0;
-                }
             }
         </style>
 
@@ -1017,22 +1004,11 @@
             document.addEventListener('DOMContentLoaded', function() {
                 const showMoreBtn = document.getElementById('showMoreGallery');
                 const galleryContainer = document.getElementById('galleryContainer');
-                const allGalleryItems = galleryContainer.querySelectorAll('.gallery-item');
-                const totalItems = allGalleryItems.length;
+                const totalCountEl = document.getElementById('totalCount');
+                const items = galleryContainer.querySelectorAll('.gallery-item');
+                const totalItems = items.length;
                 
-                console.log('Total gallery items:', totalItems); // Debug log
-                
-                // Initially show only first 6 items
-                allGalleryItems.forEach((item, index) => {
-                    if (index < 6) {
-                        item.classList.remove('gallery-hidden', 'd-none');
-                        setTimeout(() => {
-                            item.classList.add('show');
-                        }, index * 100);
-                    } else {
-                        item.classList.add('gallery-hidden', 'd-none');
-                    }
-                });
+                console.log('Total items found:', totalItems);
 
                 // Hide show more button if there are 6 or fewer items
                 if (totalItems <= 6) {
@@ -1041,20 +1017,13 @@
 
                 // Show More button click handler
                 showMoreBtn.addEventListener('click', function() {
-                    console.log('Show More clicked'); // Debug log
-                    
-                    let delay = 0;
-                    allGalleryItems.forEach((item, index) => {
-                        if (index >= 6) { // Show all items after the first 6
-                            item.classList.remove('gallery-hidden', 'd-none');
-                            setTimeout(() => {
-                                item.classList.add('show');
-                            }, delay);
-                            delay += 100;
+                    console.log('Show More clicked');
+                    items.forEach((item, index) => {
+                        if (index >= 6) {
+                            item.style.display = '';
+                            console.log('Showing item:', index + 1);
                         }
                     });
-
-                    // Hide the button after showing all items
                     this.style.display = 'none';
                 });
 
@@ -1063,28 +1032,23 @@
                 filterButtons.forEach(button => {
                     button.addEventListener('click', function() {
                         const filter = this.getAttribute('data-filter');
-                        console.log('Filter clicked:', filter); // Debug log
+                        console.log('Filter clicked:', filter);
                         
-                        // Remove active class from all buttons and add to clicked
+                        // Update active button
                         filterButtons.forEach(btn => btn.classList.remove('active'));
                         this.classList.add('active');
                         
                         let visibleCount = 0;
                         
                         // Show/hide items based on filter
-                        allGalleryItems.forEach((item, index) => {
+                        items.forEach((item, index) => {
                             const category = item.getAttribute('data-category');
-                            item.classList.remove('show');
                             
                             if (filter === 'all' || category === filter) {
-                                item.style.display = '';
                                 if (visibleCount < 6) {
-                                    item.classList.remove('gallery-hidden', 'd-none');
-                                    setTimeout(() => {
-                                        item.classList.add('show');
-                                    }, visibleCount * 100);
+                                    item.style.display = '';
                                 } else {
-                                    item.classList.add('gallery-hidden', 'd-none');
+                                    item.style.display = 'none';
                                 }
                                 visibleCount++;
                             } else {
@@ -1092,17 +1056,11 @@
                             }
                         });
 
-                        // Show/hide "Show More" button based on visible items
-                        if (filter === 'all') {
-                            showMoreBtn.style.display = totalItems > 6 ? 'inline-block' : 'none';
-                        } else {
-                            const filteredItems = Array.from(allGalleryItems).filter(item => 
-                                item.getAttribute('data-category') === filter
-                            );
-                            showMoreBtn.style.display = filteredItems.length > 6 ? 'inline-block' : 'none';
-                        }
+                        // Update show more button visibility
+                        showMoreBtn.style.display = visibleCount > 6 ? '' : 'none';
                     });
                 });
+            });
             });
         </script>
     </div>
