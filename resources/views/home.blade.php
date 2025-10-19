@@ -3,6 +3,343 @@
 
 @section('meta_description', 'Selamat datang di Asosiasi Pengusaha Gula Indonesia (APGI). Mengembangkan stabilitas perdagangan gula nasional menuju swasembada pangan dengan inovasi dan kualitas terbaik.')
 
+@push('styles')
+<style>
+.gallery-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.gallery-item-modern {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    height: 280px;
+}
+
+.gallery-item-modern:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item-modern:hover .gallery-image {
+    transform: scale(1.08);
+    filter: brightness(0.7);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.85) 0%, rgba(76, 175, 80, 0.75) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 24px;
+    z-index: 10;
+}
+
+.gallery-item-modern:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-content {
+    text-align: center;
+    color: white;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.gallery-item-modern:hover .gallery-content {
+    transform: translateY(0);
+}
+
+.gallery-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    font-size: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.gallery-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.gallery-category {
+    font-size: 0.8rem;
+    display: inline-block;
+    margin: 8px 0;
+}
+
+.gallery-desc {
+    font-size: 0.9rem;
+    margin: 12px 0;
+    opacity: 0.95;
+    line-height: 1.4;
+}
+
+.btn-gallery-view {
+    background: white;
+    color: #2E7D32;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: 12px;
+}
+
+.btn-gallery-view:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.gallery-filter {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-filter {
+    background: white;
+    color: #666;
+    border: 2px solid #e0e0e0;
+    padding: 10px 20px;
+    border-radius: 24px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.btn-filter:hover,
+.btn-filter.active {
+    background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+}
+
+.btn-load-more {
+    background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 24px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-load-more:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+    color: white;
+}
+
+.gallery-detail-modal .modal-content {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+.gallery-detail-modal .modal-header {
+    padding: 24px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.gallery-detail-modal .modal-title {
+    font-weight: 600;
+    color: #2E7D32;
+}
+
+.gallery-item-modern.hidden {
+    display: none;
+}
+
+@keyframes shimmer {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.gallery-item-modern.loading {
+    animation: shimmer 1s infinite;
+}
+</style>
+@endpush
+
+@push('scripts')
+<script>
+let currentDisplayCount = 12; // Default tampilkan 12 item
+const LOAD_INCREMENT = 12; // Tambah 12 setiap kali klik "Muat Lebih Banyak"
+let currentFilter = 'all';
+
+function initGallery() {
+    setupFilterListeners();
+    updateCounter();
+    checkLoadMoreVisibility();
+}
+
+function setupFilterListeners() {
+    const filterBtns = document.querySelectorAll('.btn-filter');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentFilter = this.getAttribute('data-filter');
+            currentDisplayCount = 12; // Reset ke 12 saat filter berubah
+            filterGalleryItems();
+        });
+    });
+}
+
+function filterGalleryItems() {
+    const items = document.querySelectorAll('.gallery-item');
+    let visibleCount = 0;
+    
+    items.forEach((item, index) => {
+        const category = item.getAttribute('data-category');
+        const shouldShow = (currentFilter === 'all' || category === currentFilter) && visibleCount < currentDisplayCount;
+        
+        if (shouldShow) {
+            item.style.display = 'block';
+            setTimeout(() => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateY(0)';
+            }, visibleCount * 50);
+            visibleCount++;
+        } else {
+            item.style.display = 'none';
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+        }
+    });
+    
+    updateCounter();
+    checkLoadMoreVisibility();
+}
+
+function loadMoreGalleries() {
+    currentDisplayCount += LOAD_INCREMENT;
+    filterGalleryItems();
+}
+
+function openGalleryModal(galleryId) {
+    const item = document.querySelector(`.gallery-item[data-id="${galleryId}"]`);
+    if (!item) return;
+    
+    const title = item.querySelector('.gallery-title').textContent;
+    const image = item.querySelector('.gallery-image').src;
+    const desc = item.querySelector('.gallery-desc')?.textContent || '';
+    const category = item.querySelector('.gallery-category').textContent;
+    
+    document.getElementById('modalGalleryTitle').textContent = title;
+    document.getElementById('modalGalleryImage').src = image;
+    document.getElementById('modalGalleryDesc').textContent = desc;
+    document.getElementById('modalGalleryCategory').textContent = category;
+    
+    const modal = new bootstrap.Modal(document.getElementById('galleryDetailModal'));
+    modal.show();
+}
+
+function updateCounter() {
+    const items = document.querySelectorAll('.gallery-item');
+    let totalVisible = 0;
+    let currentlyShown = 0;
+    
+    items.forEach(item => {
+        const category = item.getAttribute('data-category');
+        if (currentFilter === 'all' || category === currentFilter) {
+            totalVisible++;
+            if (item.style.display !== 'none') {
+                currentlyShown++;
+            }
+        }
+    });
+    
+    document.getElementById('displayCount').textContent = currentlyShown;
+    document.getElementById('totalCount').textContent = totalVisible;
+}
+
+function checkLoadMoreVisibility() {
+    const items = document.querySelectorAll('.gallery-item');
+    let totalVisible = 0;
+    
+    items.forEach(item => {
+        const category = item.getAttribute('data-category');
+        if (currentFilter === 'all' || category === currentFilter) {
+            totalVisible++;
+        }
+    });
+    
+    const loadMoreBtn = document.getElementById('loadMoreContainer');
+    loadMoreBtn.style.display = totalVisible > currentDisplayCount ? 'block' : 'none';
+}
+
+// Initialize gallery saat halaman siap
+document.addEventListener('DOMContentLoaded', initGallery);
+</script>
+@endpush
+
 @section('content')
 
 <section id="home" class="hero-section position-relative overflow-hidden">
@@ -884,15 +1221,10 @@
             </div>
         </div>
         
+        <!-- Gallery Grid Container -->
         <div class="gallery-grid" id="galleryContainer">
-            @php 
-                $totalGalleries = $galleries->count();
-            @endphp
-            @forelse($galleries as $index => $gallery)
-                <div class="gallery-item-modern gallery-item" 
-                     data-category="{{ $gallery->category }}" 
-                     data-index="{{ $index }}"
-                     style="{{ $index >= 6 ? 'display: none;' : '' }}">
+            @forelse($galleries as $gallery)
+                <div class="gallery-item-modern gallery-item" data-category="{{ $gallery->category }}">
                     <div class="gallery-overlay">
                         <div class="gallery-content">
                             <div class="gallery-icon">
@@ -903,19 +1235,13 @@
                             @if($gallery->description)
                                 <p class="gallery-desc">{{ Str::limit($gallery->description, 50) }}</p>
                             @endif
-                            <button class="btn btn-gallery-view" onclick="viewGalleryImage('{{ $gallery->image_url }}', '{{ $gallery->title }}')">
-                                <i class="fas fa-eye me-2"></i><span data-en="View Details" data-id="Lihat Detail">Lihat Detail</span>
+                            <button class="btn btn-gallery-view" onclick="openGalleryModal({{ $gallery->id }})">
+                                <i class="fas fa-eye me-2"></i>Lihat Detail
                             </button>
                         </div>
                     </div>
-                    <img src="{{ $gallery->image_url }}" alt="{{ $gallery->alt_text ?: $gallery->title }}" class="gallery-image" loading="lazy">
+                    <img src="{{ $gallery->image_url }}" alt="{{ $gallery->alt_text ?: $gallery->title }}" class="gallery-image">
                 </div>
-                @if($index == 5)
-                    <div id="galleryCounter" class="d-none">
-                        <span id="totalCount">{{ $totalGalleries }}</span>
-                        <span id="shownCount">6</span>
-                    </div>
-                @endif
             @empty
                 <div class="col-12 text-center">
                     <div class="py-5">
@@ -926,174 +1252,55 @@
                 </div>
             @endforelse
         </div>
-        
 
-        <div class="gallery-actions text-center mt-5">
-            <div class="mb-4">
-                <div class="btn-group gallery-filter">
-                    <button class="btn btn-outline-primary active" data-filter="all">
-                        <i class="fas fa-th me-2"></i><span data-en="All Activities" data-id="Semua Kegiatan">Semua Kegiatan</span>
-                    </button>
-                    <button class="btn btn-outline-primary" data-filter="rapat">
-                        <i class="fas fa-users me-2"></i><span data-en="Meetings" data-id="Rapat">Rapat</span>
-                    </button>
-                    <button class="btn btn-outline-primary" data-filter="seminar">
-                        <i class="fas fa-graduation-cap me-2"></i><span data-en="Seminars" data-id="Seminar">Seminar</span>
-                    </button>
-                    <button class="btn btn-outline-primary" data-filter="pelatihan">
-                        <i class="fas fa-chalkboard-teacher me-2"></i><span data-en="Training" data-id="Pelatihan">Pelatihan</span>
-                    </button>
-                </div>
-            </div>
-
-            <button type="button" onclick="showAllGallery()" class="btn btn-success" id="showMoreGallery">
-                <i class="fas fa-plus me-2"></i><span data-en="Show More" data-id="Tampilkan Lainnya">Tampilkan Lainnya</span>
+        <!-- Load More Button -->
+        <div class="text-center mt-5" id="loadMoreContainer" style="display: none;">
+            <button class="btn btn-load-more" onclick="loadMoreGalleries()">
+                <i class="fas fa-chevron-down me-2"></i>Muat Lebih Banyak
             </button>
         </div>
 
-        <style>
-            .gallery-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-                gap: 2rem;
-            }
-            
-            .gallery-item {
-                height: 300px;
-                position: relative;
-                overflow: hidden;
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-            
-            .gallery-image {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+        <!-- Modal untuk Gallery Detail -->
+        <div class="modal fade" id="galleryDetailModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content gallery-detail-modal">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="modalGalleryTitle"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <img id="modalGalleryImage" src="" alt="" class="w-100" style="max-height: 500px; object-fit: cover;">
+                        <div class="p-4">
+                            <p class="text-muted mb-3" id="modalGalleryDesc"></p>
+                            <span class="badge bg-primary" id="modalGalleryCategory"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            .btn-group.gallery-filter {
-                margin-bottom: 1rem;
-            }
+        <!-- Gallery Filter -->
+        <div class="gallery-filter text-center mb-5">
+            <button class="btn btn-filter active" data-filter="all">
+                <i class="fas fa-th me-2"></i>Semua Kegiatan
+            </button>
+            <button class="btn btn-filter" data-filter="rapat">
+                <i class="fas fa-users me-2"></i>Rapat
+            </button>
+            <button class="btn btn-filter" data-filter="seminar">
+                <i class="fas fa-graduation-cap me-2"></i>Seminar
+            </button>
+            <button class="btn btn-filter" data-filter="pelatihan">
+                <i class="fas fa-chalkboard-teacher me-2"></i>Pelatihan
+            </button>
+        </div>
 
-            .btn-group.gallery-filter .btn {
-                margin: 0 5px;
-            }
-
-            #showMoreGallery {
-                padding: 12px 30px;
-                font-size: 1.1rem;
-                transition: all 0.3s ease;
-            }
-            
-            #showMoreGallery:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            }
-
-            .gallery-filter .btn.active {
-                background-color: #198754;
-                color: white;
-                border-color: #198754;
-            }
-
-            #galleryCounter {
-                display: none;
-            }
-        </style>
-
-        <script>
-            // Function to show all gallery items
-            function showAllGallery() {
-                console.log('Showing all gallery items');
-                const galleryContainer = document.getElementById('galleryContainer');
-                const items = galleryContainer.querySelectorAll('.gallery-item');
-                
-                items.forEach((item, index) => {
-                    item.style.display = 'block';
-                    // Add animation
-                    if (index >= 6) {
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
-                        }, (index - 6) * 100);
-                    }
-                });
-                
-                // Hide the button
-                document.getElementById('showMoreGallery').style.display = 'none';
-            }
-
-            // Initialize gallery on page load
-            document.addEventListener('DOMContentLoaded', function() {
-                const galleryContainer = document.getElementById('galleryContainer');
-                const items = galleryContainer.querySelectorAll('.gallery-item');
-                const showMoreBtn = document.getElementById('showMoreGallery');
-                
-                // Initialize: show first 6 items, hide others
-                items.forEach((item, index) => {
-                    if (index < 6) {
-                        item.style.display = 'block';
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
-                        }, index * 100);
-                    } else {
-                        item.style.display = 'none';
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateY(20px)';
-                    }
-                });
-
-                // Hide show more button if there are 6 or fewer items
-                if (items.length <= 6) {
-                    showMoreBtn.style.display = 'none';
-                }
-
-                // Filter functionality
-                const filterButtons = document.querySelectorAll('.gallery-filter button');
-                filterButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        const filter = this.getAttribute('data-filter');
-                        
-                        // Update active button
-                        filterButtons.forEach(btn => btn.classList.remove('active'));
-                        this.classList.add('active');
-                        
-                        let visibleCount = 0;
-                        
-                        // Show/hide items based on filter
-                        items.forEach((item, index) => {
-                            const category = item.getAttribute('data-category');
-                            
-                            if (filter === 'all' || category === filter) {
-                                if (visibleCount < 6) {
-                                    item.style.display = 'block';
-                                    setTimeout(() => {
-                                        item.style.opacity = '1';
-                                        item.style.transform = 'translateY(0)';
-                                    }, visibleCount * 100);
-                                } else {
-                                    item.style.display = 'none';
-                                    item.style.opacity = '0';
-                                    item.style.transform = 'translateY(20px)';
-                                }
-                                visibleCount++;
-                            } else {
-                                item.style.display = 'none';
-                                item.style.opacity = '0';
-                                item.style.transform = 'translateY(20px)';
-                            }
-                        });
-
-                        // Show/hide "Show More" button
-                        showMoreBtn.style.display = visibleCount > 6 ? 'inline-block' : 'none';
-                    });
-                });
-            });
-            });
-        </script>
+        <!-- Gallery Counter -->
+        <div class="text-center mb-4">
+            <small class="text-muted">
+                Menampilkan <span id="displayCount">0</span> dari <span id="totalCount">0</span> foto
+            </small>
+        </div>
     </div>
 </section>
 
