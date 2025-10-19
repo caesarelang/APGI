@@ -938,42 +938,99 @@
         </div>
 
         <style>
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2rem;
+                transition: all 0.3s ease;
+            }
+            
             .gallery-hidden {
                 display: none !important;
             }
+            
             .d-none {
                 display: none !important;
             }
+            
             #showMoreGallery {
                 transition: all 0.3s ease;
+                padding: 10px 30px;
+                font-size: 1.1rem;
             }
+            
             #showMoreGallery:hover {
                 transform: translateY(-2px);
                 box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             }
+            
             .gallery-item {
                 opacity: 0;
                 transform: translateY(20px);
-                transition: opacity 0.5s ease, transform 0.5s ease;
+                transition: all 0.5s ease;
+                height: 300px;
+                overflow: hidden;
+                position: relative;
             }
+            
             .gallery-item.show {
                 opacity: 1;
                 transform: translateY(0);
+                display: block !important;
+            }
+            
+            .gallery-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+            
+            /* Loading animation for images */
+            .gallery-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+                background-size: 200% 100%;
+                animation: loading 1.5s infinite;
+            }
+            
+            .gallery-item.show::before {
+                display: none;
+            }
+            
+            @keyframes loading {
+                0% {
+                    background-position: 200% 0;
+                }
+                100% {
+                    background-position: -200% 0;
+                }
             }
         </style>
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const showMoreBtn = document.getElementById('showMoreGallery');
-                const allGalleryItems = document.querySelectorAll('.gallery-item');
+                const galleryContainer = document.getElementById('galleryContainer');
+                const allGalleryItems = galleryContainer.querySelectorAll('.gallery-item');
                 const totalItems = allGalleryItems.length;
                 
-                // Show initial items with animation
+                console.log('Total gallery items:', totalItems); // Debug log
+                
+                // Initially show only first 6 items
                 allGalleryItems.forEach((item, index) => {
                     if (index < 6) {
+                        item.classList.remove('gallery-hidden', 'd-none');
                         setTimeout(() => {
                             item.classList.add('show');
                         }, index * 100);
+                    } else {
+                        item.classList.add('gallery-hidden', 'd-none');
                     }
                 });
 
@@ -982,69 +1039,67 @@
                     showMoreBtn.style.display = 'none';
                 }
 
+                // Show More button click handler
                 showMoreBtn.addEventListener('click', function() {
-                    const hiddenItems = document.querySelectorAll('.gallery-hidden');
+                    console.log('Show More clicked'); // Debug log
                     
-                    // Show all hidden items with staggered animation
-                    hiddenItems.forEach((item, index) => {
-                        item.classList.remove('gallery-hidden', 'd-none');
-                        setTimeout(() => {
-                            item.classList.add('show');
-                        }, index * 100);
+                    let delay = 0;
+                    allGalleryItems.forEach((item, index) => {
+                        if (index >= 6) { // Show all items after the first 6
+                            item.classList.remove('gallery-hidden', 'd-none');
+                            setTimeout(() => {
+                                item.classList.add('show');
+                            }, delay);
+                            delay += 100;
+                        }
                     });
 
                     // Hide the button after showing all items
                     this.style.display = 'none';
                 });
 
-                // Enhanced filter functionality
+                // Filter functionality
                 const filterButtons = document.querySelectorAll('.btn-filter');
                 filterButtons.forEach(button => {
                     button.addEventListener('click', function() {
                         const filter = this.getAttribute('data-filter');
+                        console.log('Filter clicked:', filter); // Debug log
                         
                         // Remove active class from all buttons and add to clicked
                         filterButtons.forEach(btn => btn.classList.remove('active'));
                         this.classList.add('active');
                         
+                        let visibleCount = 0;
+                        
                         // Show/hide items based on filter
                         allGalleryItems.forEach((item, index) => {
                             const category = item.getAttribute('data-category');
-                            const itemIndex = parseInt(item.getAttribute('data-index'));
-                            
-                            // Reset all items first
-                            item.style.display = '';
                             item.classList.remove('show');
-
-                            if (filter === 'all') {
-                                // For "all" filter, show first 6 items initially
-                                if (itemIndex < 6) {
+                            
+                            if (filter === 'all' || category === filter) {
+                                item.style.display = '';
+                                if (visibleCount < 6) {
+                                    item.classList.remove('gallery-hidden', 'd-none');
                                     setTimeout(() => {
                                         item.classList.add('show');
-                                    }, index * 100);
-                                    item.classList.remove('gallery-hidden', 'd-none');
+                                    }, visibleCount * 100);
                                 } else {
                                     item.classList.add('gallery-hidden', 'd-none');
                                 }
+                                visibleCount++;
                             } else {
-                                // For category filters, show all matching items
-                                if (category === filter) {
-                                    setTimeout(() => {
-                                        item.classList.add('show');
-                                    }, index * 100);
-                                    item.classList.remove('gallery-hidden', 'd-none');
-                                } else {
-                                    item.style.display = 'none';
-                                }
+                                item.style.display = 'none';
                             }
                         });
 
-                        // Show/hide "Show More" button based on filter
+                        // Show/hide "Show More" button based on visible items
                         if (filter === 'all') {
-                            const hiddenItems = document.querySelectorAll('.gallery-hidden');
-                            showMoreBtn.style.display = hiddenItems.length > 0 ? 'inline-block' : 'none';
+                            showMoreBtn.style.display = totalItems > 6 ? 'inline-block' : 'none';
                         } else {
-                            showMoreBtn.style.display = 'none';
+                            const filteredItems = Array.from(allGalleryItems).filter(item => 
+                                item.getAttribute('data-category') === filter
+                            );
+                            showMoreBtn.style.display = filteredItems.length > 6 ? 'inline-block' : 'none';
                         }
                     });
                 });
