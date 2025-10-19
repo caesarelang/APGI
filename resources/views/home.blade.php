@@ -886,7 +886,7 @@
         
         <div class="gallery-grid" id="galleryContainer">
             @forelse($galleries as $index => $gallery)
-                <div class="gallery-item-modern gallery-item {{ $index >= 6 ? 'gallery-hidden' : '' }}" data-category="{{ $gallery->category }}">
+                <div class="gallery-item-modern gallery-item {{ $index >= 6 ? 'gallery-hidden d-none' : '' }}" data-category="{{ $gallery->category }}" data-index="{{ $index }}">
                     <div class="gallery-overlay">
                         <div class="gallery-content">
                             <div class="gallery-icon">
@@ -902,7 +902,7 @@
                             </button>
                         </div>
                     </div>
-                    <img src="{{ $gallery->image_url }}" alt="{{ $gallery->alt_text ?: $gallery->title }}" class="gallery-image">
+                    <img src="{{ $gallery->image_url }}" alt="{{ $gallery->alt_text ?: $gallery->title }}" class="gallery-image" loading="lazy">
                 </div>
             @empty
                 <div class="col-12 text-center">
@@ -941,6 +941,9 @@
             .gallery-hidden {
                 display: none !important;
             }
+            .d-none {
+                display: none !important;
+            }
             #showMoreGallery {
                 transition: all 0.3s ease;
             }
@@ -948,49 +951,100 @@
                 transform: translateY(-2px);
                 box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             }
+            .gallery-item {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+            .gallery-item.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
         </style>
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const showMoreBtn = document.getElementById('showMoreGallery');
-                const hiddenItems = document.querySelectorAll('.gallery-hidden');
+                const allGalleryItems = document.querySelectorAll('.gallery-item');
+                const totalItems = allGalleryItems.length;
+                
+                // Show initial items with animation
+                allGalleryItems.forEach((item, index) => {
+                    if (index < 6) {
+                        setTimeout(() => {
+                            item.classList.add('show');
+                        }, index * 100);
+                    }
+                });
 
-                if (hiddenItems.length === 0) {
+                // Hide show more button if there are 6 or fewer items
+                if (totalItems <= 6) {
                     showMoreBtn.style.display = 'none';
                 }
 
                 showMoreBtn.addEventListener('click', function() {
-                    document.querySelectorAll('.gallery-hidden').forEach(item => {
-                        item.classList.remove('gallery-hidden');
+                    const hiddenItems = document.querySelectorAll('.gallery-hidden');
+                    
+                    // Show all hidden items with staggered animation
+                    hiddenItems.forEach((item, index) => {
+                        item.classList.remove('gallery-hidden', 'd-none');
+                        setTimeout(() => {
+                            item.classList.add('show');
+                        }, index * 100);
                     });
+
+                    // Hide the button after showing all items
                     this.style.display = 'none';
                 });
 
-                // Existing filter functionality
+                // Enhanced filter functionality
                 const filterButtons = document.querySelectorAll('.btn-filter');
                 filterButtons.forEach(button => {
                     button.addEventListener('click', function() {
                         const filter = this.getAttribute('data-filter');
                         
-                        // Remove active class from all buttons
+                        // Remove active class from all buttons and add to clicked
                         filterButtons.forEach(btn => btn.classList.remove('active'));
-                        // Add active class to clicked button
                         this.classList.add('active');
                         
-                        // Show all items when "all" is selected
-                        if (filter === 'all') {
-                            document.querySelectorAll('.gallery-item').forEach(item => {
-                                item.style.display = '';
-                            });
-                        } else {
-                            // Hide all items and show only those matching the filter
-                            document.querySelectorAll('.gallery-item').forEach(item => {
-                                if (item.getAttribute('data-category') === filter) {
-                                    item.style.display = '';
+                        // Show/hide items based on filter
+                        allGalleryItems.forEach((item, index) => {
+                            const category = item.getAttribute('data-category');
+                            const itemIndex = parseInt(item.getAttribute('data-index'));
+                            
+                            // Reset all items first
+                            item.style.display = '';
+                            item.classList.remove('show');
+
+                            if (filter === 'all') {
+                                // For "all" filter, show first 6 items initially
+                                if (itemIndex < 6) {
+                                    setTimeout(() => {
+                                        item.classList.add('show');
+                                    }, index * 100);
+                                    item.classList.remove('gallery-hidden', 'd-none');
+                                } else {
+                                    item.classList.add('gallery-hidden', 'd-none');
+                                }
+                            } else {
+                                // For category filters, show all matching items
+                                if (category === filter) {
+                                    setTimeout(() => {
+                                        item.classList.add('show');
+                                    }, index * 100);
+                                    item.classList.remove('gallery-hidden', 'd-none');
                                 } else {
                                     item.style.display = 'none';
                                 }
-                            });
+                            }
+                        });
+
+                        // Show/hide "Show More" button based on filter
+                        if (filter === 'all') {
+                            const hiddenItems = document.querySelectorAll('.gallery-hidden');
+                            showMoreBtn.style.display = hiddenItems.length > 0 ? 'inline-block' : 'none';
+                        } else {
+                            showMoreBtn.style.display = 'none';
                         }
                     });
                 });
