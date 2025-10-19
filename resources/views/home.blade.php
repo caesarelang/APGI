@@ -11,14 +11,16 @@
     overflow: hidden;
 }
 
+/* GRID - RESPONSIVE DAN UNLIMITED */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 24px;
-    animation: fadeIn 0.3s ease-out;
+    animation: fadeInGrid 0.4s ease-out;
+    width: 100%;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInGrid {
     from {
         opacity: 0;
         transform: translateY(10px);
@@ -26,6 +28,12 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
 }
 
@@ -39,6 +47,7 @@
 @media (max-width: 576px) {
     .gallery-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 }
 
@@ -51,6 +60,7 @@
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     height: 280px;
+    aspect-ratio: auto;
 }
 
 .gallery-item-modern:hover {
@@ -63,6 +73,7 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.4s ease;
+    display: block;
 }
 
 .gallery-item-modern:hover .gallery-image {
@@ -76,13 +87,13 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(46, 125, 50, 0.85) 0%, rgba(76, 175, 80, 0.75) 100%);
+    background: linear-gradient(135deg, rgba(46, 125, 50, 0.9) 0%, rgba(76, 175, 80, 0.85) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.4s ease;
-    padding: 24px;
+    padding: 20px;
     z-index: 10;
 }
 
@@ -95,6 +106,7 @@
     color: white;
     transform: translateY(20px);
     transition: transform 0.4s ease;
+    width: 100%;
 }
 
 .gallery-item-modern:hover .gallery-content {
@@ -115,23 +127,27 @@
 }
 
 .gallery-title {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 600;
     margin-bottom: 8px;
     line-height: 1.3;
-}
-
-.gallery-category {
-    font-size: 0.8rem;
-    display: inline-block;
-    margin: 8px 0;
+    max-height: 2.6em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .gallery-desc {
-    font-size: 0.9rem;
-    margin: 12px 0;
+    font-size: 0.85rem;
+    margin: 10px 0;
     opacity: 0.95;
     line-height: 1.4;
+    max-height: 2.8em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .btn-gallery-view {
@@ -141,9 +157,10 @@
     padding: 8px 16px;
     border-radius: 20px;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: all 0.3s ease;
     margin-top: 12px;
+    cursor: pointer;
 }
 
 .btn-gallery-view:hover {
@@ -151,8 +168,14 @@
     transform: scale(1.05);
 }
 
+.gallery-category {
+    font-size: 0.75rem;
+    display: inline-block;
+    margin: 8px 0;
+}
+
+/* Filter Buttons */
 .gallery-filter {
-    margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -167,7 +190,7 @@
     border-radius: 24px;
     font-weight: 500;
     transition: all 0.3s ease;
-    font-size: 0.95rem;
+    cursor: pointer;
 }
 
 .btn-filter:hover,
@@ -187,22 +210,21 @@
     border-radius: 24px;
     font-weight: 600;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-load-more:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
-    color: white;
 }
 
 .gallery-detail-modal .modal-content {
     border-radius: 16px;
     border: none;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
 }
 
 .gallery-detail-modal .modal-header {
-    padding: 24px;
+    padding: 20px;
     border-bottom: 1px solid #e9ecef;
 }
 
@@ -210,133 +232,149 @@
     font-weight: 600;
     color: #2E7D32;
 }
-
-.gallery-item-modern.hidden {
-    display: none;
-}
-
-@keyframes shimmer {
-    0% { opacity: 0.6; }
-    50% { opacity: 1; }
-    100% { opacity: 0.6; }
-}
-
-.gallery-item-modern.loading {
-    animation: shimmer 1s infinite;
-}
 </style>
 @endpush
 
 @push('scripts')
 <script>
-let currentDisplayCount = 12; // Default tampilkan 12 item
-const LOAD_INCREMENT = 12; // Tambah 12 setiap kali klik "Muat Lebih Banyak"
+// VARIABLE GLOBAL
+let allGalleries = [];
 let currentFilter = 'all';
+let itemsPerLoad = 12;
+let currentDisplayCount = 12;
 
-function initGallery() {
-    setupFilterListeners();
-    updateCounter();
-    checkLoadMoreVisibility();
-}
-
-function setupFilterListeners() {
-    const filterBtns = document.querySelectorAll('.btn-filter');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            currentFilter = this.getAttribute('data-filter');
-            currentDisplayCount = 12; // Reset ke 12 saat filter berubah
-            filterGalleryItems();
-        });
-    });
-}
-
-function filterGalleryItems() {
-    const items = document.querySelectorAll('.gallery-item');
-    let visibleCount = 0;
+// FUNCTION: Render Gallery
+function renderGallery() {
+    const container = document.getElementById('galleryContainer');
+    const emptyState = document.getElementById('emptyState');
     
-    items.forEach((item, index) => {
-        const category = item.getAttribute('data-category');
-        const shouldShow = (currentFilter === 'all' || category === currentFilter) && visibleCount < currentDisplayCount;
+    // Filter galleries berdasarkan kategori
+    let filtered = allGalleries;
+    if (currentFilter !== 'all') {
+        filtered = allGalleries.filter(g => g.category === currentFilter);
+    }
+    
+    // Jika tidak ada data
+    if (filtered.length === 0) {
+        container.innerHTML = '';
+        emptyState.style.display = 'block';
+        document.getElementById('loadMoreContainer').style.display = 'none';
+        return;
+    }
+    
+    emptyState.style.display = 'none';
+    
+    // Clear container
+    container.innerHTML = '';
+    
+    // Tampilkan items sesuai currentDisplayCount
+    const itemsToShow = filtered.slice(0, currentDisplayCount);
+    
+    itemsToShow.forEach((gallery) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item-modern gallery-item';
+        item.setAttribute('data-category', gallery.category);
         
-        if (shouldShow) {
-            item.style.display = 'block';
-            setTimeout(() => {
-                item.style.opacity = '1';
-                item.style.transform = 'translateY(0)';
-            }, visibleCount * 50);
-            visibleCount++;
-        } else {
-            item.style.display = 'none';
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-        }
+        item.innerHTML = `
+            <div class="gallery-overlay">
+                <div class="gallery-content">
+                    <div class="gallery-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h5 class="gallery-title">${gallery.title}</h5>
+                    <span class="gallery-category badge bg-primary mb-2">${gallery.category_label}</span>
+                    ${gallery.description ? `<p class="gallery-desc">${gallery.description.substring(0, 60)}...</p>` : ''}
+                    <button class="btn btn-gallery-view" onclick="openGalleryModal('${gallery.id}', '${gallery.title.replace(/'/g, "\\'")}', '${gallery.image_url}', '${gallery.description ? gallery.description.replace(/'/g, "\\'") : ''}', '${gallery.category_label}')">
+                        <i class="fas fa-eye me-2"></i>Lihat Detail
+                    </button>
+                </div>
+            </div>
+            <img src="${gallery.image_url}" alt="${gallery.title}" class="gallery-image" loading="lazy">
+        `;
+        
+        container.appendChild(item);
     });
     
+    // Tampilkan/sembunyikan tombol Load More
+    const loadMoreBtn = document.getElementById('loadMoreContainer');
+    if (filtered.length > currentDisplayCount) {
+        loadMoreBtn.style.display = 'block';
+    } else {
+        loadMoreBtn.style.display = 'none';
+    }
+    
     updateCounter();
-    checkLoadMoreVisibility();
 }
 
+// FUNCTION: Load More
 function loadMoreGalleries() {
-    currentDisplayCount += LOAD_INCREMENT;
-    filterGalleryItems();
+    currentDisplayCount += itemsPerLoad;
+    renderGallery();
 }
 
-function openGalleryModal(galleryId) {
-    const item = document.querySelector(`.gallery-item[data-id="${galleryId}"]`);
-    if (!item) return;
+// FUNCTION: Update Counter
+function updateCounter() {
+    let filtered = allGalleries;
+    if (currentFilter !== 'all') {
+        filtered = allGalleries.filter(g => g.category === currentFilter);
+    }
     
-    const title = item.querySelector('.gallery-title').textContent;
-    const image = item.querySelector('.gallery-image').src;
-    const desc = item.querySelector('.gallery-desc')?.textContent || '';
-    const category = item.querySelector('.gallery-category').textContent;
-    
-    document.getElementById('modalGalleryTitle').textContent = title;
+    document.getElementById('displayCount').textContent = Math.min(currentDisplayCount, filtered.length);
+    document.getElementById('totalCount').textContent = filtered.length;
+}
+
+// FUNCTION: Open Modal
+function openGalleryModal(id, title, image, description, category) {
+    document.getElementById('galleryDetailModalLabel').textContent = title;
     document.getElementById('modalGalleryImage').src = image;
-    document.getElementById('modalGalleryDesc').textContent = desc;
+    document.getElementById('modalGalleryImage').alt = title;
+    document.getElementById('modalGalleryDesc').textContent = description;
     document.getElementById('modalGalleryCategory').textContent = category;
     
     const modal = new bootstrap.Modal(document.getElementById('galleryDetailModal'));
     modal.show();
 }
 
-function updateCounter() {
-    const items = document.querySelectorAll('.gallery-item');
-    let totalVisible = 0;
-    let currentlyShown = 0;
+// FUNCTION: Setup Filter Listeners
+function setupFilterListeners() {
+    const filterBtns = document.querySelectorAll('.btn-filter');
     
-    items.forEach(item => {
-        const category = item.getAttribute('data-category');
-        if (currentFilter === 'all' || category === currentFilter) {
-            totalVisible++;
-            if (item.style.display !== 'none') {
-                currentlyShown++;
-            }
-        }
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Update filter dan reset display count
+            currentFilter = this.getAttribute('data-filter');
+            currentDisplayCount = itemsPerLoad;
+            
+            // Render ulang
+            renderGallery();
+        });
     });
-    
-    document.getElementById('displayCount').textContent = currentlyShown;
-    document.getElementById('totalCount').textContent = totalVisible;
 }
 
-function checkLoadMoreVisibility() {
-    const items = document.querySelectorAll('.gallery-item');
-    let totalVisible = 0;
+// FUNCTION: Load Data dari Backend
+function loadGalleriesFromBackend() {
+    // Data sudah ada di window.galleriesData (dari Blade template)
+    // atau ambil dengan fetch jika perlu
     
-    items.forEach(item => {
-        const category = item.getAttribute('data-category');
-        if (currentFilter === 'all' || category === currentFilter) {
-            totalVisible++;
-        }
-    });
+    if (typeof window.galleriesData !== 'undefined' && window.galleriesData.length > 0) {
+        allGalleries = window.galleriesData;
+    } else {
+        // Fetch data jika tidak ada di window
+        console.log('Silakan berikan data galleries dari backend');
+    }
     
-    const loadMoreBtn = document.getElementById('loadMoreContainer');
-    loadMoreBtn.style.display = totalVisible > currentDisplayCount ? 'block' : 'none';
+    renderGallery();
 }
 
-// Initialize gallery saat halaman siap
-document.addEventListener('DOMContentLoaded', initGallery);
+// INITIALIZE
+document.addEventListener('DOMContentLoaded', function() {
+    setupFilterListeners();
+    loadGalleriesFromBackend();
+});
 </script>
 @endpush
 
@@ -1212,6 +1250,7 @@ document.addEventListener('DOMContentLoaded', initGallery);
 </section>
 
 
+<!-- GALERI KEGIATAN SECTION -->
 <section id="galeri" class="py-5 gallery-section">
     <div class="container">
         <div class="row text-center mb-5">
@@ -1220,89 +1259,69 @@ document.addEventListener('DOMContentLoaded', initGallery);
                 <p class="lead text-muted" data-en="Documentation of APGI's activities and achievements in developing Indonesia's sugar industry" data-id="Dokumentasi kegiatan dan pencapaian APGI dalam mengembangkan industri gula Indonesia">Dokumentasi kegiatan dan pencapaian APGI dalam mengembangkan industri gula Indonesia</p>
             </div>
         </div>
-        
-        <!-- Gallery Grid Container -->
-        <div class="gallery-grid" id="galleryContainer">
-            @forelse($galleries as $gallery)
-                <div class="gallery-item-modern gallery-item" data-category="{{ $gallery->category }}">
-                    <div class="gallery-overlay">
-                        <div class="gallery-content">
-                            <div class="gallery-icon">
-                                <i class="fas fa-image"></i>
-                            </div>
-                            <h5 class="gallery-title">{{ $gallery->title }}</h5>
-                            <span class="gallery-category badge bg-primary mb-2">{{ $gallery->category_label }}</span>
-                            @if($gallery->description)
-                                <p class="gallery-desc">{{ Str::limit($gallery->description, 50) }}</p>
-                            @endif
-                            <button class="btn btn-gallery-view" onclick="openGalleryModal({{ $gallery->id }})">
-                                <i class="fas fa-eye me-2"></i>Lihat Detail
-                            </button>
-                        </div>
-                    </div>
-                    <img src="{{ $gallery->image_url }}" alt="{{ $gallery->alt_text ?: $gallery->title }}" class="gallery-image">
-                </div>
-            @empty
-                <div class="col-12 text-center">
-                    <div class="py-5">
-                        <i class="fas fa-images text-muted mb-3" style="font-size: 4rem;"></i>
-                        <h5 class="text-muted">Belum ada galeri tersedia</h5>
-                        <p class="text-muted">Galeri akan ditampilkan setelah admin menambahkan konten.</p>
-                    </div>
-                </div>
-            @endforelse
-        </div>
-
-        <!-- Load More Button -->
-        <div class="text-center mt-5" id="loadMoreContainer" style="display: none;">
-            <button class="btn btn-load-more" onclick="loadMoreGalleries()">
-                <i class="fas fa-chevron-down me-2"></i>Muat Lebih Banyak
-            </button>
-        </div>
-
-        <!-- Modal untuk Gallery Detail -->
-        <div class="modal fade" id="galleryDetailModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content gallery-detail-modal">
-                    <div class="modal-header border-0">
-                        <h5 class="modal-title" id="modalGalleryTitle"></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body p-0">
-                        <img id="modalGalleryImage" src="" alt="" class="w-100" style="max-height: 500px; object-fit: cover;">
-                        <div class="p-4">
-                            <p class="text-muted mb-3" id="modalGalleryDesc"></p>
-                            <span class="badge bg-primary" id="modalGalleryCategory"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Gallery Filter -->
         <div class="gallery-filter text-center mb-5">
             <button class="btn btn-filter active" data-filter="all">
-                <i class="fas fa-th me-2"></i>Semua Kegiatan
+                <i class="fas fa-th me-2"></i><span data-en="All Activities" data-id="Semua Kegiatan">Semua Kegiatan</span>
             </button>
             <button class="btn btn-filter" data-filter="rapat">
-                <i class="fas fa-users me-2"></i>Rapat
+                <i class="fas fa-users me-2"></i><span data-en="Meetings" data-id="Rapat">Rapat</span>
             </button>
             <button class="btn btn-filter" data-filter="seminar">
-                <i class="fas fa-graduation-cap me-2"></i>Seminar
+                <i class="fas fa-graduation-cap me-2"></i><span data-en="Seminars" data-id="Seminar">Seminar</span>
             </button>
             <button class="btn btn-filter" data-filter="pelatihan">
-                <i class="fas fa-chalkboard-teacher me-2"></i>Pelatihan
+                <i class="fas fa-chalkboard-teacher me-2"></i><span data-en="Training" data-id="Pelatihan">Pelatihan</span>
             </button>
         </div>
 
-        <!-- Gallery Counter -->
+        <!-- Counter Info -->
         <div class="text-center mb-4">
             <small class="text-muted">
                 Menampilkan <span id="displayCount">0</span> dari <span id="totalCount">0</span> foto
             </small>
         </div>
+
+        <!-- Gallery Grid - TIDAK TERBATAS -->
+        <div class="gallery-grid" id="galleryContainer">
+            <!-- Akan diisi oleh JavaScript dari data backend -->
+        </div>
+
+        <!-- Load More Button (muncul jika ada lebih banyak) -->
+        <div class="text-center mt-5" id="loadMoreContainer" style="display: none;">
+            <button class="btn btn-load-more" onclick="loadMoreGalleries()">
+                <i class="fas fa-chevron-down me-2"></i><span data-en="Load More" data-id="Muat Lebih Banyak">Muat Lebih Banyak</span>
+            </button>
+        </div>
+
+        <!-- Empty State -->
+        <div class="col-12 text-center" id="emptyState" style="display: none; padding: 60px 20px;">
+            <i class="fas fa-images text-muted mb-3" style="font-size: 4rem;"></i>
+            <h5 class="text-muted">Belum ada galeri tersedia</h5>
+            <p class="text-muted">Galeri akan ditampilkan setelah admin menambahkan konten.</p>
+        </div>
     </div>
 </section>
+
+<!-- GALLERY DETAIL MODAL -->
+<div class="modal fade" id="galleryDetailModal" tabindex="-1" aria-labelledby="galleryDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content gallery-detail-modal">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="galleryDetailModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <img id="modalGalleryImage" src="" alt="" class="w-100" style="max-height: 500px; object-fit: cover;">
+                <div class="p-4">
+                    <p class="text-muted" id="modalGalleryDesc"></p>
+                    <span class="badge bg-primary" id="modalGalleryCategory"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- EVENTS SECTION -->
 <section id="events" class="py-5 bg-light">
