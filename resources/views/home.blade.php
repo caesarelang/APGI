@@ -204,7 +204,16 @@
                     <p class="leadership-title text-muted small mb-0">Dewan Pembina APGI</p>
                 </div>
             </div>
-
+                       <!-- Ir. Daniyanto -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="leadership-card text-center">
+                    <div class="leadership-image mb-3">
+                        <img src="{{ asset('images/people/Daniyanto.png') }}" alt="Ir. Daniyanto" class="img-fluid">
+                    </div>
+                    <h6 class="leadership-name fw-bold mb-1">Ir. Daniyanto</h6>
+                    <p class="leadership-title text-muted small mb-0">Dewan Pembina APGI</p>
+                </div>
+            </div>
             <!-- Irjen Pol Mudji -->
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="leadership-card text-center">
